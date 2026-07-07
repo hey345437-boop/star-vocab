@@ -1,0 +1,650 @@
+[
+  {
+    "id": "spect",
+    "root": "spect / spic",
+    "meaning_en": "to look, to see",
+    "meaning_zh": "看",
+    "origin": "Latin specere",
+    "color": "#7AA2FF",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "port",
+    "root": "port",
+    "meaning_en": "to carry",
+    "meaning_zh": "搬运、携带",
+    "origin": "Latin portare",
+    "color": "#FF9E64",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "dict",
+    "root": "dict",
+    "meaning_en": "to say, to speak",
+    "meaning_zh": "说",
+    "origin": "Latin dicere",
+    "color": "#9ECE6A",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "struct",
+    "root": "struct",
+    "meaning_en": "to build",
+    "meaning_zh": "建造",
+    "origin": "Latin struere",
+    "color": "#F7768E",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "script",
+    "root": "scrib / script",
+    "meaning_en": "to write",
+    "meaning_zh": "写",
+    "origin": "Latin scribere",
+    "color": "#BB9AF7",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "ject",
+    "root": "ject",
+    "meaning_en": "to throw",
+    "meaning_zh": "投、掷",
+    "origin": "Latin jacere",
+    "color": "#2AC3DE",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "vert",
+    "root": "vert / vers",
+    "meaning_en": "to turn",
+    "meaning_zh": "转",
+    "origin": "Latin vertere",
+    "color": "#E0AF68",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "duc",
+    "root": "duc / duct",
+    "meaning_en": "to lead",
+    "meaning_zh": "引导",
+    "origin": "Latin ducere",
+    "color": "#73DACA",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "tract",
+    "root": "tract",
+    "meaning_en": "to pull, to draw",
+    "meaning_zh": "拉、拽",
+    "origin": "Latin trahere",
+    "color": "#FF7EB6",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "form",
+    "root": "form",
+    "meaning_en": "shape, form",
+    "meaning_zh": "形状",
+    "origin": "Latin forma",
+    "color": "#9D7CD8",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "cap",
+    "root": "cap / cept",
+    "meaning_en": "to take, to seize",
+    "meaning_zh": "抓、拿",
+    "origin": "Latin capere",
+    "color": "#FFB86C",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "mit",
+    "root": "mit / miss",
+    "meaning_en": "to send",
+    "meaning_zh": "送、发",
+    "origin": "Latin mittere",
+    "color": "#8BE9FD",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "pos",
+    "root": "pos / pon",
+    "meaning_en": "to put, to place",
+    "meaning_zh": "放、置",
+    "origin": "Latin ponere",
+    "color": "#50FA7B",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "fer",
+    "root": "fer",
+    "meaning_en": "to carry, to bring",
+    "meaning_zh": "带、运",
+    "origin": "Latin ferre",
+    "color": "#FF92DF",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "ced",
+    "root": "ced / cess / ceed",
+    "meaning_en": "to go, to yield",
+    "meaning_zh": "走、让",
+    "origin": "Latin cedere",
+    "color": "#BD93F9",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "press",
+    "root": "press",
+    "meaning_en": "to press",
+    "meaning_zh": "压",
+    "origin": "Latin pressare",
+    "color": "#FF6E6E",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "vis",
+    "root": "vis / vid",
+    "meaning_en": "to see",
+    "meaning_zh": "看、视",
+    "origin": "Latin videre",
+    "color": "#5AC8FA",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "tend",
+    "root": "tend / tens",
+    "meaning_en": "to stretch",
+    "meaning_zh": "伸、拉",
+    "origin": "Latin tendere",
+    "color": "#06D6A0",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "gress",
+    "root": "gress / grad",
+    "meaning_en": "to step, to go",
+    "meaning_zh": "走、步",
+    "origin": "Latin gradi",
+    "color": "#7DCFFF",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "flu",
+    "root": "flu / fluct",
+    "meaning_en": "to flow",
+    "meaning_zh": "流",
+    "origin": "Latin fluere",
+    "color": "#4FD6BE",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "graph",
+    "root": "graph / gram",
+    "meaning_en": "to write, to draw",
+    "meaning_zh": "写、画",
+    "origin": "Greek graphein",
+    "color": "#FFD166",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "log",
+    "root": "log / logue",
+    "meaning_en": "word, speak, study",
+    "meaning_zh": "言、学",
+    "origin": "Greek logos",
+    "color": "#C3A6FF",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "phon",
+    "root": "phon",
+    "meaning_en": "sound",
+    "meaning_zh": "声",
+    "origin": "Greek phone",
+    "color": "#FF8FAB",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "scope",
+    "root": "scope / scop",
+    "meaning_en": "to look, to watch",
+    "meaning_zh": "看、观",
+    "origin": "Greek skopein",
+    "color": "#8CE99A",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "bio",
+    "root": "bio",
+    "meaning_en": "life",
+    "meaning_zh": "生命",
+    "origin": "Greek bios",
+    "color": "#63E6BE",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "aud",
+    "root": "aud / audit",
+    "meaning_en": "to hear",
+    "meaning_zh": "听",
+    "origin": "Latin audire",
+    "color": "#FFA94D",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "cred",
+    "root": "cred",
+    "meaning_en": "to believe, to trust",
+    "meaning_zh": "相信",
+    "origin": "Latin credere",
+    "color": "#74C0FC",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "sens",
+    "root": "sens / sent",
+    "meaning_en": "to feel",
+    "meaning_zh": "感、觉",
+    "origin": "Latin sentire",
+    "color": "#F783AC",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "mem",
+    "root": "mem / memor",
+    "meaning_en": "to remember, mind",
+    "meaning_zh": "记、忆",
+    "origin": "Latin memor",
+    "color": "#B197FC",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "mot",
+    "root": "mot / mov",
+    "meaning_en": "to move",
+    "meaning_zh": "动",
+    "origin": "Latin movere",
+    "color": "#FFC078",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "man",
+    "root": "man / manu",
+    "meaning_en": "hand",
+    "meaning_zh": "手",
+    "origin": "Latin manus",
+    "color": "#66D9E8",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "ped",
+    "root": "ped / pede",
+    "meaning_en": "foot",
+    "meaning_zh": "脚、足",
+    "origin": "Latin pes / pedis",
+    "color": "#A9E34B",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "cycl",
+    "root": "cycl",
+    "meaning_en": "circle, wheel",
+    "meaning_zh": "圆、轮",
+    "origin": "Greek kyklos",
+    "color": "#E599F7",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "ann",
+    "root": "ann / enn",
+    "meaning_en": "year",
+    "meaning_zh": "年",
+    "origin": "Latin annus",
+    "color": "#FFE066",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "vac",
+    "root": "vac",
+    "meaning_en": "empty",
+    "meaning_zh": "空",
+    "origin": "Latin vacare",
+    "color": "#C0CFFF",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "ven",
+    "root": "ven / vent",
+    "meaning_en": "to come",
+    "meaning_zh": "来",
+    "origin": "Latin venire",
+    "color": "#FFB3C1",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "cur",
+    "root": "cur / curs",
+    "meaning_en": "to run",
+    "meaning_zh": "跑、流",
+    "origin": "Latin currere",
+    "color": "#9EE6CF",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "fact",
+    "root": "fact / fect",
+    "meaning_en": "to make, to do",
+    "meaning_zh": "做、造",
+    "origin": "Latin facere",
+    "color": "#FFC96B",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "pend",
+    "root": "pend / pens",
+    "meaning_en": "to hang, to weigh, to pay",
+    "meaning_zh": "挂、称、付",
+    "origin": "Latin pendere",
+    "color": "#B8A6FF",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "ten",
+    "root": "ten / tain",
+    "meaning_en": "to hold",
+    "meaning_zh": "持、握",
+    "origin": "Latin tenere",
+    "color": "#6FD1FF",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "nov",
+    "root": "nov",
+    "meaning_en": "new",
+    "meaning_zh": "新",
+    "origin": "Latin novus",
+    "color": "#95F2A0",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "equ",
+    "root": "equ / equi",
+    "meaning_en": "equal",
+    "meaning_zh": "相等",
+    "origin": "Latin aequus",
+    "color": "#FFD9A0",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "sect",
+    "root": "sect",
+    "meaning_en": "to cut",
+    "meaning_zh": "切、割",
+    "origin": "Latin secare",
+    "color": "#7FE0D0",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "solv",
+    "root": "solv / solut",
+    "meaning_en": "to loosen, to free",
+    "meaning_zh": "解、松",
+    "origin": "Latin solvere",
+    "color": "#FF9AA2",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "cert",
+    "root": "cert",
+    "meaning_en": "sure, certain",
+    "meaning_zh": "确定",
+    "origin": "Latin certus",
+    "color": "#A6D8FF",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "nat",
+    "root": "nat",
+    "meaning_en": "to be born",
+    "meaning_zh": "出生",
+    "origin": "Latin natus",
+    "color": "#C8F08F",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "vit",
+    "root": "vit / viv",
+    "meaning_en": "life, to live",
+    "meaning_zh": "生命、活",
+    "origin": "Latin vivere",
+    "color": "#8CF0C4",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "grat",
+    "root": "grat / grac",
+    "meaning_en": "pleasing, thankful",
+    "meaning_zh": "悦、谢",
+    "origin": "Latin gratus",
+    "color": "#FFC2E2",
+    "source": "morphemes-db + wiktionary"
+  },
+  {
+    "id": "ben",
+    "root": "ben / bene",
+    "meaning_en": "good, well",
+    "meaning_zh": "善 / 好",
+    "origin": "Latin bene",
+    "color": "#FFD166",
+    "source": "wiktionary"
+  },
+  {
+    "id": "mal",
+    "root": "mal",
+    "meaning_en": "bad, evil",
+    "meaning_zh": "坏 / 恶",
+    "origin": "Latin malus",
+    "color": "#EF476F",
+    "source": "wiktionary"
+  },
+  {
+    "id": "path",
+    "root": "path / pathy",
+    "meaning_en": "feeling, suffering, disease",
+    "meaning_zh": "情感 / 痛苦 / 病",
+    "origin": "Greek pathos",
+    "color": "#FF99C8",
+    "source": "wiktionary"
+  },
+  {
+    "id": "gen",
+    "root": "gen",
+    "meaning_en": "birth, produce, kind",
+    "meaning_zh": "生 / 产 / 种",
+    "origin": "Latin/Greek genus",
+    "color": "#06D6A0",
+    "source": "wiktionary"
+  },
+  {
+    "id": "spir",
+    "root": "spir",
+    "meaning_en": "to breathe",
+    "meaning_zh": "呼吸",
+    "origin": "Latin spirare",
+    "color": "#48CAE4",
+    "source": "wiktionary"
+  },
+  {
+    "id": "voc",
+    "root": "voc / vok",
+    "meaning_en": "voice, to call",
+    "meaning_zh": "声音 / 呼叫",
+    "origin": "Latin vocare, vox",
+    "color": "#F77F00",
+    "source": "wiktionary"
+  },
+  {
+    "id": "lum",
+    "root": "lum / luc",
+    "meaning_en": "light",
+    "meaning_zh": "光",
+    "origin": "Latin lumen, lux",
+    "color": "#FFE066",
+    "source": "wiktionary"
+  },
+  {
+    "id": "rupt",
+    "root": "rupt",
+    "meaning_en": "to break",
+    "meaning_zh": "断 / 破",
+    "origin": "Latin rumpere",
+    "color": "#D62828",
+    "source": "wiktionary"
+  },
+  {
+    "id": "fin",
+    "root": "fin",
+    "meaning_en": "end, limit",
+    "meaning_zh": "终 / 界限",
+    "origin": "Latin finis",
+    "color": "#A0C4FF",
+    "source": "wiktionary"
+  },
+  {
+    "id": "sci",
+    "root": "sci",
+    "meaning_en": "to know",
+    "meaning_zh": "知道",
+    "origin": "Latin scire",
+    "color": "#9D7CD8",
+    "source": "wiktionary"
+  },
+  {
+    "id": "flect",
+    "root": "flect / flex",
+    "meaning_en": "to bend",
+    "meaning_zh": "弯曲",
+    "origin": "Latin flectere",
+    "color": "#2EC4B6",
+    "source": "wiktionary"
+  },
+  {
+    "id": "terr",
+    "root": "terr",
+    "meaning_en": "earth, land",
+    "meaning_zh": "土地",
+    "origin": "Latin terra",
+    "color": "#BC8A5F",
+    "source": "wiktionary"
+  },
+  {
+    "id": "chron",
+    "root": "chron",
+    "meaning_en": "time",
+    "meaning_zh": "时间",
+    "origin": "Greek chronos",
+    "color": "#C3A6FF",
+    "source": "wiktionary"
+  },
+  {
+    "id": "hydr",
+    "root": "hydr / hydro",
+    "meaning_en": "water",
+    "meaning_zh": "水",
+    "origin": "Greek hydor",
+    "color": "#5AC8FA",
+    "source": "wiktionary"
+  },
+  {
+    "id": "therm",
+    "root": "therm / thermo",
+    "meaning_en": "heat",
+    "meaning_zh": "热",
+    "origin": "Greek therme",
+    "color": "#FF6E6E",
+    "source": "wiktionary"
+  },
+  {
+    "id": "astr",
+    "root": "astr / aster",
+    "meaning_en": "star",
+    "meaning_zh": "星",
+    "origin": "Greek astron",
+    "color": "#FFC078",
+    "source": "wiktionary"
+  },
+  {
+    "id": "dem",
+    "root": "dem / demo",
+    "meaning_en": "people",
+    "meaning_zh": "人民",
+    "origin": "Greek demos",
+    "color": "#8CE99A",
+    "source": "wiktionary"
+  },
+  {
+    "id": "migr",
+    "root": "migr",
+    "meaning_en": "to move, wander",
+    "meaning_zh": "迁移",
+    "origin": "Latin migrare",
+    "color": "#74C0FC",
+    "source": "wiktionary"
+  },
+  {
+    "id": "clud",
+    "root": "clud / clus",
+    "meaning_en": "to shut, close",
+    "meaning_zh": "关闭",
+    "origin": "Latin claudere",
+    "color": "#F783AC",
+    "source": "wiktionary"
+  },
+  {
+    "id": "rect",
+    "root": "rect",
+    "meaning_en": "straight, right",
+    "meaning_zh": "直 / 正",
+    "origin": "Latin rectus",
+    "color": "#4FD6BE",
+    "source": "wiktionary"
+  },
+  {
+    "id": "loc",
+    "root": "loc",
+    "meaning_en": "place",
+    "meaning_zh": "地方",
+    "origin": "Latin locus",
+    "color": "#FFA94D",
+    "source": "wiktionary"
+  },
+  {
+    "id": "liber",
+    "root": "liber",
+    "meaning_en": "free",
+    "meaning_zh": "自由",
+    "origin": "Latin liber",
+    "color": "#66D9E8",
+    "source": "wiktionary"
+  },
+  {
+    "id": "fort",
+    "root": "fort",
+    "meaning_en": "strong",
+    "meaning_zh": "强",
+    "origin": "Latin fortis",
+    "color": "#B197FC",
+    "source": "wiktionary"
+  },
+  {
+    "id": "domin",
+    "root": "domin",
+    "meaning_en": "lord, to rule",
+    "meaning_zh": "统治",
+    "origin": "Latin dominus",
+    "color": "#A9E34B",
+    "source": "wiktionary"
+  }
+]

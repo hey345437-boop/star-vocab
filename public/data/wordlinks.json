@@ -1,0 +1,1508 @@
+[
+  {
+    "a": "transform",
+    "b": "convert",
+    "type": "synonym",
+    "note": "近义：都表示「转变 / 转换」（form ↔ vert）"
+  },
+  {
+    "a": "reduce",
+    "b": "subtract",
+    "type": "synonym",
+    "note": "近义：都含「减少 / 减去」（duc ↔ tract）"
+  },
+  {
+    "a": "instruct",
+    "b": "educate",
+    "type": "synonym",
+    "note": "近义：教导 / 教育（struct ↔ duc）"
+  },
+  {
+    "a": "instruct",
+    "b": "dictate",
+    "type": "synonym",
+    "note": "近义：都有「命令、指示」义（struct ↔ dict）"
+  },
+  {
+    "a": "predict",
+    "b": "deduce",
+    "type": "synonym",
+    "note": "近义：预测 / 推断，都靠已知推未知（dict ↔ duc）"
+  },
+  {
+    "a": "import",
+    "b": "export",
+    "type": "antonym",
+    "note": "反义：进口 ↔ 出口（im- 向内 / ex- 向外，同根 port）"
+  },
+  {
+    "a": "construct",
+    "b": "destruction",
+    "type": "antonym",
+    "note": "反义：建造 ↔ 破坏（con- 合 / de- 拆，同根 struct）"
+  },
+  {
+    "a": "attract",
+    "b": "reject",
+    "type": "antonym",
+    "note": "反义：吸引（拉过来）↔ 拒绝（投回去）（tract ↔ ject）"
+  },
+  {
+    "a": "instruct",
+    "b": "construct",
+    "type": "sentence",
+    "note": "造句：The teacher instructed the students to construct a model bridge."
+  },
+  {
+    "a": "inspect",
+    "b": "reject",
+    "type": "sentence",
+    "note": "造句：The officer inspected the goods and rejected the faulty ones."
+  },
+  {
+    "a": "predict",
+    "b": "reduce",
+    "type": "sentence",
+    "note": "造句：Experts predict that the new policy will reduce traffic."
+  },
+  {
+    "a": "attract",
+    "b": "distract",
+    "type": "sentence",
+    "note": "造句：Bright billboards attract drivers but also distract them."
+  },
+  {
+    "a": "export",
+    "b": "transport",
+    "type": "sentence",
+    "note": "造句：The coffee is transported to the port and then exported abroad."
+  },
+  {
+    "a": "educate",
+    "b": "transform",
+    "type": "sentence",
+    "note": "造句：Good education can transform a person's whole life."
+  },
+  {
+    "a": "describe",
+    "b": "prescription",
+    "type": "sentence",
+    "note": "造句：The doctor described the symptoms before writing a prescription."
+  },
+  {
+    "a": "describe",
+    "b": "subscribe",
+    "type": "colloquial",
+    "note": "谐音助记：同以 -scribe 结尾，连读押韵"
+  },
+  {
+    "a": "reject",
+    "b": "eject",
+    "type": "colloquial",
+    "note": "谐音助记：-ject 押韵（拒绝 / 弹出）"
+  },
+  {
+    "a": "reduce",
+    "b": "produce",
+    "type": "colloquial",
+    "note": "谐音助记：-duce 押韵（减少 / 生产）"
+  },
+  {
+    "a": "produce",
+    "b": "introduce",
+    "type": "colloquial",
+    "note": "谐音助记：-duce 家族（生产 / 引入）"
+  },
+  {
+    "a": "convert",
+    "b": "divert",
+    "type": "colloquial",
+    "note": "谐音助记：-vert 押韵（转换 / 改道）"
+  },
+  {
+    "a": "predict",
+    "b": "verdict",
+    "type": "colloquial",
+    "note": "谐音助记：-dict 押韵（预测 / 裁决）"
+  },
+  {
+    "a": "attract",
+    "b": "extract",
+    "type": "colloquial",
+    "note": "谐音助记：-tract 押韵（吸引 / 提取）"
+  },
+  {
+    "a": "extract",
+    "b": "contract",
+    "type": "colloquial",
+    "note": "谐音助记：-tract 家族（提取 / 合同）"
+  },
+  {
+    "a": "visible",
+    "b": "conspicuous",
+    "type": "synonym",
+    "note": "近义：可见 / 显眼（vis ↔ spect，都是「看得见」）"
+  },
+  {
+    "a": "evident",
+    "b": "conspicuous",
+    "type": "synonym",
+    "note": "近义：明显 / 显眼（vis ↔ spect）"
+  },
+  {
+    "a": "supervise",
+    "b": "inspect",
+    "type": "synonym",
+    "note": "近义：监督 / 视察（vis ↔ spect）"
+  },
+  {
+    "a": "provide",
+    "b": "offer",
+    "type": "synonym",
+    "note": "近义：提供（vis ↔ fer）"
+  },
+  {
+    "a": "transmit",
+    "b": "transport",
+    "type": "synonym",
+    "note": "近义：传送 / 运输（mit ↔ port，trans- 横过）"
+  },
+  {
+    "a": "transmit",
+    "b": "transfer",
+    "type": "synonym",
+    "note": "近义：传输 / 转移（mit ↔ fer，trans- 横过）"
+  },
+  {
+    "a": "accept",
+    "b": "receive",
+    "type": "synonym",
+    "note": "近义：接受 / 收到（同根 cap）"
+  },
+  {
+    "a": "express",
+    "b": "describe",
+    "type": "synonym",
+    "note": "近义：表达 / 描述（press ↔ scrib）"
+  },
+  {
+    "a": "accept",
+    "b": "reject",
+    "type": "antonym",
+    "note": "反义：接受（拿过来）↔ 拒绝（投回去）（cap ↔ ject）"
+  },
+  {
+    "a": "proceed",
+    "b": "recede",
+    "type": "antonym",
+    "note": "反义：前进 ↔ 后退（pro- 向前 / re- 向后，同根 ced）"
+  },
+  {
+    "a": "extend",
+    "b": "compress",
+    "type": "antonym",
+    "note": "反义：延伸（拉开）↔ 压缩（压拢）（tend ↔ press）"
+  },
+  {
+    "a": "admit",
+    "b": "dismiss",
+    "type": "antonym",
+    "note": "反义：准入（让进）↔ 打发（送走）（同根 mit）"
+  },
+  {
+    "a": "supervise",
+    "b": "attend",
+    "type": "sentence",
+    "note": "造句：A teacher supervises the students who attend the exam."
+  },
+  {
+    "a": "propose",
+    "b": "accept",
+    "type": "sentence",
+    "note": "造句：He proposed a plan and the team accepted it."
+  },
+  {
+    "a": "submit",
+    "b": "revise",
+    "type": "sentence",
+    "note": "造句：Revise your draft carefully before you submit it."
+  },
+  {
+    "a": "provide",
+    "b": "access",
+    "type": "sentence",
+    "note": "造句：The school provides students with access to computers."
+  },
+  {
+    "a": "pressure",
+    "b": "intense",
+    "type": "sentence",
+    "note": "造句：Under intense pressure, she still stayed calm."
+  },
+  {
+    "a": "transmit",
+    "b": "receive",
+    "type": "sentence",
+    "note": "造句：The station transmits the signal and we receive it."
+  },
+  {
+    "a": "submit",
+    "b": "admit",
+    "type": "colloquial",
+    "note": "谐音助记：-mit 押韵（提交 / 承认）"
+  },
+  {
+    "a": "admit",
+    "b": "permit",
+    "type": "colloquial",
+    "note": "谐音助记：-mit 押韵（承认 / 允许）"
+  },
+  {
+    "a": "transmit",
+    "b": "submit",
+    "type": "colloquial",
+    "note": "谐音助记：-mit 家族（传输 / 提交）"
+  },
+  {
+    "a": "compose",
+    "b": "propose",
+    "type": "colloquial",
+    "note": "谐音助记：-pose 押韵（组成 / 提议）"
+  },
+  {
+    "a": "propose",
+    "b": "expose",
+    "type": "colloquial",
+    "note": "谐音助记：-pose 押韵（提议 / 暴露）"
+  },
+  {
+    "a": "expose",
+    "b": "oppose",
+    "type": "colloquial",
+    "note": "谐音助记：-pose 家族（暴露 / 反对）"
+  },
+  {
+    "a": "transfer",
+    "b": "refer",
+    "type": "colloquial",
+    "note": "谐音助记：-fer 押韵（转移 / 提到）"
+  },
+  {
+    "a": "refer",
+    "b": "prefer",
+    "type": "colloquial",
+    "note": "谐音助记：-fer 押韵（提到 / 偏爱）"
+  },
+  {
+    "a": "prefer",
+    "b": "confer",
+    "type": "colloquial",
+    "note": "谐音助记：-fer 家族（偏爱 / 商讨）"
+  },
+  {
+    "a": "proceed",
+    "b": "exceed",
+    "type": "colloquial",
+    "note": "谐音助记：-ceed 押韵（进行 / 超过）"
+  },
+  {
+    "a": "exceed",
+    "b": "succeed",
+    "type": "colloquial",
+    "note": "谐音助记：-ceed 家族（超过 / 成功）"
+  },
+  {
+    "a": "express",
+    "b": "impress",
+    "type": "colloquial",
+    "note": "谐音助记：-press 押韵（表达 / 印象）"
+  },
+  {
+    "a": "impress",
+    "b": "compress",
+    "type": "colloquial",
+    "note": "谐音助记：-press 押韵（印象 / 压缩）"
+  },
+  {
+    "a": "compress",
+    "b": "depress",
+    "type": "colloquial",
+    "note": "谐音助记：-press 押韵（压缩 / 沮丧）"
+  },
+  {
+    "a": "depress",
+    "b": "suppress",
+    "type": "colloquial",
+    "note": "谐音助记：-press 家族（沮丧 / 压制）"
+  },
+  {
+    "a": "extend",
+    "b": "intend",
+    "type": "colloquial",
+    "note": "谐音助记：-tend 押韵（延伸 / 打算）"
+  },
+  {
+    "a": "intend",
+    "b": "attend",
+    "type": "colloquial",
+    "note": "谐音助记：-tend 押韵（打算 / 出席）"
+  },
+  {
+    "a": "attend",
+    "b": "pretend",
+    "type": "colloquial",
+    "note": "谐音助记：-tend 家族（出席 / 假装）"
+  },
+  {
+    "a": "accept",
+    "b": "concept",
+    "type": "colloquial",
+    "note": "谐音助记：-cept 押韵（接受 / 概念）"
+  },
+  {
+    "a": "concept",
+    "b": "intercept",
+    "type": "colloquial",
+    "note": "谐音助记：-cept 家族（概念 / 拦截）"
+  },
+  {
+    "a": "progress",
+    "b": "regress",
+    "type": "antonym",
+    "note": "反义：进步 ↔ 退步（pro- 向前 / re- 向后，同根 gress）"
+  },
+  {
+    "a": "promote",
+    "b": "demote",
+    "type": "antonym",
+    "note": "反义：晋升 ↔ 降职（pro- 向前 / de- 向下，同根 mot）"
+  },
+  {
+    "a": "impede",
+    "b": "obstruct",
+    "type": "synonym",
+    "note": "近义：阻碍（ped 绊脚 ↔ struct 挡建）"
+  },
+  {
+    "a": "regress",
+    "b": "recede",
+    "type": "synonym",
+    "note": "近义：后退（gress ↔ ced，都是往回走）"
+  },
+  {
+    "a": "progress",
+    "b": "proceed",
+    "type": "synonym",
+    "note": "近义：前进 / 进行（gress ↔ ced，都是向前走）"
+  },
+  {
+    "a": "memorize",
+    "b": "revise",
+    "type": "synonym",
+    "note": "近义：都属记忆 / 复习动作（mem ↔ vis）"
+  },
+  {
+    "a": "promote",
+    "b": "motivate",
+    "type": "sentence",
+    "note": "造句：Good leaders motivate staff and promote teamwork."
+  },
+  {
+    "a": "telescope",
+    "b": "microscope",
+    "type": "sentence",
+    "note": "造句：A telescope sees far while a microscope sees small."
+  },
+  {
+    "a": "audience",
+    "b": "audible",
+    "type": "sentence",
+    "note": "造句：The speaker made sure her voice was audible to the whole audience."
+  },
+  {
+    "a": "biography",
+    "b": "memorable",
+    "type": "sentence",
+    "note": "造句：The biography of the scientist was truly memorable."
+  },
+  {
+    "a": "fluent",
+    "b": "dialogue",
+    "type": "sentence",
+    "note": "造句：Practising dialogue every day made her more fluent."
+  },
+  {
+    "a": "pedestrian",
+    "b": "impede",
+    "type": "sentence",
+    "note": "造句：Parked cars impede pedestrians on the narrow street."
+  },
+  {
+    "a": "telephone",
+    "b": "telegraph",
+    "type": "colloquial",
+    "note": "谐音助记：tele-(远) 家族（电话 / 电报）"
+  },
+  {
+    "a": "telescope",
+    "b": "telephone",
+    "type": "colloquial",
+    "note": "谐音助记：tele-(远) 家族（望远镜 / 电话）"
+  },
+  {
+    "a": "microscope",
+    "b": "microphone",
+    "type": "colloquial",
+    "note": "谐音助记：micro-(小) 家族（显微镜 / 麦克风）"
+  },
+  {
+    "a": "biology",
+    "b": "biography",
+    "type": "colloquial",
+    "note": "谐音助记：bio-(生命) 家族（生物学 / 传记）"
+  },
+  {
+    "a": "apology",
+    "b": "analogy",
+    "type": "colloquial",
+    "note": "谐音助记：-logy 押韵（道歉 / 类比）"
+  },
+  {
+    "a": "biology",
+    "b": "apology",
+    "type": "colloquial",
+    "note": "谐音助记：-logy 家族（生物学 / 道歉）"
+  },
+  {
+    "a": "progress",
+    "b": "congress",
+    "type": "colloquial",
+    "note": "谐音助记：-gress 押韵（进步 / 大会）"
+  },
+  {
+    "a": "regress",
+    "b": "digress",
+    "type": "colloquial",
+    "note": "谐音助记：-gress 押韵（退步 / 离题）"
+  },
+  {
+    "a": "digress",
+    "b": "transgress",
+    "type": "colloquial",
+    "note": "谐音助记：-gress 家族（离题 / 越轨）"
+  },
+  {
+    "a": "memorize",
+    "b": "memorable",
+    "type": "colloquial",
+    "note": "谐音助记：mem-(记) 家族（背诵 / 难忘）"
+  },
+  {
+    "a": "memorial",
+    "b": "memory",
+    "type": "colloquial",
+    "note": "谐音助记：mem-(记) 家族（纪念碑 / 记忆）"
+  },
+  {
+    "a": "annual",
+    "b": "anniversary",
+    "type": "colloquial",
+    "note": "谐音助记：ann-(年) 家族（每年 / 周年）"
+  },
+  {
+    "a": "biennial",
+    "b": "perennial",
+    "type": "colloquial",
+    "note": "谐音助记：-enn-(年) 押韵（两年一次 / 长久）"
+  },
+  {
+    "a": "perennial",
+    "b": "millennium",
+    "type": "colloquial",
+    "note": "谐音助记：-enn-(年) 家族（长久 / 千年）"
+  },
+  {
+    "a": "cycle",
+    "b": "bicycle",
+    "type": "colloquial",
+    "note": "谐音助记：cycl-(轮/圈) 家族（循环 / 自行车）"
+  },
+  {
+    "a": "bicycle",
+    "b": "recycle",
+    "type": "colloquial",
+    "note": "谐音助记：cycl-(圈) 家族（自行车 / 回收）"
+  },
+  {
+    "a": "credit",
+    "b": "credible",
+    "type": "colloquial",
+    "note": "谐音助记：cred-(信) 家族（信用 / 可信）"
+  },
+  {
+    "a": "credible",
+    "b": "incredible",
+    "type": "colloquial",
+    "note": "谐音助记：cred-(信) 家族（可信 / 难以置信）"
+  },
+  {
+    "a": "manual",
+    "b": "manage",
+    "type": "colloquial",
+    "note": "谐音助记：man-(手) 家族（手册 / 管理）"
+  },
+  {
+    "a": "audible",
+    "b": "audio",
+    "type": "colloquial",
+    "note": "谐音助记：aud-(听) 家族（可听 / 音频）"
+  },
+  {
+    "a": "certain",
+    "b": "uncertain",
+    "type": "antonym",
+    "note": "反义：确定 ↔ 不确定（un- 否定，同根 cert）"
+  },
+  {
+    "a": "gratitude",
+    "b": "ingratitude",
+    "type": "antonym",
+    "note": "反义：感激 ↔ 忘恩（in- 否定，同根 grat）"
+  },
+  {
+    "a": "perfect",
+    "b": "defect",
+    "type": "antonym",
+    "note": "反义：完美 ↔ 缺陷（per- 彻底 / de- 去除，同根 fect）"
+  },
+  {
+    "a": "maintain",
+    "b": "sustain",
+    "type": "synonym",
+    "note": "近义：维持 / 支撑（同根 tain）"
+  },
+  {
+    "a": "solve",
+    "b": "resolve",
+    "type": "synonym",
+    "note": "近义：解决（同根 solv）"
+  },
+  {
+    "a": "affect",
+    "b": "influence",
+    "type": "synonym",
+    "note": "近义：影响（fact ↔ flu）"
+  },
+  {
+    "a": "prevent",
+    "b": "impede",
+    "type": "synonym",
+    "note": "近义：阻止 / 阻碍（ven ↔ ped）"
+  },
+  {
+    "a": "obtain",
+    "b": "receive",
+    "type": "synonym",
+    "note": "近义：获得 / 收到（ten ↔ cap）"
+  },
+  {
+    "a": "innovate",
+    "b": "renovate",
+    "type": "sentence",
+    "note": "造句：They renovated the lab to help engineers innovate."
+  },
+  {
+    "a": "vital",
+    "b": "survive",
+    "type": "sentence",
+    "note": "造句：Water is vital — without it, no plant can survive."
+  },
+  {
+    "a": "evacuate",
+    "b": "prevent",
+    "type": "sentence",
+    "note": "造句：They evacuated the town to prevent casualties."
+  },
+  {
+    "a": "affect",
+    "b": "effect",
+    "type": "sentence",
+    "note": "造句：How does diet affect health, and what effect does it have?"
+  },
+  {
+    "a": "solve",
+    "b": "solution",
+    "type": "sentence",
+    "note": "造句：She solved the problem and shared the solution."
+  },
+  {
+    "a": "congratulate",
+    "b": "gratitude",
+    "type": "sentence",
+    "note": "造句：He congratulated them and expressed his gratitude."
+  },
+  {
+    "a": "vacant",
+    "b": "vacancy",
+    "type": "colloquial",
+    "note": "谐音助记：vac-(空) 家族（空着 / 空缺）"
+  },
+  {
+    "a": "vacation",
+    "b": "vacate",
+    "type": "colloquial",
+    "note": "谐音助记：vac-(空) 家族（假期 / 腾出）"
+  },
+  {
+    "a": "prevent",
+    "b": "invent",
+    "type": "colloquial",
+    "note": "谐音助记：-vent 押韵（防止 / 发明）"
+  },
+  {
+    "a": "invent",
+    "b": "event",
+    "type": "colloquial",
+    "note": "谐音助记：-vent 家族（发明 / 事件）"
+  },
+  {
+    "a": "occur",
+    "b": "recur",
+    "type": "colloquial",
+    "note": "谐音助记：-cur 押韵（发生 / 复发）"
+  },
+  {
+    "a": "perfect",
+    "b": "infect",
+    "type": "colloquial",
+    "note": "谐音助记：-fect 押韵（完美 / 感染）"
+  },
+  {
+    "a": "depend",
+    "b": "suspend",
+    "type": "colloquial",
+    "note": "谐音助记：-pend 押韵（依赖 / 暂停）"
+  },
+  {
+    "a": "contain",
+    "b": "maintain",
+    "type": "colloquial",
+    "note": "谐音助记：-tain 押韵（包含 / 维持）"
+  },
+  {
+    "a": "retain",
+    "b": "obtain",
+    "type": "colloquial",
+    "note": "谐音助记：-tain 家族（保留 / 获得）"
+  },
+  {
+    "a": "novel",
+    "b": "novice",
+    "type": "colloquial",
+    "note": "谐音助记：nov-(新) 家族（小说 / 新手）"
+  },
+  {
+    "a": "equal",
+    "b": "equation",
+    "type": "colloquial",
+    "note": "谐音助记：equ-(等) 家族（平等 / 方程）"
+  },
+  {
+    "a": "section",
+    "b": "sector",
+    "type": "colloquial",
+    "note": "谐音助记：sect-(切) 家族（区段 / 部门）"
+  },
+  {
+    "a": "dissolve",
+    "b": "absolve",
+    "type": "colloquial",
+    "note": "谐音助记：-solve 押韵（溶解 / 免除）"
+  },
+  {
+    "a": "certain",
+    "b": "certify",
+    "type": "colloquial",
+    "note": "谐音助记：cert-(确) 家族（确定 / 证明）"
+  },
+  {
+    "a": "native",
+    "b": "nation",
+    "type": "colloquial",
+    "note": "谐音助记：nat-(生) 家族（本地 / 国家）"
+  },
+  {
+    "a": "survive",
+    "b": "revive",
+    "type": "colloquial",
+    "note": "谐音助记：-vive 押韵（幸存 / 复苏）"
+  },
+  {
+    "a": "vivid",
+    "b": "vivacious",
+    "type": "colloquial",
+    "note": "谐音助记：viv-(活) 家族（生动 / 活泼）"
+  },
+  {
+    "a": "grateful",
+    "b": "gratify",
+    "type": "colloquial",
+    "note": "谐音助记：grat-(谢) 家族（感激 / 使满足）"
+  },
+  {
+    "a": "benevolent",
+    "b": "malevolent",
+    "type": "antonym",
+    "note": "反义：仁慈 ↔ 恶毒（bene 好 ↔ mal 恶，同含 vol 意愿）"
+  },
+  {
+    "a": "benign",
+    "b": "malignant",
+    "type": "antonym",
+    "note": "反义：良性 ↔ 恶性（ben 好 ↔ mal 恶）"
+  },
+  {
+    "a": "benevolent",
+    "b": "generous",
+    "type": "synonym",
+    "note": "近义：仁慈 / 慷慨，都指待人宽厚"
+  },
+  {
+    "a": "benefit",
+    "b": "beneficial",
+    "type": "synonym",
+    "note": "近义：好处 / 有益（同根 ben）"
+  },
+  {
+    "a": "malicious",
+    "b": "malevolent",
+    "type": "synonym",
+    "note": "近义：恶意的 / 恶毒的（同根 mal）"
+  },
+  {
+    "a": "empathy",
+    "b": "sympathy",
+    "type": "synonym",
+    "note": "近义：共情 / 同情（同根 path）"
+  },
+  {
+    "a": "apathy",
+    "b": "empathy",
+    "type": "antonym",
+    "note": "反义：冷漠 ↔ 共情（a- 无 ↔ em- 入，同根 path）"
+  },
+  {
+    "a": "finite",
+    "b": "infinite",
+    "type": "antonym",
+    "note": "反义：有限 ↔ 无限（in- 否定，同根 fin）"
+  },
+  {
+    "a": "flexible",
+    "b": "inflexible",
+    "type": "antonym",
+    "note": "反义：灵活 ↔ 固执（in- 否定，同根 flex）"
+  },
+  {
+    "a": "conscious",
+    "b": "subconscious",
+    "type": "antonym",
+    "note": "反义：有意识 ↔ 潜意识（sub- 之下，同根 sci）"
+  },
+  {
+    "a": "inspire",
+    "b": "aspire",
+    "type": "synonym",
+    "note": "近义：激励 / 立志（同根 spir，都是「吸入精气」去追求）"
+  },
+  {
+    "a": "provoke",
+    "b": "evoke",
+    "type": "synonym",
+    "note": "近义：激起 / 唤起（同根 vok，都把某种反应「叫出来」）"
+  },
+  {
+    "a": "generate",
+    "b": "produce",
+    "type": "synonym",
+    "note": "近义：产生 / 生产（gen 生 ↔ duc 引出）"
+  },
+  {
+    "a": "inspire",
+    "b": "motivate",
+    "type": "synonym",
+    "note": "近义：激励 / 激发（spir 吹气 ↔ mot 推动）"
+  },
+  {
+    "a": "revoke",
+    "b": "retract",
+    "type": "synonym",
+    "note": "近义：撤销 / 收回（vok 叫回 ↔ tract 拉回）"
+  },
+  {
+    "a": "advocate",
+    "b": "promote",
+    "type": "synonym",
+    "note": "近义：倡导 / 推广（voc 呼吁 ↔ mot 推动）"
+  },
+  {
+    "a": "immigrant",
+    "b": "emigrate",
+    "type": "antonym",
+    "note": "反义：移入 ↔ 移出（im- 进 ↔ e- 出，同根 migr）"
+  },
+  {
+    "a": "hydrate",
+    "b": "dehydrate",
+    "type": "antonym",
+    "note": "反义：补水 ↔ 脱水（de- 去除，同根 hydr）"
+  },
+  {
+    "a": "epidemic",
+    "b": "pandemic",
+    "type": "synonym",
+    "note": "近义：流行病 / 大流行（epi- 局部 ↔ pan- 全体，同根 dem）"
+  },
+  {
+    "a": "correct",
+    "b": "rectify",
+    "type": "synonym",
+    "note": "近义：纠正（同根 rect）"
+  },
+  {
+    "a": "liberate",
+    "b": "confine",
+    "type": "antonym",
+    "note": "反义：解放 ↔ 禁锢（liber 自由 ↔ fin 界限）"
+  },
+  {
+    "a": "liberate",
+    "b": "emancipate",
+    "type": "synonym",
+    "note": "近义：解放（liber 自由 ↔ man 放手）"
+  },
+  {
+    "a": "relocate",
+    "b": "migrate",
+    "type": "synonym",
+    "note": "近义：搬迁 / 迁移（loc 地方 ↔ migr 迁）"
+  },
+  {
+    "a": "chronic",
+    "b": "perennial",
+    "type": "synonym",
+    "note": "近义：长期的 / 常年的（chron 时间 ↔ ann 年）"
+  },
+  {
+    "a": "chronicle",
+    "b": "annals",
+    "type": "synonym",
+    "note": "近义：编年史（chron 时间 ↔ ann 年）"
+  },
+  {
+    "a": "erect",
+    "b": "construct",
+    "type": "synonym",
+    "note": "近义：竖立 / 建造（rect 立直 ↔ struct 建）"
+  },
+  {
+    "a": "dominate",
+    "b": "manipulate",
+    "type": "synonym",
+    "note": "近义：支配 / 操控（domin 主人 ↔ man 手）"
+  },
+  {
+    "a": "astronomy",
+    "b": "astrology",
+    "type": "colloquial",
+    "note": "同根易混：-nomy 规律之学（天文）vs -logy 星象之说（占星）"
+  },
+  {
+    "a": "fortitude",
+    "b": "certitude",
+    "type": "colloquial",
+    "note": "-titude 押韵：坚韧（fort 强）/ 确信（cert 确定）"
+  },
+  {
+    "a": "inspect",
+    "b": "prospect",
+    "type": "colloquial",
+    "note": "同根词族：-spect 押韵"
+  },
+  {
+    "a": "prospect",
+    "b": "retrospect",
+    "type": "colloquial",
+    "note": "同根词族：-rospect 押韵"
+  },
+  {
+    "a": "import",
+    "b": "transport",
+    "type": "colloquial",
+    "note": "同根词族：-port 押韵"
+  },
+  {
+    "a": "predict",
+    "b": "edict",
+    "type": "colloquial",
+    "note": "同根词族：-edict 押韵"
+  },
+  {
+    "a": "edict",
+    "b": "verdict",
+    "type": "colloquial",
+    "note": "同根词族：-dict 押韵"
+  },
+  {
+    "a": "structure",
+    "b": "infrastructure",
+    "type": "colloquial",
+    "note": "同根词族：-structure 押韵"
+  },
+  {
+    "a": "instruct",
+    "b": "obstruct",
+    "type": "colloquial",
+    "note": "同根词族：-struct 押韵"
+  },
+  {
+    "a": "manuscript",
+    "b": "transcript",
+    "type": "colloquial",
+    "note": "同根词族：-script 押韵"
+  },
+  {
+    "a": "prescription",
+    "b": "inscription",
+    "type": "colloquial",
+    "note": "同根词族：-scription 押韵"
+  },
+  {
+    "a": "eject",
+    "b": "inject",
+    "type": "colloquial",
+    "note": "同根词族：-ject 押韵"
+  },
+  {
+    "a": "inject",
+    "b": "project",
+    "type": "colloquial",
+    "note": "同根词族：-ject 押韵"
+  },
+  {
+    "a": "convert",
+    "b": "introvert",
+    "type": "colloquial",
+    "note": "同根词族：-vert 押韵"
+  },
+  {
+    "a": "reduce",
+    "b": "deduce",
+    "type": "colloquial",
+    "note": "同根词族：-educe 押韵"
+  },
+  {
+    "a": "contract",
+    "b": "distract",
+    "type": "colloquial",
+    "note": "同根词族：-tract 押韵"
+  },
+  {
+    "a": "distract",
+    "b": "subtract",
+    "type": "colloquial",
+    "note": "同根词族：-tract 押韵"
+  },
+  {
+    "a": "subtract",
+    "b": "retract",
+    "type": "colloquial",
+    "note": "同根词族：-tract 押韵"
+  },
+  {
+    "a": "reform",
+    "b": "uniform",
+    "type": "colloquial",
+    "note": "同根词族：-form 押韵"
+  },
+  {
+    "a": "uniform",
+    "b": "conform",
+    "type": "colloquial",
+    "note": "同根词族：-form 押韵"
+  },
+  {
+    "a": "recede",
+    "b": "precede",
+    "type": "colloquial",
+    "note": "同根词族：-recede 押韵"
+  },
+  {
+    "a": "attend",
+    "b": "extend",
+    "type": "colloquial",
+    "note": "同根词族：-tend 押韵"
+  },
+  {
+    "a": "congress",
+    "b": "regress",
+    "type": "colloquial",
+    "note": "同根词族：-gress 押韵"
+  },
+  {
+    "a": "fluent",
+    "b": "affluent",
+    "type": "colloquial",
+    "note": "同根词族：-fluent 押韵"
+  },
+  {
+    "a": "paragraph",
+    "b": "autograph",
+    "type": "colloquial",
+    "note": "同根词族：-graph 押韵"
+  },
+  {
+    "a": "autograph",
+    "b": "telegraph",
+    "type": "colloquial",
+    "note": "同根词族：-graph 押韵"
+  },
+  {
+    "a": "dialogue",
+    "b": "monologue",
+    "type": "colloquial",
+    "note": "同根词族：-logue 押韵"
+  },
+  {
+    "a": "monologue",
+    "b": "prologue",
+    "type": "colloquial",
+    "note": "同根词族：-ologue 押韵"
+  },
+  {
+    "a": "telephone",
+    "b": "microphone",
+    "type": "colloquial",
+    "note": "同根词族：-phone 押韵"
+  },
+  {
+    "a": "microphone",
+    "b": "megaphone",
+    "type": "colloquial",
+    "note": "同根词族：-phone 押韵"
+  },
+  {
+    "a": "megaphone",
+    "b": "saxophone",
+    "type": "colloquial",
+    "note": "同根词族：-phone 押韵"
+  },
+  {
+    "a": "microscope",
+    "b": "periscope",
+    "type": "colloquial",
+    "note": "同根词族：-scope 押韵"
+  },
+  {
+    "a": "periscope",
+    "b": "horoscope",
+    "type": "colloquial",
+    "note": "同根词族：-scope 押韵"
+  },
+  {
+    "a": "horoscope",
+    "b": "scope",
+    "type": "colloquial",
+    "note": "同根词族：-scope 押韵"
+  },
+  {
+    "a": "scope",
+    "b": "stethoscope",
+    "type": "colloquial",
+    "note": "同根词族：-scope 押韵"
+  },
+  {
+    "a": "centipede",
+    "b": "impede",
+    "type": "colloquial",
+    "note": "同根词族：-pede 押韵"
+  },
+  {
+    "a": "event",
+    "b": "prevent",
+    "type": "colloquial",
+    "note": "同根词族：-event 押韵"
+  },
+  {
+    "a": "defect",
+    "b": "affect",
+    "type": "colloquial",
+    "note": "同根词族：-fect 押韵"
+  },
+  {
+    "a": "effect",
+    "b": "infect",
+    "type": "colloquial",
+    "note": "同根词族：-fect 押韵"
+  },
+  {
+    "a": "retain",
+    "b": "contain",
+    "type": "colloquial",
+    "note": "同根词族：-tain 押韵"
+  },
+  {
+    "a": "bisect",
+    "b": "insect",
+    "type": "colloquial",
+    "note": "同根词族：-sect 押韵"
+  },
+  {
+    "a": "insect",
+    "b": "intersect",
+    "type": "colloquial",
+    "note": "同根词族：-sect 押韵"
+  },
+  {
+    "a": "intersect",
+    "b": "dissect",
+    "type": "colloquial",
+    "note": "同根词族：-sect 押韵"
+  },
+  {
+    "a": "solve",
+    "b": "dissolve",
+    "type": "colloquial",
+    "note": "同根词族：-solve 押韵"
+  },
+  {
+    "a": "dissolve",
+    "b": "resolve",
+    "type": "colloquial",
+    "note": "同根词族：-solve 押韵"
+  },
+  {
+    "a": "resolve",
+    "b": "absolve",
+    "type": "colloquial",
+    "note": "同根词族：-solve 押韵"
+  },
+  {
+    "a": "certain",
+    "b": "ascertain",
+    "type": "colloquial",
+    "note": "同根词族：-certain 押韵"
+  },
+  {
+    "a": "ascertain",
+    "b": "uncertain",
+    "type": "colloquial",
+    "note": "同根词族：-certain 押韵"
+  },
+  {
+    "a": "sympathy",
+    "b": "apathy",
+    "type": "colloquial",
+    "note": "同根词族：-pathy 押韵"
+  },
+  {
+    "a": "apathy",
+    "b": "antipathy",
+    "type": "colloquial",
+    "note": "同根词族：-pathy 押韵"
+  },
+  {
+    "a": "aspire",
+    "b": "respire",
+    "type": "colloquial",
+    "note": "同根词族：-spire 押韵"
+  },
+  {
+    "a": "respire",
+    "b": "conspire",
+    "type": "colloquial",
+    "note": "同根词族：-spire 押韵"
+  },
+  {
+    "a": "conspire",
+    "b": "perspire",
+    "type": "colloquial",
+    "note": "同根词族：-spire 押韵"
+  },
+  {
+    "a": "perspire",
+    "b": "expire",
+    "type": "colloquial",
+    "note": "同根词族：-pire 押韵"
+  },
+  {
+    "a": "evoke",
+    "b": "revoke",
+    "type": "colloquial",
+    "note": "同根词族：-evoke 押韵"
+  },
+  {
+    "a": "abrupt",
+    "b": "erupt",
+    "type": "colloquial",
+    "note": "同根词族：-rupt 押韵"
+  },
+  {
+    "a": "interrupt",
+    "b": "corrupt",
+    "type": "colloquial",
+    "note": "同根词族：-rrupt 押韵"
+  },
+  {
+    "a": "corrupt",
+    "b": "disrupt",
+    "type": "colloquial",
+    "note": "同根词族：-rupt 押韵"
+  },
+  {
+    "a": "omniscient",
+    "b": "prescient",
+    "type": "colloquial",
+    "note": "同根词族：-scient 押韵"
+  },
+  {
+    "a": "science",
+    "b": "conscience",
+    "type": "colloquial",
+    "note": "同根词族：-science 押韵"
+  },
+  {
+    "a": "reflect",
+    "b": "deflect",
+    "type": "colloquial",
+    "note": "同根词族：-eflect 押韵"
+  },
+  {
+    "a": "terrestrial",
+    "b": "extraterrestrial",
+    "type": "colloquial",
+    "note": "同根词族：-terrestrial 押韵"
+  },
+  {
+    "a": "dehydrate",
+    "b": "carbohydrate",
+    "type": "colloquial",
+    "note": "同根词族：-hydrate 押韵"
+  },
+  {
+    "a": "thermal",
+    "b": "geothermal",
+    "type": "colloquial",
+    "note": "同根词族：-thermal 押韵"
+  },
+  {
+    "a": "pandemic",
+    "b": "endemic",
+    "type": "colloquial",
+    "note": "同根词族：-ndemic 押韵"
+  },
+  {
+    "a": "migration",
+    "b": "immigration",
+    "type": "colloquial",
+    "note": "同根词族：-migration 押韵"
+  },
+  {
+    "a": "migrate",
+    "b": "emigrate",
+    "type": "colloquial",
+    "note": "同根词族：-migrate 押韵"
+  },
+  {
+    "a": "include",
+    "b": "exclude",
+    "type": "colloquial",
+    "note": "同根词族：-clude 押韵"
+  },
+  {
+    "a": "exclude",
+    "b": "conclude",
+    "type": "colloquial",
+    "note": "同根词族：-clude 押韵"
+  },
+  {
+    "a": "conclude",
+    "b": "seclude",
+    "type": "colloquial",
+    "note": "同根词族：-clude 押韵"
+  },
+  {
+    "a": "erect",
+    "b": "direct",
+    "type": "colloquial",
+    "note": "同根词族：-rect 押韵"
+  },
+  {
+    "a": "allocate",
+    "b": "relocate",
+    "type": "colloquial",
+    "note": "同根词族：-locate 押韵"
+  },
+  {
+    "a": "relocate",
+    "b": "dislocate",
+    "type": "colloquial",
+    "note": "同根词族：-locate 押韵"
+  },
+  {
+    "a": "dominant",
+    "b": "predominant",
+    "type": "colloquial",
+    "note": "同根词族：-dominant 押韵"
+  },
+  {
+    "a": "import",
+    "b": "deport",
+    "type": "antonym",
+    "note": "反义：前缀 im- ↔ de-（同根 port）"
+  },
+  {
+    "a": "instruct",
+    "b": "destruction",
+    "type": "antonym",
+    "note": "反义：前缀 in- ↔ de-（同根 struct）"
+  },
+  {
+    "a": "destruction",
+    "b": "infrastructure",
+    "type": "antonym",
+    "note": "反义：前缀 de- ↔ in-（同根 struct）"
+  },
+  {
+    "a": "describe",
+    "b": "inscription",
+    "type": "antonym",
+    "note": "反义：前缀 de- ↔ in-（同根 script）"
+  },
+  {
+    "a": "reject",
+    "b": "project",
+    "type": "antonym",
+    "note": "反义：前缀 re- ↔ pro-（同根 ject）"
+  },
+  {
+    "a": "conduct",
+    "b": "deduce",
+    "type": "antonym",
+    "note": "反义：前缀 con- ↔ de-（同根 duc）"
+  },
+  {
+    "a": "produce",
+    "b": "deduce",
+    "type": "antonym",
+    "note": "反义：前缀 pro- ↔ de-（同根 duc）"
+  },
+  {
+    "a": "propose",
+    "b": "deposit",
+    "type": "antonym",
+    "note": "反义：前缀 pro- ↔ de-（同根 pos）"
+  },
+  {
+    "a": "impress",
+    "b": "depress",
+    "type": "antonym",
+    "note": "反义：前缀 im- ↔ de-（同根 press）"
+  },
+  {
+    "a": "provide",
+    "b": "revise",
+    "type": "antonym",
+    "note": "反义：前缀 pro- ↔ re-（同根 vis）"
+  },
+  {
+    "a": "extend",
+    "b": "intense",
+    "type": "antonym",
+    "note": "反义：前缀 ex- ↔ in-（同根 tend）"
+  },
+  {
+    "a": "promote",
+    "b": "remove",
+    "type": "antonym",
+    "note": "反义：前缀 pro- ↔ re-（同根 mot）"
+  },
+  {
+    "a": "expedite",
+    "b": "impede",
+    "type": "antonym",
+    "note": "反义：前缀 ex- ↔ im-（同根 ped）"
+  },
+  {
+    "a": "defect",
+    "b": "infect",
+    "type": "antonym",
+    "note": "反义：前缀 de- ↔ in-（同根 fact）"
+  },
+  {
+    "a": "inspire",
+    "b": "expire",
+    "type": "antonym",
+    "note": "反义：前缀 in- ↔ ex-（同根 spir）"
+  },
+  {
+    "a": "provoke",
+    "b": "revoke",
+    "type": "antonym",
+    "note": "反义：前缀 pro- ↔ re-（同根 voc）"
+  },
+  {
+    "a": "infinite",
+    "b": "define",
+    "type": "antonym",
+    "note": "反义：前缀 in- ↔ de-（同根 fin）"
+  },
+  {
+    "a": "define",
+    "b": "confine",
+    "type": "antonym",
+    "note": "反义：前缀 de- ↔ con-（同根 fin）"
+  },
+  {
+    "a": "deflect",
+    "b": "inflection",
+    "type": "antonym",
+    "note": "反义：前缀 de- ↔ in-（同根 flect）"
+  },
+  {
+    "a": "deflect",
+    "b": "inflexible",
+    "type": "antonym",
+    "note": "反义：前缀 de- ↔ in-（同根 flect）"
+  },
+  {
+    "a": "include",
+    "b": "exclusive",
+    "type": "antonym",
+    "note": "反义：前缀 in- ↔ ex-（同根 clud）"
+  },
+  {
+    "a": "autograph",
+    "b": "automobile",
+    "type": "colloquial",
+    "note": "auto- 家族"
+  },
+  {
+    "a": "antibiotic",
+    "b": "antipathy",
+    "type": "colloquial",
+    "note": "anti- 家族"
+  },
+  {
+    "a": "biography",
+    "b": "biodegradable",
+    "type": "colloquial",
+    "note": "bio- 家族"
+  },
+  {
+    "a": "biodegradable",
+    "b": "biopsy",
+    "type": "colloquial",
+    "note": "bio- 家族"
+  }
+]
