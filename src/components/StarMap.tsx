@@ -40,13 +40,16 @@ function buildGraph(roots: Root[], words: Word[], wordLinks: WordLink[]) {
     const root = roots.find((r) => r.id === w.rootId)
     const color = root?.color ?? '#88aaff'
     nodes.push({ id: w.id, kind: 'word', label: w.word, sub: w.phonetic, color, rootId: w.rootId, val: 2 })
-    // 词 → 词根（归属线，暗）
-    links.push({ source: w.rootId, target: w.id, color: hexA(color, 0.16), kind: 'member', width: 0.4, baseHex: color, baseAlpha: 0.16 } as GraphLink)
+    // 词 → 词根（归属线，幽灵般的淡）
+    links.push({ source: w.rootId, target: w.id, color: hexA(color, 0.09), kind: 'member', width: 0, baseHex: color, baseAlpha: 0.09 } as GraphLink)
   }
-  // 词 → 词（关系线，彩色）
+  // 词 → 词（关系线，彩色细线，低透明度 + 循环里做"若隐若现"呼吸）
+  let ri = 0
   for (const wl of wordLinks) {
     const c = REL[wl.type].color
-    links.push({ source: wl.a, target: wl.b, color: hexA(c, 0.72), kind: 'rel', relType: wl.type, note: wl.note, width: 1.8, baseHex: c, baseAlpha: 0.72 } as GraphLink)
+    const l = { source: wl.a, target: wl.b, color: hexA(c, 0.3), kind: 'rel', relType: wl.type, note: wl.note, width: 0, baseHex: c, baseAlpha: 0.3 } as GraphLink
+    ;(l as any).phase = ri++ * 2.399 // 黄金角错相位，闪烁不同步才像星际信号
+    links.push(l)
   }
   // 统计每个节点的连接数 → 决定星星体型（枢纽词更大）
   const deg: Record<string, number> = {}
@@ -94,6 +97,9 @@ export default function StarMap({ roots, words, wordLinks }: Props) {
     }
     return m
   }, [data])
+
+  // 关系线列表（"若隐若现"呼吸闪烁用）
+  const relLinks = useMemo(() => data.links.filter((l) => l.kind === 'rel'), [data])
 
   // 探险着色用的 refs（动画循环里读，避免闭包过期）
   const selectedRef = useRef<string | null>(null)
@@ -171,7 +177,7 @@ export default function StarMap({ roots, words, wordLinks }: Props) {
       const c = tmpCol.current.set(relHex)
       m.emissive.setRGB(c.r * k * 0.15, c.g * k * 0.15, c.b * k * 0.15)
     }
-    m.opacity = 0.18 + 0.32 * k // 最高 ~0.5，含蓄
+    m.opacity = 0.22 + 0.42 * k // 细线渲染下最高 ~0.64，清楚但仍是"光"不是"管"
     m.transparent = m.opacity < 1
     if (k > 0.5) setPhotons(l, true) // 点亮过半再把粒子放出来，呼应"依次亮起"
   }
@@ -474,6 +480,16 @@ export default function StarMap({ roots, words, wordLinks }: Props) {
         if (allDone) hi.active = false
       }
 
+      // 关系线"若隐若现"呼吸（星际信号感）：没选中词时才闪，选中时交给 dim/lit 接管。
+      // 要等材质拆分完成（uniqMats）——否则同色共材质会互相覆盖乱闪
+      if (uniqMats.current && !selectedRef.current) {
+        for (const l of relLinks as any[]) {
+          const m = (l.__lineObj || l.__linkThreeObj)?.material
+          if (!m) continue
+          m.opacity = l.baseAlpha * (0.45 + 0.55 * (0.5 + 0.5 * Math.sin(t * 0.7 + l.phase)))
+        }
+      }
+
       // 背景缓旋
       pts.rotation.y += 0.0004
       nebula.rotation.y -= 0.0002
@@ -580,8 +596,8 @@ export default function StarMap({ roots, words, wordLinks }: Props) {
   }
 
   // 稳定引用的 accessor：避免选中时 react-force-graph 推倒重建全部节点/连线几何（卡顿+变灰延迟的根因）
+  // 注意 linkWidth 不设（=0）→ 渲染成 1px THREE.Line 细光线；设了就变成实心圆柱"管道"，科幻感全无
   const nodeThreeObject = useCallback((node: any) => makeNodeObject(node), [])
-  const linkWidthFn = useCallback((l: any) => l.width, [])
   const linkParticlesFn = useCallback((l: any) => (l.kind === 'rel' ? 2 : 0), [])
   const linkColorFn = useCallback((l: any) => l.color, [])
 
@@ -606,10 +622,9 @@ export default function StarMap({ roots, words, wordLinks }: Props) {
         nodeThreeObject={nodeThreeObject}
         nodeThreeObjectExtend={false}
         linkColor={linkColorFn}
-        linkWidth={linkWidthFn}
         linkDirectionalParticles={linkParticlesFn}
-        linkDirectionalParticleWidth={2}
-        linkDirectionalParticleSpeed={0.014}
+        linkDirectionalParticleWidth={1.4}
+        linkDirectionalParticleSpeed={0.011}
         onNodeHover={(node: any) => {
           document.body.style.cursor = node ? 'pointer' : ''
         }}
