@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import type { Word } from '../types'
 import { masteryOf, useStore } from '../store/useStore'
+import ProgressTransfer from './ProgressTransfer'
 
 interface Props {
   words: Word[]
@@ -30,9 +31,10 @@ export default function Controls({ words }: Props) {
   }
 
   return (
-    <div className="controls">
+    <div className="controls progress-transfer-controls">
       <button onClick={randomWord}>🎲 随机背一个{pool.length ? ` · 剩 ${pool.length}` : ' · 全会了 🎉'}</button>
       <button onClick={toggleBloom} title="泛光后处理（低帧可关）">{bloom ? '✨ 泛光 开' : '✨ 泛光 关'}</button>
+      <ProgressTransfer words={words} />
     </div>
   )
 }

@@ -6,3 +6,6 @@ dist
 scripts/.cache
 .playwright-mcp
 tsconfig.tsbuildinfo
+.project-backups/
+.env
+.env.*

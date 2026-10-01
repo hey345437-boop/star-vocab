@@ -381,3 +381,32 @@ html, body, #root {
   color: var(--text-dim);
   pointer-events: none;
 }
+
+/* 学习进度换机：只作用于新增的备份区域。 */
+.progress-transfer-controls { display: flex; align-items: center; justify-content: center; gap: 8px; width: max-content; max-width: calc(100vw - 32px); }
+.progress-transfer-controls > button { white-space: nowrap; }
+.progress-transfer { position: relative; flex-shrink: 0; }
+.progress-transfer-panel {
+  position: absolute;
+  bottom: calc(100% + 14px);
+  right: 0;
+  width: 340px;
+  max-width: calc(100vw - 32px);
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid var(--panel-border);
+  background: rgba(14, 18, 38, 0.96);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
+}
+.progress-transfer-panel h2 { margin: 0 0 10px; font-size: 16px; }
+.progress-transfer-panel p { margin: 8px 0; font-size: 12px; line-height: 1.6; color: var(--text-dim); }
+.progress-transfer-actions { display: flex; gap: 8px; margin-top: 14px; }
+.progress-transfer-actions button { flex: 1; padding: 9px 10px; border-radius: 10px; font-size: 12px; }
+.progress-transfer-actions button:disabled { cursor: wait; opacity: 0.55; }
+.progress-transfer-panel .progress-transfer-message { margin-top: 12px; color: #a3d9ad; }
+.progress-transfer-panel .progress-transfer-error { color: #ffacba; }
+@media (max-width: 660px) {
+  .progress-transfer-controls { flex-wrap: wrap; }
+  .progress-transfer-controls > button, .progress-transfer > button { padding: 9px 12px; font-size: 12px; }
+  .progress-transfer-panel { position: fixed; bottom: calc(100% + 14px); right: 0; }
+}
