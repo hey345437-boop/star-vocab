@@ -175,7 +175,7 @@ export function readableTranscript(records) {
   return messages.join('\n\n')
 }
 
-function copyHistory(root, stage, codexHome) {
+function copyHistory(root, stage, codexHome, repository) {
   const index = []
   const seenIds = new Set()
   let redactions = 0
@@ -183,10 +183,18 @@ function copyHistory(root, stage, codexHome) {
   for (const folder of ['sessions', 'archived_sessions']) {
     for (const source of collectJsonlFiles(path.join(codexHome, folder))) {
       const meta = firstSessionMeta(source)
-      if (typeof meta?.cwd !== 'string') continue
+      let sameRepository = false
+      if (meta?.git?.repository_url) {
+        try {
+          sameRepository = parseGitHubRemote(meta.git.repository_url).fullName.toLowerCase() === repository.toLowerCase()
+        } catch { /* 缺少有效仓库地址时按项目文件夹匹配。 */ }
+      }
       let sessionRoot
-      try { sessionRoot = fs.realpathSync(meta.cwd) } catch { sessionRoot = path.resolve(meta.cwd) }
-      if (sessionRoot !== root) continue
+      if (typeof meta?.cwd === 'string') {
+        try { sessionRoot = fs.realpathSync(meta.cwd) } catch { sessionRoot = path.resolve(meta.cwd) }
+      }
+      // 换机或转交之后，旧会话开头可能仍记录旧电脑的文件位置。
+      if (!sameRepository && sessionRoot !== root) continue
       const original = fs.readFileSync(source, 'utf8')
       const initial = parseSession(original)
       const redacted = redactSecrets(original)
@@ -340,7 +348,7 @@ export function buildSnapshot(root, stage, options = {}) {
   checkGitHistory(root)
   command('git', ['bundle', 'create', path.join(stage, 'project.bundle'), '--all'], root)
   if (fs.statSync(path.join(stage, 'project.bundle')).size > MAX_FILE_BYTES) throw new Error('Git 历史备份文件过大，需另行保存。')
-  const history = copyHistory(root, stage, options.codexHome || process.env.CODEX_HOME || path.join(os.homedir(), '.codex'))
+  const history = copyHistory(root, stage, options.codexHome || process.env.CODEX_HOME || path.join(os.homedir(), '.codex'), origin.fullName)
   const progress = copyProgress(root, stage, options.progressPath)
   const attachments = copyAttachments(root, stage)
   writeFile(stage, 'README.md', privateReadme(`${origin.owner}/${origin.project}-private-backup`))
@@ -389,7 +397,12 @@ export function uploadSnapshot(root, stage, snapshot) {
   fs.cpSync(stage, latest, { recursive: true })
   fs.writeFileSync(path.join(local, 'README.md'), privateReadme(target))
   verifyBackup(latest)
-  command('git', ['add', '--all', '--', 'latest', 'README.md'], local)
+  // 项目自己的忽略规则也会随快照带过来；所有已审查的快照文件必须入库。
+  command('git', ['add', '--force', '--all', '--', 'latest', 'README.md'], local)
+  const tracked = new Set(command('git', ['ls-files', '-z', '--', 'latest'], local).split('\0'))
+  for (const entry of [...snapshot.manifest.files, { path: 'manifest.json' }]) {
+    if (!tracked.has(`latest/${entry.path}`)) throw new Error(`备份文件没有进入上传清单：${entry.path}`)
+  }
   const authorName = spawnSync('git', ['config', 'user.name'], { cwd: root, encoding: 'utf8', windowsHide: true }).stdout?.trim() || 'Project backup'
   const authorEmail = spawnSync('git', ['config', 'user.email'], { cwd: root, encoding: 'utf8', windowsHide: true }).stdout?.trim() || `${snapshot.origin.owner}@users.noreply.github.com`
   command('git', ['-c', `user.name=${authorName}`, '-c', `user.email=${authorEmail}`, 'commit', '-m', `Project backup ${snapshot.manifest.snapshotAt}`], local)
