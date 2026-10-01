@@ -1,647 +1,358 @@
-import { useCallback, useEffect, useMemo, useRef } from 'react'
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import ForceGraph3D from 'react-force-graph-3d'
 import * as THREE from 'three'
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js'
-import type { GraphLink, GraphNode, RelType, Root, Word, WordLink } from '../types'
+import type { Root, Word, WordLink } from '../types'
 import { useStore } from '../store/useStore'
 import { makeNodeObject, setNodeState, glowTexture } from '../lib/threeNode'
-import { hexA } from '../lib/render'
-import { REL } from '../lib/rel'
+import { buildSceneGraph, endpointKey, nodeKey, randomFor, type SceneLink, type SceneNode } from '../lib/sceneGraph'
 
-interface Props {
-  roots: Root[]
-  words: Word[]
-  wordLinks: WordLink[]
-}
+interface Props { roots: Root[]; words: Word[]; wordLinks: WordLink[]; onUnavailable?: () => void }
+type RenderNode = SceneNode & { __threeObj?: THREE.Object3D }
+type RenderLink = SceneLink & { __lineObj?: THREE.Line; __photonsObj?: THREE.Group }
+interface Runtime { layoutReady: () => void; hover: (node: RenderNode | null) => void }
 
-// 由 id 派生确定性随机（轨道平面用，保证每次聚焦同一颗星轨道一致）
-function hashId(id: string): number {
-  let h = 0
-  for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0
-  return h
-}
-function rand01(id: string): number {
-  return (hashId(id) % 10000) / 10000
-}
-function seedVec(id: string): THREE.Vector3 {
-  const a = rand01(id) * Math.PI * 2
-  const b = rand01(id + 'y') * Math.PI * 2
-  return new THREE.Vector3(Math.cos(a) * Math.sin(b), Math.sin(a) * Math.sin(b), Math.cos(b))
-}
+// Stable accessors avoid rebuilding hundreds of objects on a UI update.
+const nodeObject = (node: RenderNode) => makeNodeObject(node)
+const linkColor = (link: SceneLink) => link.color
+const linkMaterial = (link: SceneLink) => new THREE.LineBasicMaterial({
+  color: link.baseHex, transparent: true, opacity: link.baseAlpha, depthWrite: false,
+})
 
-function buildGraph(roots: Root[], words: Word[], wordLinks: WordLink[]) {
-  const nodes: GraphNode[] = []
-  const links: GraphLink[] = []
-
-  for (const r of roots) {
-    nodes.push({ id: r.id, kind: 'root', label: r.root, sub: r.meaning_zh, color: r.color, rootId: r.id, val: 8 })
-  }
-  for (const w of words) {
-    const root = roots.find((r) => r.id === w.rootId)
-    const color = root?.color ?? '#88aaff'
-    nodes.push({ id: w.id, kind: 'word', label: w.word, sub: w.phonetic, color, rootId: w.rootId, val: 2 })
-    // 词 → 词根（归属线，幽灵般的淡）
-    links.push({ source: w.rootId, target: w.id, color: hexA(color, 0.09), kind: 'member', width: 0, baseHex: color, baseAlpha: 0.09 } as GraphLink)
-  }
-  // 词 → 词（关系线，彩色细线，低透明度 + 循环里做"若隐若现"呼吸）
-  let ri = 0
-  for (const wl of wordLinks) {
-    const c = REL[wl.type].color
-    const l = { source: wl.a, target: wl.b, color: hexA(c, 0.3), kind: 'rel', relType: wl.type, note: wl.note, width: 0, baseHex: c, baseAlpha: 0.3 } as GraphLink
-    ;(l as any).phase = ri++ * 2.399 // 黄金角错相位，闪烁不同步才像星际信号
-    links.push(l)
-  }
-  // 统计每个节点的连接数 → 决定星星体型（枢纽词更大）
-  const deg: Record<string, number> = {}
-  for (const l of links) {
-    deg[l.source as unknown as string] = (deg[l.source as unknown as string] || 0) + 1
-    deg[l.target as unknown as string] = (deg[l.target as unknown as string] || 0) + 1
-  }
-  for (const n of nodes) (n as any).deg = deg[n.id] || 0
-  return { nodes, links }
-}
-
-// 取一条连线两端的 id（graphData 处理前是 id 字符串，处理后会被替换成节点对象）
-function endId(v: any): string {
-  return typeof v === 'object' && v ? v.id : v
-}
-
-export default function StarMap({ roots, words, wordLinks }: Props) {
-  const fgRef = useRef<any>(null)
-  const data = useMemo(() => buildGraph(roots, words, wordLinks), [roots, words, wordLinks])
-
-  const progress = useStore((s) => s.progress)
-  const selectedWordId = useStore((s) => s.selectedWordId)
-  const focusRootId = useStore((s) => s.focusRootId)
-  const bloomOn = useStore((s) => s.bloom)
-  const selectWord = useStore((s) => s.selectWord)
-  const focusRoot = useStore((s) => s.focusRoot)
-
-  // 已掌握集合
-  const masteredSet = useMemo(() => {
-    const s = new Set<string>()
-    for (const id in progress) if (progress[id]?.status === 'mastered') s.add(id)
-    return s
-  }, [progress])
-
-  // 每个词 → 与它直接相连的关系线（溯源点亮用），key 用 id，稳定
-  const relIncidence = useMemo(() => {
-    const m = new Map<string, GraphLink[]>()
-    for (const l of data.links) {
-      if (l.kind !== 'rel') continue
-      for (const id of [endId(l.source), endId(l.target)]) {
-        const arr = m.get(id) ?? []
-        arr.push(l)
-        m.set(id, arr)
-      }
-    }
-    return m
-  }, [data])
-
-  // 关系线列表（"若隐若现"呼吸闪烁用）
-  const relLinks = useMemo(() => data.links.filter((l) => l.kind === 'rel'), [data])
-
-  // 探险着色用的 refs（动画循环里读，避免闭包过期）
-  const selectedRef = useRef<string | null>(null)
-  const focusRef = useRef<string | null>(null)
-  const masteredRef = useRef<Set<string>>(masteredSet)
-  const neighborRef = useRef<Set<string>>(new Set())
-  const exploreRef = useRef(false)
-  const distRef = useRef(9999)
-  const arrivedRef = useRef(false) // 镜头是否已飞拢到选中星
-  const didFit = useRef(false)
-  const tmpVec = useRef(new THREE.Vector3())
-  const NEAR = 280 // 镜头到选中星 < 此值 = 算"已飞拢"
-  const FAR = 380 // 飞拢后又拉远超过此值 = 视为缩小回概览（全部上色）
-
-  // 公转 / 自转 / 后处理用的 refs
-  const orbitRef = useRef<{ root: string; Rp: THREE.Vector3; items: { n: any; u: THREE.Vector3; v: THREE.Vector3; radius: number; theta: number; omega: number }[] } | null>(null)
-  const bloomRef = useRef<UnrealBloomPass | null>(null)
-  const linkHiRef = useRef<{ active: boolean; start: number; items: { l: GraphLink; relHex: string; delay: number }[] } | null>(null)
-  const draggingRef = useRef(false)
-  const idleSinceRef = useRef(0)
-  const centerRef = useRef(new THREE.Vector3())
-  const pulseArr = useRef<any[]>([])
-  const spinArr = useRef<any[]>([])
-  const cachedAnim = useRef(false)
-  const listenersOn = useRef(false)
-  const uniqMats = useRef(false)
-  const lookTargetRef = useRef<THREE.Vector3 | null>(null) // 选中/聚焦时相机要持续注视的点（TrackballControls 下 cameraPosition 的 lookAt 不可靠，自己每帧 lerp）
-  const tmpCol = useRef(new THREE.Color())
-
-  // 给每颗星套用当前的探险着色状态
-  function applyColors() {
-    const explore = exploreRef.current
-    const nb = neighborRef.current
-    for (const n of data.nodes as any[]) {
-      const g = n.__threeObj
-      if (!g) continue
-      setNodeState(g, { explore, mastered: masteredRef.current.has(n.id), selected: n.kind === 'word' && n.id === selectedRef.current, neighbor: nb.has(n.id) })
-    }
-  }
-
-  // ---- 关系线材质操作（直接改 three-forcegraph 的 __lineObj.material，不触发重建）----
-  // 注意：连线渲染对象挂在 __lineObj（节点才是 __threeObj），粒子挂在 __photonsObj
-  function linkMat(l: GraphLink): any {
-    return ((l as any).__lineObj || (l as any).__linkThreeObj)?.material
-  }
-  function setPhotons(l: GraphLink, on: boolean) {
-    const p = (l as any).__photonsObj
-    if (p) p.visible = on
-  }
-  function restoreLink(l: GraphLink) {
-    const m = linkMat(l)
-    if (m) {
-      m.color.set((l as any).baseHex)
-      if (m.emissive) m.emissive.setRGB(0, 0, 0)
-      m.opacity = (l as any).baseAlpha
-      m.transparent = (l as any).baseAlpha < 1
-    }
-    setPhotons(l, true)
-  }
-  function dimLink(l: GraphLink) {
-    const m = linkMat(l)
-    if (m) {
-      if (m.emissive) m.emissive.setRGB(0, 0, 0)
-      m.opacity = (l as any).baseAlpha * 0.12
-      m.transparent = true
-    }
-    setPhotons(l, false) // 非链路收掉粒子，画面更干净
-  }
-  function litLink(l: GraphLink, relHex: string, k: number) {
-    const m = linkMat(l)
-    if (!m) return
-    m.color.set(relHex)
-    // emissive 是被 Bloom 放大成"发光粗带"的元凶，压到很低 → 线看得见但不抢戏
-    if (m.emissive) {
-      const c = tmpCol.current.set(relHex)
-      m.emissive.setRGB(c.r * k * 0.15, c.g * k * 0.15, c.b * k * 0.15)
-    }
-    m.opacity = 0.22 + 0.42 * k // 细线渲染下最高 ~0.64，清楚但仍是"光"不是"管"
-    m.transparent = m.opacity < 1
-    if (k > 0.5) setPhotons(l, true) // 点亮过半再把粒子放出来，呼应"依次亮起"
-  }
-
-  // 选中一个词 → 锁灰全场、点亮它的关系链（并安排"依次亮起"的涟漪）
-  function setupChain(sel: string, t: number) {
-    const incident = relIncidence.get(sel) ?? []
-    const nb = new Set<string>()
-    for (const l of incident) {
-      const a = endId((l as any).source)
-      const b = endId((l as any).target)
-      nb.add(a === sel ? b : a)
-    }
-    neighborRef.current = nb
-    for (const l of data.links) dimLink(l)
-    const items = incident.map((l, i) => ({ l, relHex: REL[(l as any).relType as RelType].color, delay: i * 0.09 }))
-    linkHiRef.current = { active: true, start: t, items }
-  }
-  function clearChain() {
-    neighborRef.current = new Set()
-    linkHiRef.current = null
-    for (const l of data.links) restoreLink(l)
-  }
-
-  // ---- 聚焦词根 → 该系词星绕根星缓慢公转 ----
-  function startOrbit(rootId: string) {
-    const fg = fgRef.current
-    const R: any = data.nodes.find((n) => n.id === rootId)
-    if (!fg || !R || R.x == null) return
-    flyTo(rootId, 175, 'root')
-    const Rp = new THREE.Vector3(R.x, R.y, R.z)
-    const items: NonNullable<typeof orbitRef.current>['items'] = []
-    for (const n of data.nodes as any[]) {
-      if (n.kind !== 'word' || n.rootId !== rootId || n.x == null) continue
-      const off = new THREE.Vector3(n.x - R.x, n.y - R.y, n.z - R.z)
-      let radius = off.length()
-      if (radius < 14) {
-        radius = 14
-        off.set(1, 0, 0).multiplyScalar(14)
-      }
-      const u = off.clone().normalize() // θ=0 时落在原位 → 起步无跳变
-      // 由 id 派生一个稳定的、与 u 垂直的方向，构成 3D 倾斜轨道平面
-      const s = seedVec(n.id)
-      const nrm = s.clone().sub(u.clone().multiplyScalar(s.dot(u)))
-      if (nrm.lengthSq() < 1e-4) nrm.set(0, 1, 0)
-      nrm.normalize()
-      const v = new THREE.Vector3().crossVectors(nrm, u).normalize()
-      const omega = (Math.PI * 2) / 22 * (0.85 + rand01(n.id + 'w') * 0.3) // ~22 秒一圈，慢而稳，轻微差速
-      items.push({ n, u, v, radius, theta: 0, omega })
-    }
-    // 把全场都钉住 → 重新加热引擎时其余星星纹丝不动，只有我们逐帧改写的词星在动
-    for (const n of data.nodes as any[]) {
-      n.fx = n.x
-      n.fy = n.y
-      n.fz = n.z
-    }
-    orbitRef.current = { root: rootId, Rp, items }
-    // cooldownTime/Ticks 由 props 绑定 focusRootId 控制（聚焦期=Infinity，引擎持续 tick，连线才跟着词星走）；
-    // 这里只负责重新加热让它从冷却态恢复转动
-    fg.d3ReheatSimulation()
-  }
-  function stopOrbit() {
-    orbitRef.current = null // props 随 focusRootId 归位 → 引擎按 5000ms 自然冷却停转（节点保持钉住，布局不乱）
-  }
-
-  // 重新判定是否处于聚焦态：选中了词，且（还在飞入途中 或 镜头仍近）
-  function recomputeExplore() {
-    const sel = selectedRef.current
-    const explore = sel != null && (!arrivedRef.current || distRef.current <= FAR)
-    if (explore !== exploreRef.current) {
-      exploreRef.current = explore
-      return true
-    }
-    return false
-  }
-
-  // 掌握度变化 → 更新已掌握集合 + 重新着色（点亮）
-  useEffect(() => {
-    masteredRef.current = masteredSet
-    applyColors()
-  }, [masteredSet])
-
-  // 力学：松散张开
-  useEffect(() => {
-    const fg = fgRef.current
-    if (!fg) return
-    fg.d3Force('charge')?.strength(-180)
-    fg.d3Force('link')?.distance((l: any) => (l.kind === 'member' ? 22 : 120))
-    fg.d3Force('link')?.strength((l: any) => (l.kind === 'member' ? 0.9 : 0.05))
+function StarMap({ roots, words, wordLinks, onUnavailable }: Props) {
+  const graphRef = useRef<any>(null)
+  const runtimeRef = useRef<Runtime | null>(null)
+  const pendingReady = useRef<object | null>(null)
+  const unavailableRef = useRef(onUnavailable)
+  unavailableRef.current = onUnavailable
+  const graph = useMemo(() => buildSceneGraph(roots, words, wordLinks), [roots, words, wordLinks])
+  const [size, setSize] = useState(() => ({ width: window.innerWidth, height: window.innerHeight }))
+  const onEngineStop = useCallback(() => {
+    pendingReady.current = graph
+    runtimeRef.current?.layoutReady()
+  }, [graph])
+  const onHover = useCallback((node: RenderNode | null) => runtimeRef.current?.hover(node), [])
+  const onNodeClick = useCallback((node: RenderNode) => {
+    const store = useStore.getState()
+    if (node.kind === 'root') store.focusRoot(node.rawId)
+    else store.selectWord(node.rawId)
+  }, [])
+  const onBackgroundClick = useCallback(() => {
+    const store = useStore.getState()
+    store.selectWord(null)
+    store.focusRoot(null)
   }, [])
 
-  // 真·泛光：往后处理 composer 里塞 UnrealBloomPass（+ OutputPass 修正 sRGB）
   useEffect(() => {
-    let cancelled = false
-    let cleanup = () => {}
-    const setup = () => {
-      if (cancelled) return
-      const fg = fgRef.current
-      const composer = fg?.postProcessingComposer?.()
-      if (!composer) {
-        requestAnimationFrame(setup)
-        return
+    const fg = graphRef.current
+    if (!fg) return
+    const scene: THREE.Scene = fg.scene()
+    const controls = fg.controls()
+    const renderer: THREE.WebGLRenderer = fg.renderer()
+    const composer = fg.postProcessingComposer()
+    const camera: THREE.Camera = fg.camera()
+    let disposed = false
+    let ready = false
+    let hovered: RenderNode | null = null
+    let selected: string | null = null
+    let focused: string | null = null
+    let neighbors = new Set<string>()
+    let dragging = false
+    let idleSince = performance.now()
+    let navigationPending = true
+    let bloom: UnrealBloomPass | null = null
+    let clock = 0
+    let chainStart = 0
+    let chain: RenderLink[] = []
+    let lastPulse = 0
+    let lastBreathing = 0
+    const center = new THREE.Vector3()
+    const temporary = new THREE.Vector3()
+    let lookTarget: THREE.Vector3 | null = null
+    const pulses: THREE.Object3D[] = []
+    const spins: THREE.Object3D[] = []
+    let orbit: { center: THREE.Vector3; items: { node: RenderNode; u: THREE.Vector3; v: THREE.Vector3; radius: number; theta: number; speed: number }[]; edges: RenderLink[] } | null = null
+
+    function applyNode(node: RenderNode) {
+      if (!node.__threeObj) return
+      setNodeState(node.__threeObj, {
+        explore: selected !== null,
+        mastered: node.kind === 'word' && useStore.getState().progress[node.rawId]?.status === 'mastered',
+        mastery: useStore.getState().progress[node.rawId]?.status ?? 'new',
+        selected: node.id === selected,
+        neighbor: neighbors.has(node.id), hovered: hovered?.id === node.id || (node.kind === 'word' && node.rootId === focused),
+      })
+    }
+    function applyNodes() { graph.nodes.forEach((node) => applyNode(node as RenderNode)) }
+    function resetLinks() {
+      for (const link of graph.links as RenderLink[]) {
+        const material = link.__lineObj?.material as THREE.LineBasicMaterial | undefined
+        if (!material) continue
+        material.color.set(link.baseHex)
+        material.opacity = selected ? link.baseAlpha * 0.12 : link.baseAlpha
       }
-      const res = new THREE.Vector2(window.innerWidth, window.innerHeight)
-      // strength / radius / threshold —— 柔强度(0.4)+宽半径(0.72)+中阈值(0.4)：
-      // 宽半径给"朦胧软光雾"的梦幻veil，但强度压低、阈值抬高 → 飞近亮星时不会糊成一团；背景仍近黑不抬灰
-      // 想更朦胧/更收敛只需调这三个数：strength 越大越亮、radius 越大越糊、threshold 越低参与发光的东西越多
-      const bloom = new UnrealBloomPass(res, 0.4, 0.72, 0.4)
+    }
+    function flyTo(node: RenderNode, distance: number) {
+      const target = temporary.set(node.x, node.y, node.z)
+      const direction = camera.position.clone().sub(target)
+      if (direction.lengthSq() < 0.01) direction.set(0, 0, 1)
+      direction.normalize().multiplyScalar(distance).add(target)
+      fg.cameraPosition({ x: direction.x, y: direction.y, z: direction.z }, { x: node.x, y: node.y, z: node.z }, 700)
+      lookTarget = target.clone()
+    }
+    function startOrbit(rootId: string) {
+      const root = graph.nodeByKey.get(nodeKey('root', rootId))
+      if (!root) return
+      const orbitCenter = new THREE.Vector3(root.x, root.y, root.z)
+      const items = (graph.wordNodesByRoot.get(rootId) ?? []).map((node) => {
+        const offset = new THREE.Vector3(node.x, node.y, node.z).sub(orbitCenter)
+        if (offset.lengthSq() < 196) offset.set(14, 0, 0)
+        const radius = offset.length()
+        const u = offset.normalize()
+        const seed = new THREE.Vector3(Math.cos(randomFor(node.id) * Math.PI * 2), 0.7, Math.sin(randomFor(`${node.id}:y`) * Math.PI * 2))
+        let v = seed.addScaledVector(u, -seed.dot(u))
+        if (v.lengthSq() < 0.0001) v = new THREE.Vector3(0, 1, 0).cross(u)
+        v.normalize()
+        return { node: node as RenderNode, u, v, radius, theta: 0, speed: Math.PI * 2 / 22 * (0.85 + randomFor(`${node.id}:speed`) * 0.3) }
+      })
+      const edges = (graph.orbitEdgesByRoot.get(rootId) ?? []) as RenderLink[]
+      for (const edge of edges) if (edge.__lineObj) edge.__lineObj.frustumCulled = false
+      orbit = { center: orbitCenter, items, edges }
+      flyTo(root as RenderNode, 165)
+    }
+    function navigate() {
+      if (!ready) { navigationPending = true; return }
+      navigationPending = false
+      const state = useStore.getState()
+      selected = state.selectedWordId ? nodeKey('word', state.selectedWordId) : null
+      focused = selected ? null : state.focusRootId
+      orbit = null
+      chain = selected ? (graph.incidentRelations.get(selected) ?? []) as RenderLink[] : []
+      neighbors = new Set(chain.flatMap((edge) => [endpointKey(edge.source), endpointKey(edge.target)]).filter((key) => key !== selected))
+      chainStart = clock
+      resetLinks()
+      applyNodes()
+      idleSince = performance.now()
+      if (selected) {
+        const node = graph.nodeByKey.get(selected)
+        if (node) flyTo(node as RenderNode, 130)
+      } else if (focused) startOrbit(focused)
+      else {
+        lookTarget = null
+        // Repeated overview clicks must also restore the camera.
+        fg.zoomToFit(700, Math.min(window.innerWidth, window.innerHeight) < 600 ? 65 : 110)
+      }
+    }
+    function layoutReady() {
+      if (disposed || ready) return
+      ready = true
+      for (const node of graph.nodes as RenderNode[]) {
+        node.fx = node.x; node.fy = node.y; node.fz = node.z
+        center.add(temporary.set(node.x, node.y, node.z))
+        node.__threeObj?.traverse((object) => {
+          if (object.userData.pulse) pulses.push(object)
+          if (object.userData.spin) spins.push(object)
+        })
+      }
+      center.divideScalar(Math.max(1, graph.nodes.length))
+      // Relations are visual guides, not click targets; a crossing line must not swallow a star click.
+      for (const link of graph.links as RenderLink[]) if (link.__lineObj) link.__lineObj.raycast = () => {}
+      if (navigationPending) navigate()
+    }
+
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.25)
+    renderer.setPixelRatio(dpr)
+    composer?.setPixelRatio(dpr)
+    if (composer) {
+      bloom = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 0.32, 0.65, 0.45)
       bloom.enabled = useStore.getState().bloom
-      // 不加 OutputPass：3d-force-graph 自己管 renderer 的输出色彩空间，
-      // 再叠一个 OutputPass 会把近黑背景抬成灰雾
       composer.addPass(bloom)
-      bloomRef.current = bloom
-      const onResize = () => bloom.setSize(window.innerWidth, window.innerHeight)
-      window.addEventListener('resize', onResize)
-      cleanup = () => window.removeEventListener('resize', onResize)
     }
-    setup()
-    return () => {
-      cancelled = true
-      cleanup()
+    const onResize = () => {
+      const width = window.innerWidth
+      const height = window.innerHeight
+      setSize({ width, height })
+      composer?.setSize(width, height)
+      bloom?.setSize(width * dpr, height * dpr)
     }
-  }, [])
-
-  // 泛光开关
-  useEffect(() => {
-    if (bloomRef.current) bloomRef.current.enabled = bloomOn
-  }, [bloomOn])
-
-  // 场景里铺一层 3D 星海（真景深）+ 主动画循环（自转/公转/溯源/脉动/流星，全在这一个 rAF 里）
-  useEffect(() => {
-    const fg = fgRef.current
-    if (!fg) return
-    const scene = fg.scene()
-    const N = 1600
-    const pos = new Float32Array(N * 3)
-    for (let i = 0; i < N; i++) {
-      const r = 700 + Math.random() * 1000
-      const th = Math.random() * Math.PI * 2
-      const ph = Math.acos(2 * Math.random() - 1)
-      pos[i * 3] = r * Math.sin(ph) * Math.cos(th)
-      pos[i * 3 + 1] = r * Math.sin(ph) * Math.sin(th)
-      pos[i * 3 + 2] = r * Math.cos(ph)
+    const onContextLost = (event: Event) => {
+      event.preventDefault()
+      unavailableRef.current?.()
     }
-    const geo = new THREE.BufferGeometry()
-    geo.setAttribute('position', new THREE.BufferAttribute(pos, 3))
-    const mat = new THREE.PointsMaterial({ size: 2.2, color: '#aab8ff', transparent: true, opacity: 0.75, sizeAttenuation: true })
-    const pts = new THREE.Points(geo, mat)
-    pts.name = 'bg-stars'
-    scene.add(pts)
+    renderer.domElement.addEventListener('webglcontextlost', onContextLost)
+    window.addEventListener('resize', onResize)
+    const onStart = () => { dragging = true; lookTarget = null }
+    const onEnd = () => { dragging = false; idleSince = performance.now() }
+    controls?.addEventListener('start', onStart)
+    controls?.addEventListener('end', onEnd)
 
-    // 彩色星云（少而大、分散、更饱和 → 更"赛博"不发灰）
-    const nebulaColors = ['#7AA2FF', '#BB9AF7', '#2AC3DE', '#F7768E', '#FFB86C']
-    const nebula = new THREE.Group()
-    nebula.name = 'nebula'
-    for (let i = 0; i < 5; i++) {
-      const col = nebulaColors[i % nebulaColors.length]
-      const sp = new THREE.Sprite(
-        new THREE.SpriteMaterial({ map: glowTexture(col), blending: THREE.AdditiveBlending, depthWrite: false, transparent: true, opacity: 0.16 }),
-      )
-      const size = 320 + Math.random() * 360
-      sp.scale.set(size, size, 1)
-      const ang = (i / 5) * Math.PI * 2 + Math.random()
-      sp.position.set(Math.cos(ang) * (260 + Math.random() * 220), Math.sin(ang) * (200 + Math.random() * 160), -260 - Math.random() * 380)
-      nebula.add(sp)
+    // A single subscription sends changes into this runtime; the frame loop never polls store navigation.
+    const unsubscribe = useStore.subscribe((state, previous) => {
+      if (state.selectedWordId !== previous.selectedWordId || state.focusRootId !== previous.focusRootId || state.navigationNonce !== previous.navigationNonce) navigate()
+      if (state.bloom !== previous.bloom && bloom) bloom.enabled = state.bloom
+      if (state.progress !== previous.progress) {
+        const changed = new Set([...Object.keys(state.progress), ...Object.keys(previous.progress)])
+        for (const wordId of changed) {
+          if (state.progress[wordId]?.status === previous.progress[wordId]?.status) continue
+          const node = graph.nodeByKey.get(nodeKey('word', wordId))
+          if (node) applyNode(node as RenderNode)
+        }
+      }
+    })
+    runtimeRef.current = {
+      layoutReady,
+      hover(node) {
+        const previous = hovered
+        hovered = node
+        if (previous) applyNode(previous)
+        if (node) applyNode(node)
+      },
     }
-    scene.add(nebula)
 
-    // 流星系统（偶发划过）
-    const whiteTex = glowTexture('#ffffff')
-    const meteors: THREE.Sprite[] = []
-    function spawnMeteor() {
-      const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: whiteTex, blending: THREE.AdditiveBlending, depthWrite: false, transparent: true, opacity: 0.95 }))
-      sp.position.set((Math.random() - 0.3) * 500, 140 + Math.random() * 160, (Math.random() - 0.5) * 160)
-      const vx = -150 - Math.random() * 160
-      const vy = -110 - Math.random() * 90
-      sp.material.rotation = Math.atan2(vy, vx)
-      sp.scale.set(46, 3.2, 1)
-      sp.userData.meteor = { vel: new THREE.Vector3(vx, vy, 0), life: 0, max: 1.5 }
-      scene.add(sp)
-      meteors.push(sp)
+    const background = new THREE.Group()
+    background.name = 'star-vocab-background'
+    const positions = new Float32Array(900 * 3)
+    for (let i = 0; i < 900; i++) {
+      const radius = 800 + randomFor(`bg:${i}`) * 900
+      const angle = randomFor(`bg-angle:${i}`) * Math.PI * 2
+      const y = randomFor(`bg-y:${i}`) * 2 - 1
+      const side = Math.sqrt(1 - y * y)
+      positions.set([radius * side * Math.cos(angle), radius * y, radius * side * Math.sin(angle)], i * 3)
     }
-    let meteorTimer = 1.5 + Math.random() * 2.5
+    const geometry = new THREE.BufferGeometry()
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
+    const backgroundMaterial = new THREE.PointsMaterial({ size: 2, color: '#aab8ff', transparent: true, opacity: 0.6, depthWrite: false })
+    background.add(new THREE.Points(geometry, backgroundMaterial))
+    const nebulaTextures: THREE.Texture[] = []
+    for (const [index, color] of ['#7AA2FF', '#BB9AF7', '#2AC3DE'].entries()) {
+      const texture = glowTexture(color)
+      nebulaTextures.push(texture)
+      const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: texture, blending: THREE.AdditiveBlending, depthWrite: false, transparent: true, opacity: 0.1 }))
+      sprite.scale.set(420, 420, 1)
+      sprite.position.set(Math.cos(index * 2.1) * 470, Math.sin(index * 2.1) * 310, -420)
+      background.add(sprite)
+    }
+    scene.add(background)
+    background.traverse((object) => { object.raycast = () => {} })
 
-    let raf = 0
-    let t = 0
+    let frame = 0
     let last = performance.now()
-    const loop = () => {
+    function updateOrbit() {
+      if (!orbit) return
+      for (const item of orbit.items) {
+        const c = Math.cos(item.theta)
+        const s = Math.sin(item.theta)
+        item.node.x = item.node.fx = orbit.center.x + item.radius * (c * item.u.x + s * item.v.x)
+        item.node.y = item.node.fy = orbit.center.y + item.radius * (c * item.u.y + s * item.v.y)
+        item.node.z = item.node.fz = orbit.center.z + item.radius * (c * item.u.z + s * item.v.z)
+        item.node.__threeObj?.position.set(item.node.x, item.node.y, item.node.z)
+      }
+      for (const edge of orbit.edges) {
+        const source = graph.nodeByKey.get(endpointKey(edge.source))!
+        const target = graph.nodeByKey.get(endpointKey(edge.target))!
+        const attribute = edge.__lineObj?.geometry.getAttribute('position')
+        if (!attribute) continue
+        attribute.setXYZ(0, source.x, source.y, source.z)
+        attribute.setXYZ(1, target.x, target.y, target.z)
+        attribute.needsUpdate = true
+      }
+    }
+    function animate() {
+      if (disposed) return
       const now = performance.now()
       const dt = Math.min(0.05, (now - last) / 1000)
       last = now
-      t += dt
-
-      const store = useStore.getState()
-      const curSel = store.selectedWordId
-      const curFocus = store.focusRootId
-
-      // 选中态变化（直接读 store，不等 React 渲染时机）→ 即时锁灰 + 飞入 + 溯源点亮
-      if (curSel !== selectedRef.current) {
-        selectedRef.current = curSel
-        arrivedRef.current = false
-        exploreRef.current = curSel != null
-        if (curSel) {
-          setupChain(curSel, t)
-          flyTo(curSel, 185, 'word') // 别贴太近，否则泛光下点亮的关系线会糊满整屏
-        } else {
-          clearChain()
+      if (!document.hidden) {
+        clock += dt
+        if (orbit) {
+          for (const item of orbit.items) item.theta += item.speed * dt
+          updateOrbit()
         }
-        applyColors()
-      }
-      // 聚焦词根变化 → 起/停公转
-      if (curFocus !== focusRef.current) {
-        if (curFocus) startOrbit(curFocus)
-        else stopOrbit()
-        focusRef.current = curFocus
-      }
-      // 既没选词也没聚焦 → 放掉注视点，让闲置自转重新对准星系中心
-      if (curSel == null && curFocus == null) lookTargetRef.current = null
-
-      // 跟踪"镜头到选中星"的距离 → 概览/聚焦切换时重新着色
-      const cam = fg.camera?.()
-      if (cam) {
-        const sel = selectedRef.current
-        if (sel) {
-          const n: any = data.nodes.find((nn) => nn.id === sel)
-          distRef.current = n && n.x != null ? cam.position.distanceTo(tmpVec.current.set(n.x, n.y, n.z)) : 9999
-          if (distRef.current < NEAR) arrivedRef.current = true
-        } else {
-          distRef.current = 9999
-        }
-        if (recomputeExplore()) applyColors()
-      }
-
-      // ① 星河缓慢自转：闲置（没选词/没聚焦/没拖拽）超过 1.2s 才开始转，操作时立刻停。
-      // 手动绕星系中心转相机（默认 controls 是 TrackballControls，没有 autoRotate，所以不能靠它）
-      const controls = fg.controls?.()
-      if (controls && cam) {
-        if (!listenersOn.current) {
-          controls.addEventListener('start', () => {
-            draggingRef.current = true
-          })
-          controls.addEventListener('end', () => {
-            draggingRef.current = false
-            idleSinceRef.current = 0
-          })
-          listenersOn.current = true
-        }
-        const interacting = curSel != null || curFocus != null || draggingRef.current
-        if (interacting) {
-          idleSinceRef.current = 0
-          // 选中/聚焦时：每帧把注视点拉向目标星（飞入时同步对准，停下后保持居中）
-          if (lookTargetRef.current && controls.target && !draggingRef.current) {
-            controls.target.lerp(lookTargetRef.current, 0.18)
-          }
-        } else {
-          if (idleSinceRef.current === 0) idleSinceRef.current = now
-          if (now - idleSinceRef.current > 1200) {
-            const c = centerRef.current
-            const dx = cam.position.x - c.x
-            const dz = cam.position.z - c.z
-            const a = 0.06 * dt // ~0.06 rad/s，约 100 秒一圈，电影级缓慢环绕
-            const cs = Math.cos(a)
-            const sn = Math.sin(a)
-            cam.position.x = c.x + dx * cs - dz * sn
-            cam.position.z = c.z + dx * sn + dz * cs
-            if (controls.target) controls.target.lerp(c, 0.02) // 旋转中心轻柔拉回星系质心；controls.update() 会据此 lookAt
+        if (controls?.target && !dragging) {
+          if (lookTarget) controls.target.lerp(lookTarget, Math.min(1, dt * 12))
+          else if (!selected && !focused && ready && now - idleSince > 1800) {
+            const dx = camera.position.x - center.x
+            const dz = camera.position.z - center.z
+            const angle = dt * 0.035
+            camera.position.x = center.x + dx * Math.cos(angle) - dz * Math.sin(angle)
+            camera.position.z = center.z + dx * Math.sin(angle) + dz * Math.cos(angle)
+            controls.target.lerp(center, Math.min(1, dt))
           }
         }
-      }
-
-      // ② 聚焦时局部公转
-      const orbit = orbitRef.current
-      if (orbit) {
-        for (const it of orbit.items) {
-          it.theta += it.omega * dt
-          const c = Math.cos(it.theta)
-          const s = Math.sin(it.theta)
-          const x = orbit.Rp.x + it.radius * (c * it.u.x + s * it.v.x)
-          const y = orbit.Rp.y + it.radius * (c * it.u.y + s * it.v.y)
-          const z = orbit.Rp.z + it.radius * (c * it.u.z + s * it.v.z)
-          it.n.fx = x
-          it.n.fy = y
-          it.n.fz = z
-          it.n.x = x
-          it.n.y = y
-          it.n.z = z
+        if (clock - lastPulse >= 1 / 30) {
+          const effectDt = clock - lastPulse
+          lastPulse = clock
+          for (const object of pulses) {
+            const pulse = object.userData.pulse
+            const scale = pulse.base * (1 + pulse.amp * Math.sin(clock * 1.8 + pulse.phase))
+            object.scale.set(scale, scale, 1)
+          }
+          for (const object of spins) {
+            const speed = object.userData.spin * 60 * effectDt
+            object.rotation.y += speed
+            object.rotation.x += speed * 0.45
+          }
+          background.rotation.y += effectDt * 0.006
+        }
+        if (clock - lastBreathing >= 1 / 12) {
+          lastBreathing = clock
+          if (selected) {
+            for (const [index, edge] of chain.entries()) {
+              const material = edge.__lineObj?.material as THREE.LineBasicMaterial | undefined
+              if (!material) continue
+              const fraction = THREE.MathUtils.clamp((clock - chainStart - index * 0.07) / 0.4, 0, 1)
+              material.opacity = 0.22 + 0.48 * fraction
+            }
+          }
+          // Ordinary relations stay quiet: no hundreds of permanent photons or opacity writes.
         }
       }
-
-      // ④ 关系链"依次亮起"涟漪
-      const hi = linkHiRef.current
-      if (hi && hi.active) {
-        let allDone = true
-        for (const it of hi.items) {
-          let k = (t - hi.start - it.delay) / 0.5
-          k = k < 0 ? 0 : k > 1 ? 1 : k
-          if (k < 1) allDone = false
-          litLink(it.l, it.relHex, 1 - (1 - k) * (1 - k))
-        }
-        if (allDone) hi.active = false
-      }
-
-      // 关系线"若隐若现"呼吸（星际信号感）：没选中词时才闪，选中时交给 dim/lit 接管。
-      // 要等材质拆分完成（uniqMats）——否则同色共材质会互相覆盖乱闪
-      if (uniqMats.current && !selectedRef.current) {
-        for (const l of relLinks as any[]) {
-          const m = (l.__lineObj || l.__linkThreeObj)?.material
-          if (!m) continue
-          m.opacity = l.baseAlpha * (0.45 + 0.55 * (0.5 + 0.5 * Math.sin(t * 0.7 + l.phase)))
-        }
-      }
-
-      // 背景缓旋
-      pts.rotation.y += 0.0004
-      nebula.rotation.y -= 0.0002
-
-      // 星星"呼吸"脉动 + 词根线框行星自转（缓存数组，免每帧全场 traverse）
-      if (cachedAnim.current) {
-        for (const o of pulseArr.current) {
-          const p = o.userData.pulse
-          const s = p.base * (1 + p.amp * Math.sin(t * 1.8 + p.phase))
-          o.scale.set(s, s, 1)
-        }
-        for (const o of spinArr.current) {
-          const sp = o.userData.spin
-          o.rotation.y += sp
-          o.rotation.x += sp * 0.45
-        }
-      }
-
-      // 流星
-      meteorTimer -= dt
-      if (meteorTimer <= 0) {
-        spawnMeteor()
-        meteorTimer = 2.5 + Math.random() * 4
-      }
-      for (let i = meteors.length - 1; i >= 0; i--) {
-        const m = meteors[i]
-        const u = m.userData.meteor
-        u.life += dt
-        m.position.addScaledVector(u.vel, dt)
-        m.material.opacity = Math.max(0, 1 - u.life / u.max) * 0.95
-        if (u.life >= u.max) {
-          scene.remove(m)
-          m.material.dispose()
-          meteors.splice(i, 1)
-        }
-      }
-      raf = requestAnimationFrame(loop)
+      frame = requestAnimationFrame(animate)
     }
-    loop()
+    if (pendingReady.current === graph) layoutReady()
+    animate()
+    const onVisibility = () => {
+      last = performance.now()
+      idleSince = last
+      if (document.hidden) fg.pauseAnimation()
+      else fg.resumeAnimation()
+    }
+    document.addEventListener('visibilitychange', onVisibility)
+    onVisibility()
+
     return () => {
-      cancelAnimationFrame(raf)
-      scene.remove(pts)
-      scene.remove(nebula)
-      meteors.forEach((m) => scene.remove(m))
-      geo.dispose()
-      mat.dispose()
+      disposed = true
+      runtimeRef.current = null
+      cancelAnimationFrame(frame)
+      unsubscribe()
+      document.removeEventListener('visibilitychange', onVisibility)
+      window.removeEventListener('resize', onResize)
+      renderer.domElement.removeEventListener('webglcontextlost', onContextLost)
+      controls?.removeEventListener('start', onStart)
+      controls?.removeEventListener('end', onEnd)
+      if (bloom) { composer?.removePass(bloom); bloom.dispose() }
+      scene.remove(background)
+      background.traverse((object: any) => {
+        object.geometry?.dispose()
+        if (object.material) object.material.dispose()
+      })
+      nebulaTextures.forEach((texture) => texture.dispose())
+      // ForceGraph owns its node/link objects and disposes their geometry, materials and textures on unmount.
+      // Release the browser's GPU context after a real unmount; StrictMode's immediate remount retains it.
+      queueMicrotask(() => { if (!runtimeRef.current) renderer.forceContextLoss() })
     }
-  }, [])
+  }, [graph])
 
-  // 飞向某个节点（kind 用于消歧：词和词根可能同 id，如 scope/scope）
-  function flyTo(id: string, distance: number, kind?: 'root' | 'word') {
-    const n: any = data.nodes.find((nn) => nn.id === id && (!kind || nn.kind === kind))
-    if (!n || n.x == null || !fgRef.current) return
-    const d = Math.hypot(n.x, n.y, n.z) || 1
-    const k = 1 + distance / d
-    fgRef.current.cameraPosition({ x: n.x * k, y: n.y * k, z: n.z * k }, n, 900)
-    // 关键：自己接管注视点，循环里每帧把 controls.target lerp 到这颗星，
-    // 否则闲置自转把 target 拉到星系中心后，cameraPosition 的 lookAt 拉不回来 → 星不居中
-    lookTargetRef.current = new THREE.Vector3(n.x, n.y, n.z)
-  }
-
-  // 算星系质心（自转的旋转中心）+ 缓存脉动/自转对象（perf）
-  function computeCenter() {
-    let cx = 0
-    let cy = 0
-    let cz = 0
-    let cnt = 0
-    for (const n of data.nodes as any[]) {
-      if (n.x == null) continue
-      cx += n.x
-      cy += n.y
-      cz += n.z
-      cnt++
-    }
-    if (cnt) centerRef.current.set(cx / cnt, cy / cnt, cz / cnt)
-  }
-  function cacheAnim() {
-    pulseArr.current = []
-    spinArr.current = []
-    fgRef.current?.scene().traverse((o: any) => {
-      if (o.userData?.pulse) pulseArr.current.push(o)
-      if (o.userData?.spin) spinArr.current.push(o)
-    })
-    cachedAnim.current = true
-  }
-
-  // 关键修复：three-forcegraph 给同色连线共用同一个材质对象（rel 线只有 4 种颜色）。
-  // 若不拆开，dimLink/litLink 改一条 = 改了同色全部线 → 选中时整片同色线一起亮/暗。
-  // 渲染后把每条线的材质 clone 成独立实例，逐条操作才生效。
-  function uniquifyLinkMaterials() {
-    if (uniqMats.current) return
-    let done = 0
-    for (const l of data.links as any[]) {
-      const o = l.__lineObj || l.__linkThreeObj
-      if (o && o.material) {
-        if (!o.material.__uniq) {
-          o.material = o.material.clone()
-          o.material.__uniq = true
-        }
-        done++
-      }
-    }
-    if (done === data.links.length) uniqMats.current = true // 全部就位才置标志，否则下次 onEngineStop 再补
-  }
-
-  // 稳定引用的 accessor：避免选中时 react-force-graph 推倒重建全部节点/连线几何（卡顿+变灰延迟的根因）
-  // 注意 linkWidth 不设（=0）→ 渲染成 1px THREE.Line 细光线；设了就变成实心圆柱"管道"，科幻感全无
-  const nodeThreeObject = useCallback((node: any) => makeNodeObject(node), [])
-  const linkParticlesFn = useCallback((l: any) => (l.kind === 'rel' ? 2 : 0), [])
-  const linkColorFn = useCallback((l: any) => l.color, [])
-
-  return (
-    <div className="graph-layer">
-      <ForceGraph3D
-        ref={fgRef}
-        graphData={data}
-        backgroundColor="#05060f"
-        showNavInfo={false}
-        cooldownTime={focusRootId ? Infinity : 5000}
-        cooldownTicks={focusRootId ? Infinity : undefined}
-        onEngineStop={() => {
-          // 只在初次、且用户还没点开任何词时自动 fit，避免把用户的飞入拽回去
-          if (!didFit.current && !selectedRef.current) fgRef.current?.zoomToFit(900, 120)
-          didFit.current = true
-          computeCenter()
-          cacheAnim()
-          uniquifyLinkMaterials()
-          applyColors()
-        }}
-        nodeThreeObject={nodeThreeObject}
-        nodeThreeObjectExtend={false}
-        linkColor={linkColorFn}
-        linkDirectionalParticles={linkParticlesFn}
-        linkDirectionalParticleWidth={1.4}
-        linkDirectionalParticleSpeed={0.011}
-        onNodeHover={(node: any) => {
-          document.body.style.cursor = node ? 'pointer' : ''
-        }}
-        onNodeClick={(node: any) => {
-          if (node.kind === 'root') {
-            focusRoot(node.id)
-            selectWord(null)
-          } else {
-            selectWord(node.id)
-            focusRoot(null)
-          }
-        }}
-        onBackgroundClick={() => {
-          selectWord(null)
-          focusRoot(null)
-        }}
-      />
-    </div>
-  )
+  return <div className="graph-layer">
+    <ForceGraph3D ref={graphRef} graphData={graph} width={size.width} height={size.height}
+      backgroundColor="#05060f" showNavInfo={false}
+      warmupTicks={70} cooldownTicks={1} cooldownTime={1000}
+      enableNodeDrag={false}
+      nodeThreeObject={nodeObject} nodeThreeObjectExtend={false}
+      linkColor={linkColor} linkMaterial={linkMaterial} linkDirectionalParticles={0}
+      onEngineStop={onEngineStop} onNodeHover={onHover} onNodeClick={onNodeClick} onBackgroundClick={onBackgroundClick}
+    />
+  </div>
 }
+
+export default memo(StarMap)

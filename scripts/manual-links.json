@@ -26,8 +26,8 @@
   {
     "a": "predict",
     "b": "deduce",
-    "type": "synonym",
-    "note": "近义：预测 / 推断，都靠已知推未知（dict ↔ duc）"
+    "type": "sentence",
+    "note": "辨析造句：Scientists deduce conclusions from evidence and predict future events.（deduce 推断，predict 预测）"
   },
   {
     "a": "import",
@@ -38,14 +38,14 @@
   {
     "a": "construct",
     "b": "destruction",
-    "type": "antonym",
-    "note": "反义：建造 ↔ 破坏（con- 合 / de- 拆，同根 struct）"
+    "type": "sentence",
+    "note": "对照造句：They construct new homes after the destruction caused by the storm.（construct 是建造的动作，destruction 是破坏的名词）"
   },
   {
     "a": "attract",
     "b": "reject",
-    "type": "antonym",
-    "note": "反义：吸引（拉过来）↔ 拒绝（投回去）（tract ↔ ject）"
+    "type": "sentence",
+    "note": "辨析造句：The proposal may attract support, but some people still reject it.（吸引与拒绝不是严格反义词）"
   },
   {
     "a": "instruct",
@@ -93,55 +93,55 @@
     "a": "describe",
     "b": "subscribe",
     "type": "colloquial",
-    "note": "谐音助记：同以 -scribe 结尾，连读押韵"
+    "note": "词族助记：同以 -scribe 结尾，词形相似"
   },
   {
     "a": "reject",
     "b": "eject",
     "type": "colloquial",
-    "note": "谐音助记：-ject 押韵（拒绝 / 弹出）"
+    "note": "词族助记：-ject 词形相似（拒绝 / 弹出）"
   },
   {
     "a": "reduce",
     "b": "produce",
     "type": "colloquial",
-    "note": "谐音助记：-duce 押韵（减少 / 生产）"
+    "note": "词族助记：-duce 词形相似（减少 / 生产）"
   },
   {
     "a": "produce",
     "b": "introduce",
     "type": "colloquial",
-    "note": "谐音助记：-duce 家族（生产 / 引入）"
+    "note": "词族助记：-duce 家族（生产 / 引入）"
   },
   {
     "a": "convert",
     "b": "divert",
     "type": "colloquial",
-    "note": "谐音助记：-vert 押韵（转换 / 改道）"
+    "note": "词族助记：-vert 词形相似（转换 / 改道）"
   },
   {
     "a": "predict",
     "b": "verdict",
     "type": "colloquial",
-    "note": "谐音助记：-dict 押韵（预测 / 裁决）"
+    "note": "词族助记：-dict 词形相似（预测 / 裁决）"
   },
   {
     "a": "attract",
     "b": "extract",
     "type": "colloquial",
-    "note": "谐音助记：-tract 押韵（吸引 / 提取）"
+    "note": "词族助记：-tract 词形相似（吸引 / 提取）"
   },
   {
     "a": "extract",
     "b": "contract",
     "type": "colloquial",
-    "note": "谐音助记：-tract 家族（提取 / 合同）"
+    "note": "词族助记：-tract 家族（提取 / 合同）"
   },
   {
     "a": "visible",
     "b": "conspicuous",
-    "type": "synonym",
-    "note": "近义：可见 / 显眼（vis ↔ spect，都是「看得见」）"
+    "type": "sentence",
+    "note": "辨析造句：The sign is visible, but its bright colour makes it conspicuous.（visible 看得见，conspicuous 显眼）"
   },
   {
     "a": "evident",
@@ -152,8 +152,8 @@
   {
     "a": "supervise",
     "b": "inspect",
-    "type": "synonym",
-    "note": "近义：监督 / 视察（vis ↔ spect）"
+    "type": "sentence",
+    "note": "辨析造句：Managers supervise the team and inspect the finished work.（supervise 监督人员，inspect 检查对象）"
   },
   {
     "a": "provide",
@@ -206,8 +206,8 @@
   {
     "a": "admit",
     "b": "dismiss",
-    "type": "antonym",
-    "note": "反义：准入（让进）↔ 打发（送走）（同根 mit）"
+    "type": "sentence",
+    "note": "对照造句：The manager may admit a new employee but dismiss another.（admit 接纳；dismiss 解雇，注意具体用法）"
   },
   {
     "a": "supervise",
@@ -249,121 +249,121 @@
     "a": "submit",
     "b": "admit",
     "type": "colloquial",
-    "note": "谐音助记：-mit 押韵（提交 / 承认）"
+    "note": "词族助记：-mit 词形相似（提交 / 承认）"
   },
   {
     "a": "admit",
     "b": "permit",
     "type": "colloquial",
-    "note": "谐音助记：-mit 押韵（承认 / 允许）"
+    "note": "词族助记：-mit 词形相似（承认 / 允许）"
   },
   {
     "a": "transmit",
     "b": "submit",
     "type": "colloquial",
-    "note": "谐音助记：-mit 家族（传输 / 提交）"
+    "note": "词族助记：-mit 家族（传输 / 提交）"
   },
   {
     "a": "compose",
     "b": "propose",
     "type": "colloquial",
-    "note": "谐音助记：-pose 押韵（组成 / 提议）"
+    "note": "词族助记：-pose 词形相似（组成 / 提议）"
   },
   {
     "a": "propose",
     "b": "expose",
     "type": "colloquial",
-    "note": "谐音助记：-pose 押韵（提议 / 暴露）"
+    "note": "词族助记：-pose 词形相似（提议 / 暴露）"
   },
   {
     "a": "expose",
     "b": "oppose",
     "type": "colloquial",
-    "note": "谐音助记：-pose 家族（暴露 / 反对）"
+    "note": "词族助记：-pose 家族（暴露 / 反对）"
   },
   {
     "a": "transfer",
     "b": "refer",
     "type": "colloquial",
-    "note": "谐音助记：-fer 押韵（转移 / 提到）"
+    "note": "词族助记：-fer 词形相似（转移 / 提到）"
   },
   {
     "a": "refer",
     "b": "prefer",
     "type": "colloquial",
-    "note": "谐音助记：-fer 押韵（提到 / 偏爱）"
+    "note": "词族助记：-fer 词形相似（提到 / 偏爱）"
   },
   {
     "a": "prefer",
     "b": "confer",
     "type": "colloquial",
-    "note": "谐音助记：-fer 家族（偏爱 / 商讨）"
+    "note": "词族助记：-fer 家族（偏爱 / 商讨）"
   },
   {
     "a": "proceed",
     "b": "exceed",
     "type": "colloquial",
-    "note": "谐音助记：-ceed 押韵（进行 / 超过）"
+    "note": "词族助记：-ceed 词形相似（进行 / 超过）"
   },
   {
     "a": "exceed",
     "b": "succeed",
     "type": "colloquial",
-    "note": "谐音助记：-ceed 家族（超过 / 成功）"
+    "note": "词族助记：-ceed 家族（超过 / 成功）"
   },
   {
     "a": "express",
     "b": "impress",
     "type": "colloquial",
-    "note": "谐音助记：-press 押韵（表达 / 印象）"
+    "note": "词族助记：-press 词形相似（表达 / 印象）"
   },
   {
     "a": "impress",
     "b": "compress",
     "type": "colloquial",
-    "note": "谐音助记：-press 押韵（印象 / 压缩）"
+    "note": "词族助记：-press 词形相似（印象 / 压缩）"
   },
   {
     "a": "compress",
     "b": "depress",
     "type": "colloquial",
-    "note": "谐音助记：-press 押韵（压缩 / 沮丧）"
+    "note": "词族助记：-press 词形相似（压缩 / 沮丧）"
   },
   {
     "a": "depress",
     "b": "suppress",
     "type": "colloquial",
-    "note": "谐音助记：-press 家族（沮丧 / 压制）"
+    "note": "词族助记：-press 家族（沮丧 / 压制）"
   },
   {
     "a": "extend",
     "b": "intend",
     "type": "colloquial",
-    "note": "谐音助记：-tend 押韵（延伸 / 打算）"
+    "note": "词族助记：-tend 词形相似（延伸 / 打算）"
   },
   {
     "a": "intend",
     "b": "attend",
     "type": "colloquial",
-    "note": "谐音助记：-tend 押韵（打算 / 出席）"
+    "note": "词族助记：-tend 词形相似（打算 / 出席）"
   },
   {
     "a": "attend",
     "b": "pretend",
     "type": "colloquial",
-    "note": "谐音助记：-tend 家族（出席 / 假装）"
+    "note": "词族助记：-tend 家族（出席 / 假装）"
   },
   {
     "a": "accept",
     "b": "concept",
     "type": "colloquial",
-    "note": "谐音助记：-cept 押韵（接受 / 概念）"
+    "note": "词族助记：-cept 词形相似（接受 / 概念）"
   },
   {
     "a": "concept",
     "b": "intercept",
     "type": "colloquial",
-    "note": "谐音助记：-cept 家族（概念 / 拦截）"
+    "note": "词族助记：-cept 家族（概念 / 拦截）"
   },
   {
     "a": "progress",
@@ -398,8 +398,8 @@
   {
     "a": "memorize",
     "b": "revise",
-    "type": "synonym",
-    "note": "近义：都属记忆 / 复习动作（mem ↔ vis）"
+    "type": "sentence",
+    "note": "辨析造句：Revise the vocabulary regularly instead of trying to memorize everything at once.（revise 复习，memorize 记住）"
   },
   {
     "a": "promote",
@@ -441,121 +441,121 @@
     "a": "telephone",
     "b": "telegraph",
     "type": "colloquial",
-    "note": "谐音助记：tele-(远) 家族（电话 / 电报）"
+    "note": "词族助记：tele-(远) 家族（电话 / 电报）"
   },
   {
     "a": "telescope",
     "b": "telephone",
     "type": "colloquial",
-    "note": "谐音助记：tele-(远) 家族（望远镜 / 电话）"
+    "note": "词族助记：tele-(远) 家族（望远镜 / 电话）"
   },
   {
     "a": "microscope",
     "b": "microphone",
     "type": "colloquial",
-    "note": "谐音助记：micro-(小) 家族（显微镜 / 麦克风）"
+    "note": "词族助记：micro-(小) 家族（显微镜 / 麦克风）"
   },
   {
     "a": "biology",
     "b": "biography",
     "type": "colloquial",
-    "note": "谐音助记：bio-(生命) 家族（生物学 / 传记）"
+    "note": "词族助记：bio-(生命) 家族（生物学 / 传记）"
   },
   {
     "a": "apology",
     "b": "analogy",
     "type": "colloquial",
-    "note": "谐音助记：-logy 押韵（道歉 / 类比）"
+    "note": "词族助记：-logy 词形相似（道歉 / 类比）"
   },
   {
     "a": "biology",
     "b": "apology",
     "type": "colloquial",
-    "note": "谐音助记：-logy 家族（生物学 / 道歉）"
+    "note": "词族助记：-logy 家族（生物学 / 道歉）"
   },
   {
     "a": "progress",
     "b": "congress",
     "type": "colloquial",
-    "note": "谐音助记：-gress 押韵（进步 / 大会）"
+    "note": "词族助记：-gress 词形相似（进步 / 大会）"
   },
   {
     "a": "regress",
     "b": "digress",
     "type": "colloquial",
-    "note": "谐音助记：-gress 押韵（退步 / 离题）"
+    "note": "词族助记：-gress 词形相似（退步 / 离题）"
   },
   {
     "a": "digress",
     "b": "transgress",
     "type": "colloquial",
-    "note": "谐音助记：-gress 家族（离题 / 越轨）"
+    "note": "词族助记：-gress 家族（离题 / 越轨）"
   },
   {
     "a": "memorize",
     "b": "memorable",
     "type": "colloquial",
-    "note": "谐音助记：mem-(记) 家族（背诵 / 难忘）"
+    "note": "词族助记：mem-(记) 家族（背诵 / 难忘）"
   },
   {
     "a": "memorial",
     "b": "memory",
     "type": "colloquial",
-    "note": "谐音助记：mem-(记) 家族（纪念碑 / 记忆）"
+    "note": "词族助记：mem-(记) 家族（纪念碑 / 记忆）"
   },
   {
     "a": "annual",
     "b": "anniversary",
     "type": "colloquial",
-    "note": "谐音助记：ann-(年) 家族（每年 / 周年）"
+    "note": "词族助记：ann-(年) 家族（每年 / 周年）"
   },
   {
     "a": "biennial",
     "b": "perennial",
     "type": "colloquial",
-    "note": "谐音助记：-enn-(年) 押韵（两年一次 / 长久）"
+    "note": "词族助记：-enn-(年) 词形相似（两年一次 / 长久）"
   },
   {
     "a": "perennial",
     "b": "millennium",
     "type": "colloquial",
-    "note": "谐音助记：-enn-(年) 家族（长久 / 千年）"
+    "note": "词族助记：-enn-(年) 家族（长久 / 千年）"
   },
   {
     "a": "cycle",
     "b": "bicycle",
     "type": "colloquial",
-    "note": "谐音助记：cycl-(轮/圈) 家族（循环 / 自行车）"
+    "note": "词族助记：cycl-(轮/圈) 家族（循环 / 自行车）"
   },
   {
     "a": "bicycle",
     "b": "recycle",
     "type": "colloquial",
-    "note": "谐音助记：cycl-(圈) 家族（自行车 / 回收）"
+    "note": "词族助记：cycl-(圈) 家族（自行车 / 回收）"
   },
   {
     "a": "credit",
     "b": "credible",
     "type": "colloquial",
-    "note": "谐音助记：cred-(信) 家族（信用 / 可信）"
+    "note": "词族助记：cred-(信) 家族（信用 / 可信）"
   },
   {
     "a": "credible",
     "b": "incredible",
     "type": "colloquial",
-    "note": "谐音助记：cred-(信) 家族（可信 / 难以置信）"
+    "note": "词族助记：cred-(信) 家族（可信 / 难以置信）"
   },
   {
     "a": "manual",
     "b": "manage",
     "type": "colloquial",
-    "note": "谐音助记：man-(手) 家族（手册 / 管理）"
+    "note": "词族助记：man-(手) 家族（手册 / 管理）"
   },
   {
     "a": "audible",
     "b": "audio",
     "type": "colloquial",
-    "note": "谐音助记：aud-(听) 家族（可听 / 音频）"
+    "note": "词族助记：aud-(听) 家族（可听 / 音频）"
   },
   {
     "a": "certain",
@@ -572,8 +572,8 @@
   {
     "a": "perfect",
     "b": "defect",
-    "type": "antonym",
-    "note": "反义：完美 ↔ 缺陷（per- 彻底 / de- 去除，同根 fect）"
+    "type": "sentence",
+    "note": "对照造句：A product with a defect is not perfect.（perfect 是形容词，defect 是缺陷的名词）"
   },
   {
     "a": "maintain",
@@ -596,8 +596,8 @@
   {
     "a": "prevent",
     "b": "impede",
-    "type": "synonym",
-    "note": "近义：阻止 / 阻碍（ven ↔ ped）"
+    "type": "sentence",
+    "note": "辨析造句：Barriers may impede traffic, while a road closure can prevent it entirely.（impede 阻碍，prevent 阻止发生）"
   },
   {
     "a": "obtain",
@@ -645,109 +645,109 @@
     "a": "vacant",
     "b": "vacancy",
     "type": "colloquial",
-    "note": "谐音助记：vac-(空) 家族（空着 / 空缺）"
+    "note": "词族助记：vac-(空) 家族（空着 / 空缺）"
   },
   {
     "a": "vacation",
     "b": "vacate",
     "type": "colloquial",
-    "note": "谐音助记：vac-(空) 家族（假期 / 腾出）"
+    "note": "词族助记：vac-(空) 家族（假期 / 腾出）"
   },
   {
     "a": "prevent",
     "b": "invent",
     "type": "colloquial",
-    "note": "谐音助记：-vent 押韵（防止 / 发明）"
+    "note": "词族助记：-vent 词形相似（防止 / 发明）"
   },
   {
     "a": "invent",
     "b": "event",
     "type": "colloquial",
-    "note": "谐音助记：-vent 家族（发明 / 事件）"
+    "note": "词族助记：-vent 家族（发明 / 事件）"
   },
   {
     "a": "occur",
     "b": "recur",
     "type": "colloquial",
-    "note": "谐音助记：-cur 押韵（发生 / 复发）"
+    "note": "词族助记：-cur 词形相似（发生 / 复发）"
   },
   {
     "a": "perfect",
     "b": "infect",
     "type": "colloquial",
-    "note": "谐音助记：-fect 押韵（完美 / 感染）"
+    "note": "词族助记：-fect 词形相似（完美 / 感染）"
   },
   {
     "a": "depend",
     "b": "suspend",
     "type": "colloquial",
-    "note": "谐音助记：-pend 押韵（依赖 / 暂停）"
+    "note": "词族助记：-pend 词形相似（依赖 / 暂停）"
   },
   {
     "a": "contain",
     "b": "maintain",
     "type": "colloquial",
-    "note": "谐音助记：-tain 押韵（包含 / 维持）"
+    "note": "词族助记：-tain 词形相似（包含 / 维持）"
   },
   {
     "a": "retain",
     "b": "obtain",
     "type": "colloquial",
-    "note": "谐音助记：-tain 家族（保留 / 获得）"
+    "note": "词族助记：-tain 家族（保留 / 获得）"
   },
   {
     "a": "novel",
     "b": "novice",
     "type": "colloquial",
-    "note": "谐音助记：nov-(新) 家族（小说 / 新手）"
+    "note": "词族助记：nov-(新) 家族（小说 / 新手）"
   },
   {
     "a": "equal",
     "b": "equation",
     "type": "colloquial",
-    "note": "谐音助记：equ-(等) 家族（平等 / 方程）"
+    "note": "词族助记：equ-(等) 家族（平等 / 方程）"
   },
   {
     "a": "section",
     "b": "sector",
     "type": "colloquial",
-    "note": "谐音助记：sect-(切) 家族（区段 / 部门）"
+    "note": "词族助记：sect-(切) 家族（区段 / 部门）"
   },
   {
     "a": "dissolve",
     "b": "absolve",
     "type": "colloquial",
-    "note": "谐音助记：-solve 押韵（溶解 / 免除）"
+    "note": "词族助记：-solve 词形相似（溶解 / 免除）"
   },
   {
     "a": "certain",
     "b": "certify",
     "type": "colloquial",
-    "note": "谐音助记：cert-(确) 家族（确定 / 证明）"
+    "note": "词族助记：cert-(确) 家族（确定 / 证明）"
   },
   {
     "a": "native",
     "b": "nation",
     "type": "colloquial",
-    "note": "谐音助记：nat-(生) 家族（本地 / 国家）"
+    "note": "词族助记：nat-(生) 家族（本地 / 国家）"
   },
   {
     "a": "survive",
     "b": "revive",
     "type": "colloquial",
-    "note": "谐音助记：-vive 押韵（幸存 / 复苏）"
+    "note": "词族助记：-vive 词形相似（幸存 / 复苏）"
   },
   {
     "a": "vivid",
     "b": "vivacious",
     "type": "colloquial",
-    "note": "谐音助记：viv-(活) 家族（生动 / 活泼）"
+    "note": "词族助记：viv-(活) 家族（生动 / 活泼）"
   },
   {
     "a": "grateful",
     "b": "gratify",
     "type": "colloquial",
-    "note": "谐音助记：grat-(谢) 家族（感激 / 使满足）"
+    "note": "词族助记：grat-(谢) 家族（感激 / 使满足）"
   },
   {
     "a": "benevolent",
@@ -770,8 +770,8 @@
   {
     "a": "benefit",
     "b": "beneficial",
-    "type": "synonym",
-    "note": "近义：好处 / 有益（同根 ben）"
+    "type": "colloquial",
+    "note": "词族助记：benefit 是名词或动词，beneficial 是形容词；同属 ben-/bene- 好的词族。"
   },
   {
     "a": "malicious",
@@ -782,14 +782,15 @@
   {
     "a": "empathy",
     "b": "sympathy",
-    "type": "synonym",
-    "note": "近义：共情 / 同情（同根 path）"
+    "type": "sentence",
+    "note": "辨析造句：Sympathy expresses concern for someone; empathy imagines how that person feels.（同情与共情侧重点不同）",
+    "source": "https://dictionary.cambridge.org/us/dictionary/english/empathy; https://dictionary.cambridge.org/us/dictionary/english/sympathy"
   },
   {
     "a": "apathy",
     "b": "empathy",
-    "type": "antonym",
-    "note": "反义：冷漠 ↔ 共情（a- 无 ↔ em- 入，同根 path）"
+    "type": "sentence",
+    "note": "辨析造句：Empathy helps us understand others, while apathy shows a lack of concern.（共情与冷漠作对照，不作严格反义词）"
   },
   {
     "a": "finite",
@@ -806,14 +807,16 @@
   {
     "a": "conscious",
     "b": "subconscious",
-    "type": "antonym",
-    "note": "反义：有意识 ↔ 潜意识（sub- 之下，同根 sci）"
+    "type": "colloquial",
+    "note": "词族辨析：conscious 指有意识地察觉；subconscious 指未主动察觉的心理活动，不能直接当成反义词。",
+    "source": "https://dictionary.cambridge.org/us/dictionary/english/subconsciously"
   },
   {
     "a": "inspire",
     "b": "aspire",
-    "type": "synonym",
-    "note": "近义：激励 / 立志（同根 spir，都是「吸入精气」去追求）"
+    "type": "sentence",
+    "note": "辨析造句：Great teachers inspire students who aspire to achieve their goals.（inspire 激励他人，aspire 自己渴望）",
+    "source": "https://www.oxfordlearnersdictionaries.com/definition/english/inspire; https://dictionary.cambridge.org/dictionary/english/aspire"
   },
   {
     "a": "provoke",
@@ -848,8 +851,8 @@
   {
     "a": "immigrant",
     "b": "emigrate",
-    "type": "antonym",
-    "note": "反义：移入 ↔ 移出（im- 进 ↔ e- 出，同根 migr）"
+    "type": "sentence",
+    "note": "辨析造句：An immigrant in Canada may have chosen to emigrate from another country.（immigrant 是移入的人，emigrate 是移出的动作）"
   },
   {
     "a": "hydrate",
@@ -860,8 +863,9 @@
   {
     "a": "epidemic",
     "b": "pandemic",
-    "type": "synonym",
-    "note": "近义：流行病 / 大流行（epi- 局部 ↔ pan- 全体，同根 dem）"
+    "type": "sentence",
+    "note": "辨析造句：A local epidemic can become a pandemic when it spreads across many countries.（传播范围不同，不能直接互换）",
+    "source": "https://dictionary.cambridge.org/dictionary/english/epidemic; https://dictionary.cambridge.org/us/dictionary/english/pandemic"
   },
   {
     "a": "correct",
@@ -908,8 +912,8 @@
   {
     "a": "dominate",
     "b": "manipulate",
-    "type": "synonym",
-    "note": "近义：支配 / 操控（domin 主人 ↔ man 手）"
+    "type": "sentence",
+    "note": "辨析造句：A powerful group can dominate a market and manipulate prices.（dominate 占主导，manipulate 操控）"
   },
   {
     "a": "astronomy",
@@ -921,6 +925,12 @@
     "a": "fortitude",
     "b": "certitude",
     "type": "colloquial",
-    "note": "-titude 押韵：坚韧（fort 强）/ 确信（cert 确定）"
+    "note": "-titude 词形相似：坚韧（fort 强）/ 确信（cert 确定）"
+  },
+  {
+    "a": "expedite",
+    "b": "impede",
+    "type": "antonym",
+    "note": "反义对照：expedite 加快进程，impede 妨碍进程；仅用于事情推进的语境。"
   }
 ]

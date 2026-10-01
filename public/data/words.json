@@ -3464,7 +3464,9 @@
     "def_zh": "利益；好处",
     "breakdown": "bene(好) + fit(做) → 做好事 → 好处",
     "example": "Regular exercise benefits both body and mind.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "an advantage or helpful result; to gain or give an advantage",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "beneficial",
@@ -3475,7 +3477,9 @@
     "def_zh": "有益的",
     "breakdown": "bene(好) + fic(做) + -ial → 带来好处的 → 有益的",
     "example": "A balanced diet is beneficial to your health.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "helpful or producing a good result",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "benefactor",
@@ -3486,7 +3490,9 @@
     "def_zh": "恩人；捐助者",
     "breakdown": "bene(好) + fact(做) + -or(人) → 做好事的人 → 恩人",
     "example": "An anonymous benefactor donated the funds for the library.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a person who provides money or support to someone or an organization",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "benevolent",
@@ -3497,7 +3503,9 @@
     "def_zh": "仁慈的；慈善的",
     "breakdown": "bene(好) + vol(意愿) + -ent → 心怀善意的 → 仁慈的",
     "example": "The benevolent old man gave away most of his fortune.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "kind and willing to help other people",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "benign",
@@ -3508,7 +3516,9 @@
     "def_zh": "良性的；温和的",
     "breakdown": "ben(好) + -ign → 性质好的 → 良性的",
     "example": "The tumour turned out to be benign.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "gentle or harmless; not cancerous when describing a tumour",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "benediction",
@@ -3519,7 +3529,9 @@
     "def_zh": "祝福；祝祷",
     "breakdown": "bene(好) + dict(说) + -ion → 说好话 → 祝福",
     "example": "The priest gave a benediction at the end of the ceremony.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a spoken blessing, especially a prayer at the end of a religious service",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "malfunction",
@@ -3530,7 +3542,9 @@
     "def_zh": "故障；失灵",
     "breakdown": "mal(坏) + function(运作) → 运作坏了 → 故障",
     "example": "A software malfunction delayed the flight.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a failure to work properly; to stop working as intended",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "malignant",
@@ -3541,7 +3555,9 @@
     "def_zh": "恶性的；恶毒的",
     "breakdown": "mal(恶) + ign + -ant → 性质恶的 → 恶性的",
     "example": "The doctors found a malignant tumour.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "cancerous and able to spread; very harmful or hateful",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "malicious",
@@ -3552,7 +3568,9 @@
     "def_zh": "恶意的",
     "breakdown": "mal(恶) + ic + -ious → 怀恶意的 → 恶意的",
     "example": "She spread malicious rumours about her colleague.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "intended to hurt someone or cause damage",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "malnutrition",
@@ -3563,7 +3581,9 @@
     "def_zh": "营养不良",
     "breakdown": "mal(坏) + nutrition(营养) → 营养差 → 营养不良",
     "example": "Many children in the region suffer from malnutrition.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "poor health caused by not getting enough suitable nutrients",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "malevolent",
@@ -3574,7 +3594,9 @@
     "def_zh": "恶毒的；有恶意的",
     "breakdown": "mal(恶) + vol(意愿) + -ent → 心怀恶意的 → 恶毒的",
     "example": "He gave a malevolent stare across the room.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "wanting to harm other people",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "dismal",
@@ -3585,7 +3607,9 @@
     "def_zh": "阴沉的；凄凉的",
     "breakdown": "dis + mal(坏) → 糟糕透顶的 → 阴郁的",
     "example": "The weather was cold and dismal all week.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "gloomy and depressing; very bad or disappointing",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "empathy",
@@ -3596,7 +3620,9 @@
     "def_zh": "共情；同理心",
     "breakdown": "em-(进入) + path(情感) + -y → 进入他人情感 → 共情",
     "example": "A good nurse shows empathy towards patients.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "understanding another person by imagining their feelings and situation",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "sympathy",
@@ -3607,7 +3633,9 @@
     "def_zh": "同情",
     "breakdown": "sym-(共同) + path(情感) + -y → 共有情感 → 同情",
     "example": "She felt deep sympathy for the victims.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "care and concern for someone who is suffering",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "apathy",
@@ -3618,7 +3646,9 @@
     "def_zh": "冷漠；无动于衷",
     "breakdown": "a-(无) + path(情感) + -y → 没有情感 → 冷漠",
     "example": "Voter apathy led to a very low turnout.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a lack of interest, concern, or enthusiasm",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "pathology",
@@ -3629,7 +3659,9 @@
     "def_zh": "病理学",
     "breakdown": "path(病) + log(学问) + -y → 研究疾病 → 病理学",
     "example": "She specialises in the pathology of rare diseases.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "the study of diseases and the changes they cause in the body",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "pathetic",
@@ -3640,7 +3672,9 @@
     "def_zh": "可怜的；可悲的",
     "breakdown": "path(情感) + -etic → 引发同情的 → 可怜的",
     "example": "The injured bird made a pathetic sight.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "causing pity or sadness; very poor or inadequate",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "antipathy",
@@ -3651,7 +3685,9 @@
     "def_zh": "反感；厌恶",
     "breakdown": "anti-(反) + path(情感) + -y → 反向的情感 → 反感",
     "example": "There was a long-standing antipathy between the two families.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a strong feeling of dislike toward someone or something",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "generate",
@@ -3662,7 +3698,9 @@
     "def_zh": "产生；生成",
     "breakdown": "gen(生) + -erate → 使产生 → 生成",
     "example": "Wind turbines generate electricity.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to create or produce something",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "generation",
@@ -3673,7 +3711,9 @@
     "def_zh": "一代人；产生",
     "breakdown": "gen(生) + -eration → 生育出的一代 → 一代人",
     "example": "This tradition has been passed down for generations.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "people born around the same time; the production of something",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "genuine",
@@ -3684,7 +3724,9 @@
     "def_zh": "真正的；真诚的",
     "breakdown": "gen(本源) + -uine → 天生如此的 → 真正的",
     "example": "This is a genuine leather bag.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "real rather than false; sincere and honest",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "genetic",
@@ -3695,7 +3737,9 @@
     "def_zh": "基因的；遗传的",
     "breakdown": "gen(基因) + -etic → 与遗传有关的 → 基因的",
     "example": "Eye colour is determined by genetic factors.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "related to genes and inherited characteristics",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "genius",
@@ -3706,7 +3750,9 @@
     "def_zh": "天才",
     "breakdown": "gen(天生) + -ius → 天生的才能 → 天才",
     "example": "Einstein was a scientific genius.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "exceptional intelligence or talent; a person with such ability",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "generous",
@@ -3717,7 +3763,9 @@
     "def_zh": "慷慨的",
     "breakdown": "gen(丰产) + -erous → 出手丰厚的 → 慷慨的",
     "example": "She made a generous donation to charity.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "willing to give more money, time, or help than is expected",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "inspire",
@@ -3728,7 +3776,9 @@
     "def_zh": "激励；启发",
     "breakdown": "in-(进入) + spir(呼吸) → 把气吹入 → 激励",
     "example": "Her speech inspired the whole team.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to encourage someone or give them a new idea or strong feeling",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "aspire",
@@ -3739,7 +3789,9 @@
     "def_zh": "渴望；立志",
     "breakdown": "a-(向) + spir(呼吸) → 朝着喘气追求 → 渴望",
     "example": "She aspires to become a diplomat.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to strongly hope or aim to achieve something",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "respire",
@@ -3750,7 +3802,9 @@
     "def_zh": "呼吸",
     "breakdown": "re-(反复) + spir(呼吸) → 反复呼吸 → 呼吸",
     "example": "Fish respire through their gills.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to breathe; to take in oxygen and release carbon dioxide",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "conspire",
@@ -3761,7 +3815,9 @@
     "def_zh": "密谋；共谋",
     "breakdown": "con-(共同) + spir(呼吸) → 凑一起低声密语 → 密谋",
     "example": "They conspired to overthrow the government.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to secretly plan with others to do something harmful or unlawful",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "expire",
@@ -3772,7 +3828,9 @@
     "def_zh": "到期；断气",
     "breakdown": "ex-(出) + spir(呼吸) → 把气呼出去 → 到期",
     "example": "My passport expires next month.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to reach the end of a period of validity; to die",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "perspire",
@@ -3783,7 +3841,9 @@
     "def_zh": "出汗",
     "breakdown": "per-(透过) + spir(呼吸) → 皮肤透气 → 出汗",
     "example": "He perspired heavily in the summer heat.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to produce sweat through the skin",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "vocal",
@@ -3794,7 +3854,9 @@
     "def_zh": "嗓音的；直言的",
     "breakdown": "voc(声) + -al → 与声音有关的 → 嗓音的",
     "example": "She is a vocal critic of the new policy.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "related to the voice; openly expressing an opinion",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "advocate",
@@ -3805,7 +3867,9 @@
     "def_zh": "提倡；倡导者",
     "breakdown": "ad-(向) + voc(呼) + -ate → 向众人呼吁 → 提倡",
     "example": "He advocates for renewable energy.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to publicly support a cause; a person who argues for it",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "vocation",
@@ -3816,7 +3880,9 @@
     "def_zh": "职业；天职",
     "breakdown": "voc(呼) + -ation → 受感召而从事 → 天职",
     "example": "Teaching is more than a job; it is a vocation.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a type of work someone feels especially suited or called to do",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "provoke",
@@ -3827,7 +3893,9 @@
     "def_zh": "激怒；引发",
     "breakdown": "pro-(向前) + vok(叫) → 冲着叫板 → 激怒",
     "example": "His rude comment provoked an angry response.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to cause a reaction, especially anger",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "evoke",
@@ -3838,7 +3906,9 @@
     "def_zh": "唤起；引起",
     "breakdown": "e-(出) + vok(叫) → 把……叫出来 → 唤起",
     "example": "The smell of bread evokes childhood memories.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to bring a feeling, memory, or image to mind",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "revoke",
@@ -3849,7 +3919,9 @@
     "def_zh": "撤销；废除",
     "breakdown": "re-(回) + vok(叫) → 叫回去 → 撤销",
     "example": "His driving licence was revoked.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to officially cancel a decision, permission, or law",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "illuminate",
@@ -3860,7 +3932,9 @@
     "def_zh": "照亮；阐明",
     "breakdown": "il-(使) + lumin(光) + -ate → 使发光 → 照亮",
     "example": "Spotlights illuminated the stage.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to light something up; to make something easier to understand",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "luminous",
@@ -3871,7 +3945,9 @@
     "def_zh": "发光的；明亮的",
     "breakdown": "lumin(光) + -ous → 发光的 → 明亮的",
     "example": "The watch has luminous hands that glow in the dark.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "giving off light or appearing bright",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "translucent",
@@ -3882,7 +3958,9 @@
     "def_zh": "半透明的",
     "breakdown": "trans-(穿过) + luc(光) + -ent → 让光穿过 → 半透明的",
     "example": "The lampshade is made of translucent paper.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "allowing light through without showing objects clearly",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "lucid",
@@ -3893,7 +3971,9 @@
     "def_zh": "清晰的；神志清醒的",
     "breakdown": "luc(光) + -id → 像光一样清楚的 → 清晰的",
     "example": "She gave a lucid explanation of the theory.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "clear and easy to understand; able to think clearly",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "illustrious",
@@ -3904,7 +3984,9 @@
     "def_zh": "杰出的；著名的",
     "breakdown": "il-(使) + lustr(光) + -ious → 光彩照人的 → 杰出的",
     "example": "He comes from an illustrious family of scientists.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "famous and admired for important achievements",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "luminary",
@@ -3915,7 +3997,9 @@
     "def_zh": "名人；杰出人物",
     "breakdown": "lumin(光) + -ary → 发光体般的人物 → 名人",
     "example": "She is a luminary in the field of medicine.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a person admired for important achievements or influence",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "interrupt",
@@ -3926,7 +4010,9 @@
     "def_zh": "打断；中断",
     "breakdown": "inter-(中间) + rupt(断) → 从中间打断 → 打断",
     "example": "Please don't interrupt me while I'm speaking.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to stop an activity or speaker before they have finished",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "erupt",
@@ -3937,7 +4023,9 @@
     "def_zh": "爆发；喷发",
     "breakdown": "e-(出) + rupt(破) → 破口而出 → 爆发",
     "example": "The volcano erupted without warning.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to burst out suddenly, as a volcano, conflict, or strong emotion",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "disrupt",
@@ -3948,7 +4036,9 @@
     "def_zh": "扰乱；中断",
     "breakdown": "dis-(分开) + rupt(断) → 打断使分裂 → 扰乱",
     "example": "The strike disrupted public transport.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to disturb an activity or prevent it from continuing normally",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "rupture",
@@ -3959,7 +4049,9 @@
     "def_zh": "破裂",
     "breakdown": "rupt(破) + -ure → 破裂 → 破裂",
     "example": "The pipeline rupture caused an oil spill.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a break or tear; to break, burst, or tear apart",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "abrupt",
@@ -3970,7 +4062,9 @@
     "def_zh": "突然的；唐突的",
     "breakdown": "ab-(离) + rupt(断) → 猛地断开 → 突然的",
     "example": "The meeting came to an abrupt end.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "sudden and unexpected; noticeably short or rude in manner",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "corrupt",
@@ -3981,7 +4075,9 @@
     "def_zh": "腐败的；使堕落",
     "breakdown": "cor-(完全) + rupt(破) → 彻底破坏 → 腐败的",
     "example": "The corrupt official accepted bribes.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "dishonest and willing to abuse power; to make someone or something dishonest or damaged",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "finish",
@@ -3992,7 +4088,9 @@
     "def_zh": "完成；结束",
     "breakdown": "fin(终) + -ish → 使到终点 → 完成",
     "example": "She finished the marathon in four hours.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to complete something; the end of an activity",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "finite",
@@ -4003,7 +4101,9 @@
     "def_zh": "有限的",
     "breakdown": "fin(界限) + -ite → 有界限的 → 有限的",
     "example": "The earth has finite natural resources.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "having a limit or a fixed size",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "infinite",
@@ -4014,7 +4114,9 @@
     "def_zh": "无限的",
     "breakdown": "in-(无) + fin(界限) + -ite → 没有界限的 → 无限的",
     "example": "The universe seems almost infinite.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "having no limit or end",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "define",
@@ -4025,7 +4127,9 @@
     "def_zh": "定义；界定",
     "breakdown": "de-(彻底) + fin(界限) → 划定界限 → 定义",
     "example": "It is hard to define happiness in one sentence.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to explain the meaning of something or set its limits",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "confine",
@@ -4036,7 +4140,9 @@
     "def_zh": "限制；监禁",
     "breakdown": "con-(一起) + fin(界限) → 圈在界限内 → 限制",
     "example": "The illness confined him to bed for a week.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to keep someone or something within a restricted place or limit",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "finalize",
@@ -4047,7 +4153,9 @@
     "def_zh": "最终确定",
     "breakdown": "fin(终) + -al + -ize → 使成定局 → 最终确定",
     "example": "We need to finalize the details of the contract.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to make the last decisions or changes so something is complete",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "science",
@@ -4058,7 +4166,9 @@
     "def_zh": "科学",
     "breakdown": "sci(知) + -ence → 系统的知识 → 科学",
     "example": "She is studying computer science at university.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "the systematic study of the natural world through observation and experiments",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "conscious",
@@ -4069,7 +4179,9 @@
     "def_zh": "有意识的；察觉到的",
     "breakdown": "con-(完全) + sci(知) + -ous → 完全知道的 → 有意识的",
     "example": "He was still conscious after the accident.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "awake and aware; noticing or deliberately thinking about something",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "conscience",
@@ -4080,7 +4192,9 @@
     "def_zh": "良心",
     "breakdown": "con-(完全) + sci(知) + -ence → 内心明白对错 → 良心",
     "example": "His conscience would not let him tell a lie.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "the inner sense that helps a person judge right and wrong",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "omniscient",
@@ -4091,7 +4205,9 @@
     "def_zh": "无所不知的",
     "breakdown": "omni-(全) + sci(知) + -ent → 全都知道的 → 无所不知的",
     "example": "The novel is told by an omniscient narrator.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "knowing everything",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "prescient",
@@ -4102,7 +4218,9 @@
     "def_zh": "有先见之明的",
     "breakdown": "pre-(先) + sci(知) + -ent → 预先知道的 → 有先见的",
     "example": "Her prescient warning about the crisis proved correct.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "able to know or predict what will happen before it happens",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "subconscious",
@@ -4113,7 +4231,9 @@
     "def_zh": "潜意识的",
     "breakdown": "sub-(下) + con + sci(知) + -ous → 意识之下的 → 潜意识的",
     "example": "Many fears are rooted in the subconscious mind.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "related to thoughts outside deliberate awareness; that part of the mind",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "reflect",
@@ -4124,7 +4244,9 @@
     "def_zh": "反射；反映；反思",
     "breakdown": "re-(回) + flect(弯) → 让光弯回来 → 反射",
     "example": "The mountains were reflected in the calm lake.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to send back light or an image; to show something; to think carefully",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "deflect",
@@ -4135,7 +4257,9 @@
     "def_zh": "使偏转；转移",
     "breakdown": "de-(离) + flect(弯) → 弯离原路 → 使偏转",
     "example": "The shield deflected the blow.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to make something change direction; to turn attention away",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "flexible",
@@ -4146,7 +4270,9 @@
     "def_zh": "灵活的；可弯曲的",
     "breakdown": "flex(弯) + -ible → 能弯的 → 灵活的",
     "example": "We offer flexible working hours.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "able to bend easily or adapt to changing conditions",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "reflex",
@@ -4157,7 +4283,9 @@
     "def_zh": "反射；本能反应",
     "breakdown": "re-(回) + flex(弯) → 弯回的反应 → 反射",
     "example": "Blinking is an automatic reflex.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "an automatic bodily response that happens without conscious thought",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "inflection",
@@ -4168,7 +4296,9 @@
     "def_zh": "语调变化；词形变化",
     "breakdown": "in-(向内) + flect(弯) + -ion → 声音/词形弯折 → 变化",
     "example": "The teacher explained the inflection of irregular verbs.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a change in voice pitch; a change in word form expressing grammar",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "inflexible",
@@ -4179,7 +4309,9 @@
     "def_zh": "不灵活的；固执的",
     "breakdown": "in-(不) + flex(弯) + -ible → 弯不动的 → 固执的",
     "example": "His inflexible attitude made any compromise impossible.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "unable to bend easily; unwilling to change a decision or approach",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "territory",
@@ -4190,7 +4322,9 @@
     "def_zh": "领土；地盘",
     "breakdown": "terr(地) + -itory → 占有的土地 → 领土",
     "example": "The lion defends its territory fiercely.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "an area of land controlled by a country, group, or animal",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "terrain",
@@ -4201,7 +4335,9 @@
     "def_zh": "地形；地势",
     "breakdown": "terr(地) + -ain → 土地的样貌 → 地形",
     "example": "The vehicle can handle rough terrain.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "the physical features of a stretch of land",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "terrestrial",
@@ -4212,7 +4348,9 @@
     "def_zh": "陆地的；地球的",
     "breakdown": "terr(地) + -estrial → 属于陆地的 → 陆地的",
     "example": "Terrestrial animals breathe air.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "related to Earth or to land rather than water",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "subterranean",
@@ -4223,7 +4361,9 @@
     "def_zh": "地下的",
     "breakdown": "sub-(下) + terr(地) + -anean → 土地之下的 → 地下的",
     "example": "The city has a network of subterranean tunnels.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "located or happening beneath the ground",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "extraterrestrial",
@@ -4234,7 +4374,9 @@
     "def_zh": "地球外的；外星人",
     "breakdown": "extra-(之外) + terr(地) + -estrial → 地球之外的 → 外星的",
     "example": "The film is about extraterrestrial life.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "from outside Earth; a being imagined to come from another planet",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "terrace",
@@ -4245,7 +4387,9 @@
     "def_zh": "露台；梯田",
     "breakdown": "terr(地) + -ace → 垫高的平地 → 露台",
     "example": "We had dinner on the terrace overlooking the sea.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a level outdoor area beside a building; a step-like field on a slope",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "chronic",
@@ -4256,7 +4400,9 @@
     "def_zh": "慢性的；长期的",
     "breakdown": "chron(时间) + -ic → 拖了很长时间的 → 慢性的",
     "example": "He suffers from chronic back pain.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "lasting a long time or repeatedly occurring, especially a disease or problem",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "chronicle",
@@ -4267,7 +4413,9 @@
     "def_zh": "编年史；按时间记录",
     "breakdown": "chron(时间) + -icle → 按时间记事 → 编年史",
     "example": "The book chronicles the rise of the internet.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a record of events in time order; to record events as they happen",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "synchronize",
@@ -4278,7 +4426,9 @@
     "def_zh": "同步",
     "breakdown": "syn-(共同) + chron(时间) + -ize → 让时间一致 → 同步",
     "example": "Please synchronize your watches before the operation.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to make events happen at the same time or devices show the same time",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "chronological",
@@ -4289,7 +4439,9 @@
     "def_zh": "按时间顺序的",
     "breakdown": "chron(时间) + log(记录) + -ical → 按时间记录的 → 按时间顺序的",
     "example": "List the events in chronological order.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "arranged in the order in which events happened",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "anachronism",
@@ -4300,7 +4452,9 @@
     "def_zh": "时代错误；不合时宜的事物",
     "breakdown": "ana-(错位) + chron(时间) + -ism → 放错时代的东西 → 时代错误",
     "example": "A sword in a modern office is an obvious anachronism.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "something placed in, or belonging to, the wrong historical period",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "chronology",
@@ -4311,7 +4465,9 @@
     "def_zh": "年表；时间顺序",
     "breakdown": "chron(时间) + -logy(学问) → 时间的学问 → 年表",
     "example": "The police established a chronology of the night's events.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "the order of events in time; a record arranged in that order",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "hydrate",
@@ -4322,7 +4478,9 @@
     "def_zh": "补水；水合物",
     "breakdown": "hydr(水) + -ate → 使含水 → 补水",
     "example": "Drink plenty of water to stay hydrated.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to supply or combine with water; a chemical compound containing water",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "dehydrate",
@@ -4333,7 +4491,9 @@
     "def_zh": "（使）脱水",
     "breakdown": "de-(去除) + hydr(水) + -ate → 去掉水分 → 脱水",
     "example": "Runners can dehydrate quickly in hot weather.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to lose or remove water from a body or substance",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "hydrogen",
@@ -4344,7 +4504,9 @@
     "def_zh": "氢",
     "breakdown": "hydr(水) + -gen(产生) → 燃烧生成水的元素 → 氢",
     "example": "Hydrogen is the lightest element.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "the lightest chemical element, a gas with the symbol H",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "hydraulic",
@@ -4355,7 +4517,9 @@
     "def_zh": "液压的；水力的",
     "breakdown": "hydr(水) + aul(管道) + -ic → 靠液体驱动的 → 液压的",
     "example": "The crane uses a hydraulic lifting system.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "operated by liquid pressure or related to the movement of liquids",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "hydroelectric",
@@ -4366,7 +4530,9 @@
     "def_zh": "水力发电的",
     "breakdown": "hydro(水) + electric(电) → 用水发电的 → 水力发电的",
     "example": "The dam provides hydroelectric power to the region.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "producing electricity using moving water",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "carbohydrate",
@@ -4377,7 +4543,9 @@
     "def_zh": "碳水化合物",
     "breakdown": "carbo(碳) + hydrate(水合物) → 碳与水的化合物 → 碳水",
     "example": "Rice and bread are rich in carbohydrates.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a substance such as sugar or starch that provides energy in food",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "thermometer",
@@ -4388,7 +4556,9 @@
     "def_zh": "温度计",
     "breakdown": "thermo(热) + meter(测量) → 测热的仪器 → 温度计",
     "example": "The thermometer reads thirty degrees.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "an instrument for measuring temperature",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "thermal",
@@ -4399,7 +4569,9 @@
     "def_zh": "热的；保暖的",
     "breakdown": "therm(热) + -al → 与热有关的 → 热的",
     "example": "Thermal underwear keeps you warm in winter.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "related to heat; designed to keep the body warm",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "thermostat",
@@ -4410,7 +4582,9 @@
     "def_zh": "恒温器",
     "breakdown": "thermo(热) + stat(稳定) → 让温度稳住的装置 → 恒温器",
     "example": "Set the thermostat to twenty degrees.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a device that automatically controls temperature",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "geothermal",
@@ -4421,7 +4595,9 @@
     "def_zh": "地热的",
     "breakdown": "geo(地) + thermal(热的) → 来自地下的热 → 地热的",
     "example": "Iceland relies heavily on geothermal energy.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "related to heat from inside Earth",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "hypothermia",
@@ -4432,7 +4608,9 @@
     "def_zh": "体温过低；失温",
     "breakdown": "hypo-(过低) + therm(热) + -ia → 热量过低 → 失温",
     "example": "The climbers were treated for hypothermia.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a condition in which body temperature falls dangerously low",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "thermos",
@@ -4443,7 +4621,9 @@
     "def_zh": "保温瓶",
     "breakdown": "therm(热) + -os → 保住热量的瓶子 → 保温瓶",
     "example": "She poured hot tea from the thermos.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "an insulated container that keeps drinks hot or cold",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "astronomy",
@@ -4454,7 +4634,9 @@
     "def_zh": "天文学",
     "breakdown": "astro(星) + -nomy(规律之学) → 研究星星的学问 → 天文学",
     "example": "Astronomy is one of the oldest sciences.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "the scientific study of stars, planets, and other objects in space",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "astronaut",
@@ -4465,7 +4647,9 @@
     "def_zh": "宇航员",
     "breakdown": "astro(星) + naut(水手) → 星际水手 → 宇航员",
     "example": "The astronaut spent six months on the space station.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a person trained to travel or work in space",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "asteroid",
@@ -4476,7 +4660,9 @@
     "def_zh": "小行星",
     "breakdown": "aster(星) + -oid(像…的) → 像星星的天体 → 小行星",
     "example": "An asteroid passed close to Earth last week.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a small rocky object that orbits the Sun",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "astrology",
@@ -4487,7 +4673,9 @@
     "def_zh": "占星术",
     "breakdown": "astro(星) + -logy(说) → 用星星算命 → 占星术",
     "example": "Astrology claims the stars influence our lives.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "the belief that positions of celestial objects can reveal human traits or events",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "disaster",
@@ -4498,7 +4686,9 @@
     "def_zh": "灾难",
     "breakdown": "dis-(坏) + aster(星) → 星位不正 → 灾难",
     "example": "The earthquake was the worst disaster in decades.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "an event that causes serious harm, damage, or loss",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "astronomical",
@@ -4509,7 +4699,9 @@
     "def_zh": "天文的；（数字）巨大的",
     "breakdown": "astronomy(天文学) + -ical → 天文学的 → 天文数字般巨大的",
     "example": "The cost of the project was astronomical.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "related to astronomy; extremely large in amount or cost",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "democracy",
@@ -4520,7 +4712,9 @@
     "def_zh": "民主；民主制",
     "breakdown": "demo(人民) + -cracy(统治) → 人民做主 → 民主",
     "example": "Democracy depends on free elections.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a system of government in which people choose their representatives or make decisions by voting",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "demographic",
@@ -4531,7 +4725,9 @@
     "def_zh": "人口统计的；人群",
     "breakdown": "demo(人民) + graph(记录) + -ic → 记录人口的 → 人口统计的",
     "example": "The app is popular among the younger demographic.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "related to population characteristics; a particular group within a population",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "epidemic",
@@ -4542,7 +4738,9 @@
     "def_zh": "流行病",
     "breakdown": "epi-(在…之中) + dem(人民) + -ic → 在人群中传播的病 → 流行病",
     "example": "The flu epidemic spread across the country.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a disease outbreak affecting many people in a community at the same time",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "pandemic",
@@ -4553,7 +4751,9 @@
     "def_zh": "大流行病",
     "breakdown": "pan-(全部) + dem(人民) + -ic → 波及所有人的病 → 大流行",
     "example": "The pandemic changed how people work.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a disease outbreak spreading across many countries or continents",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "endemic",
@@ -4564,7 +4764,9 @@
     "def_zh": "地方性的；特有的",
     "breakdown": "en-(在内) + dem(人民) + -ic → 只存在于某地人群的 → 地方性的",
     "example": "Malaria is endemic in parts of Africa.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "regularly present in, or restricted to, a particular place or population",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "demagogue",
@@ -4575,7 +4777,9 @@
     "def_zh": "煽动者；蛊惑民心的政客",
     "breakdown": "dem(人民) + agogue(引导者) → 带偏人民的人 → 煽动者",
     "example": "The demagogue won votes by stirring up fear.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a political leader who gains support by exploiting fears and prejudices",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "migrate",
@@ -4586,7 +4790,9 @@
     "def_zh": "迁移；迁徙",
     "breakdown": "migr(迁移) + -ate → 迁移",
     "example": "These birds migrate south every winter.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to move from one region or country to another, sometimes seasonally",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "migration",
@@ -4597,7 +4803,9 @@
     "def_zh": "迁徙；移民潮",
     "breakdown": "migr(迁移) + -ation → 迁徙",
     "example": "Scientists track the migration of whales.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "the movement of people or animals from one place to another",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "immigrant",
@@ -4608,7 +4816,9 @@
     "def_zh": "（外来）移民",
     "breakdown": "im-(进入) + migr(迁移) + -ant(人) → 迁进来的人 → 移民",
     "example": "Her parents were immigrants from Vietnam.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a person who comes to live in a country from another country",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "emigrate",
@@ -4619,7 +4829,9 @@
     "def_zh": "移居国外",
     "breakdown": "e-(向外) + migr(迁移) + -ate → 迁出去 → 移居国外",
     "example": "They emigrated to Canada in the 1990s.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to leave one country in order to live in another",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "immigration",
@@ -4630,7 +4842,9 @@
     "def_zh": "移民入境；移民事务",
     "breakdown": "im-(进入) + migration(迁移) → 移入 → 移民入境",
     "example": "Immigration policy is a hot political topic.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "the process of coming to live in a country from another country",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "migratory",
@@ -4641,7 +4855,9 @@
     "def_zh": "迁徙的",
     "breakdown": "migr(迁移) + -atory → 有迁徙习性的 → 迁徙的",
     "example": "Migratory birds cross the ocean twice a year.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "moving regularly or seasonally from one place to another",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "include",
@@ -4652,7 +4868,9 @@
     "def_zh": "包括",
     "breakdown": "in-(向内) + clud(关) → 关在里面 → 包括",
     "example": "The price includes breakfast.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to contain someone or something as part of a group or whole",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "exclude",
@@ -4663,7 +4881,9 @@
     "def_zh": "排除；不包括",
     "breakdown": "ex-(向外) + clud(关) → 关在外面 → 排除",
     "example": "Don't exclude anyone from the discussion.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to leave someone or something out or prevent them from joining",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "conclude",
@@ -4674,7 +4894,9 @@
     "def_zh": "得出结论；结束",
     "breakdown": "con-(完全) + clud(关) → 把话题关上 → 下结论",
     "example": "The study concluded that exercise improves memory.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to reach a judgment after considering evidence; to bring something to an end",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "seclude",
@@ -4685,7 +4907,9 @@
     "def_zh": "使隔绝；使隐居",
     "breakdown": "se-(分开) + clud(关) → 关到一边 → 隔绝",
     "example": "The writer secluded himself in a mountain cabin.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to keep someone apart from other people",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "exclusive",
@@ -4696,7 +4920,9 @@
     "def_zh": "独家的；排他的",
     "breakdown": "ex-(向外) + clus(关) + -ive → 把别人关在外面的 → 独家的",
     "example": "The magazine published an exclusive interview.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "available only to a particular group; preventing others from taking part",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "recluse",
@@ -4707,7 +4933,9 @@
     "def_zh": "隐士",
     "breakdown": "re-(回) + clus(关) → 把自己关起来的人 → 隐士",
     "example": "After retiring, he became a virtual recluse.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a person who avoids other people and lives alone",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "correct",
@@ -4718,7 +4946,9 @@
     "def_zh": "正确的；纠正",
     "breakdown": "cor-(完全) + rect(正) → 完全摆正 → 纠正",
     "example": "Please correct any spelling mistakes.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "right or accurate; to remove an error or put something right",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "direct",
@@ -4729,7 +4959,9 @@
     "def_zh": "直接的；指挥",
     "breakdown": "di-(彻底) + rect(直) → 走直线 → 直接的",
     "example": "Is there a direct flight to London?",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "going straight without an intermediate step; to guide or control",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "erect",
@@ -4740,7 +4972,9 @@
     "def_zh": "竖立；直立的",
     "breakdown": "e-(向上) + rect(直) → 立直 → 竖立",
     "example": "They erected a statue in the square.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to build or put something upright; standing straight",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "rectify",
@@ -4751,7 +4985,9 @@
     "def_zh": "纠正；矫正",
     "breakdown": "rect(正) + -ify(使) → 使变正 → 纠正",
     "example": "The bank moved quickly to rectify the error.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to correct a mistake or put a problem right",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "rectangle",
@@ -4762,7 +4998,9 @@
     "def_zh": "长方形",
     "breakdown": "rect(直) + angle(角) → 四个直角的图形 → 长方形",
     "example": "The garden is a simple rectangle.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a four-sided shape with four right angles",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "rectitude",
@@ -4773,7 +5011,9 @@
     "def_zh": "正直",
     "breakdown": "rect(正) + -itude(性质) → 品行端正 → 正直",
     "example": "She is admired for her moral rectitude.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "moral honesty and upright behaviour",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "location",
@@ -4784,7 +5024,9 @@
     "def_zh": "位置；地点",
     "breakdown": "loc(地方) + -ation → 所在之处 → 位置",
     "example": "The hotel is in a perfect location.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a particular place or position",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "local",
@@ -4795,7 +5037,9 @@
     "def_zh": "当地的",
     "breakdown": "loc(地方) + -al → 本地的 → 当地的",
     "example": "We tried the local food market.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "related to a particular nearby place or area",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "allocate",
@@ -4806,7 +5050,9 @@
     "def_zh": "分配；拨给",
     "breakdown": "al-(向) + loc(地方) + -ate → 放到各自的位置 → 分配",
     "example": "The government allocated funds for education.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to give a share of money, time, or resources for a purpose",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "relocate",
@@ -4817,7 +5063,9 @@
     "def_zh": "搬迁；重新安置",
     "breakdown": "re-(重新) + loc(地方) + -ate → 换个地方 → 搬迁",
     "example": "The company relocated its headquarters to Austin.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to move a person, organization, or activity to a new place",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "locomotive",
@@ -4828,7 +5076,9 @@
     "def_zh": "火车头；机车",
     "breakdown": "loco(地方) + mot(动) + -ive → 从一地动到另一地的机器 → 火车头",
     "example": "The old steam locomotive still runs on weekends.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a railway vehicle that pulls a train",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "dislocate",
@@ -4839,7 +5089,9 @@
     "def_zh": "使脱臼；扰乱",
     "breakdown": "dis-(离开) + loc(位置) + -ate → 离开原位 → 脱臼",
     "example": "He dislocated his shoulder playing rugby.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to move a bone out of its joint; to seriously disrupt something",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "liberty",
@@ -4850,7 +5102,9 @@
     "def_zh": "自由",
     "breakdown": "liber(自由) + -ty → 自由",
     "example": "They fought for liberty and justice.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "freedom to act, think, or live without unnecessary restriction",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "liberate",
@@ -4861,7 +5115,9 @@
     "def_zh": "解放；释放",
     "breakdown": "liber(自由) + -ate → 使自由 → 解放",
     "example": "The troops liberated the occupied city.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to set someone free from control or confinement",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "liberal",
@@ -4872,7 +5128,9 @@
     "def_zh": "开明的；慷慨的",
     "breakdown": "liber(自由) + -al → 崇尚自由的 → 开明的",
     "example": "Her parents held liberal views on education.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "open to different views and social change; generous in giving",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "liberation",
@@ -4883,7 +5141,9 @@
     "def_zh": "解放",
     "breakdown": "liber(自由) + -ation → 解放",
     "example": "The war ended with the liberation of the capital.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "the act or process of freeing someone from control",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "liberalize",
@@ -4894,7 +5154,9 @@
     "def_zh": "放宽（限制）；使自由化",
     "breakdown": "liberal(自由的) + -ize(使) → 使自由化 → 放宽",
     "example": "The country liberalized its visa rules.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to reduce restrictions or make rules less strict",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "liberator",
@@ -4905,7 +5167,9 @@
     "def_zh": "解放者",
     "breakdown": "liber(自由) + -ator(人) → 带来自由的人 → 解放者",
     "example": "The city greeted the soldiers as liberators.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a person who frees others from control or oppression",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "effort",
@@ -4916,7 +5180,9 @@
     "def_zh": "努力",
     "breakdown": "ef-(向外) + fort(力) → 使出力气 → 努力",
     "example": "Learning a language takes sustained effort.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "physical or mental work used to achieve something",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "comfort",
@@ -4927,7 +5193,9 @@
     "def_zh": "舒适；安慰",
     "breakdown": "com-(完全) + fort(力) → 给足力量 → 安慰",
     "example": "She found comfort in music after the loss.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a state of ease or relief; to make someone feel less worried or sad",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "fortify",
@@ -4938,7 +5206,9 @@
     "def_zh": "加固；增强",
     "breakdown": "fort(强) + -ify(使) → 使变强 → 加固",
     "example": "They fortified the walls before the siege.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to strengthen a structure, person, or position",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "fortress",
@@ -4949,7 +5219,9 @@
     "def_zh": "堡垒；要塞",
     "breakdown": "fort(强) + -ress → 坚固的建筑 → 堡垒",
     "example": "The medieval fortress overlooks the valley.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a strongly protected building or group of buildings",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "fortitude",
@@ -4960,7 +5232,9 @@
     "def_zh": "坚韧；刚毅",
     "breakdown": "fort(强) + -itude(性质) → 内心强大 → 坚韧",
     "example": "She endured the illness with great fortitude.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "courage and determination when facing difficulty or pain",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "forte",
@@ -4971,7 +5245,9 @@
     "def_zh": "强项；特长",
     "breakdown": "fort(强) + -e → 强的方面 → 特长",
     "example": "Public speaking is not my forte.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "a skill or activity that someone is particularly good at",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "dominate",
@@ -4982,7 +5258,9 @@
     "def_zh": "支配；主导",
     "breakdown": "domin(主人) + -ate → 当主人 → 支配",
     "example": "One company dominates the search market.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "to have the greatest power, influence, or control",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "dominant",
@@ -4993,7 +5271,9 @@
     "def_zh": "占主导的",
     "breakdown": "domin(主人) + -ant → 处于主人地位的 → 主导的",
     "example": "English is the dominant language of the internet.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "more powerful, influential, or common than others",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "domain",
@@ -5004,7 +5284,9 @@
     "def_zh": "领域；域名",
     "breakdown": "dom(主人) + -ain → 主人管辖的范围 → 领域",
     "example": "She is an expert in the domain of biology.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "an area of activity or knowledge; an internet address name",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "predominant",
@@ -5015,7 +5297,9 @@
     "def_zh": "占绝对优势的",
     "breakdown": "pre-(在前) + dominant(主导的) → 排最前的主导 → 占绝对优势的",
     "example": "Blue is the predominant colour in his paintings.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "the most common or influential in a particular group or situation",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "dominion",
@@ -5026,7 +5310,9 @@
     "def_zh": "统治权；领地",
     "breakdown": "domin(主人) + -ion → 主人的权力 → 统治权",
     "example": "The empire held dominion over vast territories.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "power or control over a place; the territory under that control",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   },
   {
     "id": "domineering",
@@ -5037,6 +5323,8 @@
     "def_zh": "专横的；盛气凌人的",
     "breakdown": "domin(主人) + -eering → 处处想当主人的 → 专横的",
     "example": "Nobody liked his domineering manner.",
-    "ielts_band": "core"
+    "ielts_band": "core",
+    "def_en": "trying to control other people in an overbearing way",
+    "def_en_source": "editorial paraphrase, 2026-10-01"
   }
 ]

@@ -410,3 +410,115 @@ html, body, #root {
   .progress-transfer-controls > button, .progress-transfer > button { padding: 9px 12px; font-size: 12px; }
   .progress-transfer-panel { position: fixed; bottom: calc(100% + 14px); right: 0; }
 }
+
+/* A complete learning shell: readable cards, clear feedback, and small-screen navigation. */
+button, input { font: inherit; }
+button:focus-visible, input:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid #8fdcff;
+  outline-offset: 3px;
+}
+button:disabled { cursor: not-allowed; opacity: .45; }
+.app { height: 100dvh; }
+.app-loading, .study-view {
+  background: radial-gradient(ellipse at 65% 18%, rgba(74, 87, 141, .17), transparent 55%), #080b17;
+}
+.load-panel, .scene-fallback { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: min(440px, calc(100% - 40px)); text-align: center; z-index: 4; }
+.load-panel h1, .scene-fallback h2 { font-size: 24px; margin: 16px 0; }
+.load-panel p, .scene-fallback p { color: var(--text-dim); line-height: 1.7; }
+.load-panel button, .scene-fallback button { border: 1px solid var(--panel-border); color: var(--text); border-radius: 12px; padding: 12px 24px; background: rgba(122, 162, 255, .2); cursor: pointer; }
+.eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 2px; color: #9faeda; }
+.scene-loading { position: absolute; top: 70px; left: 260px; z-index: 3; padding: 10px 14px; border-radius: 10px; background: rgba(8, 11, 23, .8); font-size: 12px; color: #b6c4ec; }
+.welcome { position: absolute; top: 44%; left: 50%; transform: translate(-50%, -50%); width: min(540px, calc(100% - 48px)); text-align: center; z-index: 3; pointer-events: none; }
+.welcome h1 { font-size: clamp(24px, 3vw, 34px); font-weight: 500; margin: 18px 0; letter-spacing: 1px; }
+.welcome p { color: #9aabc8; font-size: 14px; line-height: 1.9; }
+.nav-visible .welcome { left: calc(50% + 115px); width: min(540px, calc(100% - 278px)); }
+.space-welcome { top: 66px; left: 265px; transform: none; width: 330px; text-align: left; }
+.nav-visible .space-welcome { left: 265px; width: min(330px, calc(100% - 310px)); }
+.space-welcome h1 { margin: 8px 0; font-size: 18px; }
+.space-welcome p { font-size: 12px; line-height: 1.65; }
+.space-welcome .eyebrow { font-size: 9px; }
+.controls { bottom: max(20px, env(safe-area-inset-bottom)); flex-wrap: wrap; width: max-content; max-width: calc(100vw - 48px); padding: 8px; gap: 7px; border: 1px solid rgba(143, 181, 231, .16); border-radius: 20px; background: rgba(7, 12, 26, .92); backdrop-filter: blur(16px); z-index: 8; }
+.nav-visible .controls { left: calc(50% + 115px); max-width: calc(100vw - 270px); }
+.controls button { padding: 9px 14px; font-size: 12px; border-radius: 12px; box-shadow: none; border-color: rgba(137, 178, 223, .23); backdrop-filter: none; }
+.controls .primary-control { background: #adcbff; color: #101c32; border-color: #adcbff; font-weight: 650; }
+.controls .primary-control:hover { background: #c5d9ff; }
+.controls .control-active { color: #adcbff; border-color: #adcbff; }
+.control-message { position: absolute; bottom: calc(100% + 10px); width: min(430px, calc(100vw - 36px)); padding: 12px 18px; margin: 0; border-radius: 12px; background: #19233d; color: #c4d3ef; font-size: 13px; line-height: 1.6; text-align: center; }
+.progress-transfer-panel { z-index: 10; max-height: min(500px, calc(100dvh - 160px)); overflow: auto; }
+.wordcard { max-height: calc(100dvh - 154px); top: calc(50% - 22px); width: 370px; }
+.wordcard .close { display: grid; place-items: center; border: 0; background: transparent; width: 30px; height: 30px; font-size: 24px; }
+.wordcard .example { display: block; border: 0; background: transparent; padding: 0; text-align: left; width: 100%; line-height: 1.7; }
+.wordcard h2 { padding-right: 22px; overflow-wrap: anywhere; }
+.wordcard .rel-word { border: 0; background: none; padding: 0; text-align: left; width: fit-content; }
+.wordcard .def-en { line-height: 1.6; }
+.wordcard .study-meta, .wordcard .next-review { color: #9daeca; font-size: 12px; line-height: 1.6; margin: 12px 0; }
+.wordcard .study-prompt { color: #9daeca; font-size: 14px; line-height: 1.8; padding: 22px 0; }
+.wordcard .reveal-answer { width: 100%; padding: 15px; border: 1px solid #adcbff; border-radius: 12px; background: #adcbff; color: #14223a; cursor: pointer; font-weight: 600; }
+.wordcard .card-error, .progress-error { color: #ffb2c0; background: rgba(247, 118, 142, .1); border-radius: 10px; padding: 10px 12px; font-size: 12px; line-height: 1.6; }
+.wordcard .card-status, .wordcard .completion { color: #bdd9c6; font-size: 12px; line-height: 1.6; margin: 10px 0; }
+.wordcard .next-word { width: 100%; margin-top: 10px; padding: 10px; color: #b8c9ea; background: rgba(122, 162, 255, .1); border: 1px solid var(--panel-border); border-radius: 9px; cursor: pointer; }
+.wordcard .shortcuts { color: #7583a1; font-size: 10px; line-height: 1.7; margin-top: 12px; }
+.study-view .wordcard { right: auto; left: 50%; transform: translate(-50%, -50%); width: min(600px, calc(100% - 48px)); padding: 32px; background: rgba(17, 23, 42, .96); animation: study-pop .18s ease; }
+.study-view.nav-visible .wordcard { left: calc(50% + 115px); width: min(600px, calc(100% - 278px)); }
+.study-view .wordcard h2 { font-size: 36px; }
+.study-view .wordcard .def { font-size: 18px; }
+@keyframes study-pop { from { opacity: 0; } to { opacity: 1; } }
+.sidebar .word-row { width: 100%; text-align: left; border: 0; background: transparent; color: inherit; }
+.sidebar .word-row:hover { background: #f1ede2; }
+.sidebar .word-row.active { background: #ece6d7; }
+.sidebar .root-head { width: 100%; border: 0; background: transparent; text-align: left; cursor: pointer; color: inherit; }
+.sidebar .root-head:hover { background: #eee9dc; border-radius: 8px; }
+.sidebar .empty-list { padding: 22px 12px; color: #847c6c; font-size: 13px; line-height: 1.8; text-align: center; }
+.sidebar .result-count, .sidebar .search-count { font-size: 11px; color: #8a8472; }
+@media (max-width: 1050px) {
+  .controls button { padding: 8px 10px; font-size: 11px; }
+  .wordcard { width: 335px; right: 18px; }
+  .hud-stats { font-size: 9px; gap: 5px; right: 24px; }
+}
+@media (max-width: 700px) {
+  .sidebar { width: min(300px, calc(100vw - 48px)); z-index: 12; box-shadow: 20px 0 80px #000a; }
+  .sidebar.collapsed { pointer-events: none; visibility: hidden; }
+  .hud-stats { top: 30px; right: 18px; max-width: calc(100% - 82px); font-size: 8px; letter-spacing: .2px; flex-wrap: wrap; justify-content: flex-end; }
+  .hud-stats .sep { display: none; }
+  .hud-corner { display: none; }
+  .nav-open { top: 18px; left: 16px; width: 38px; height: 38px; }
+  .welcome, .nav-visible .welcome { left: 50%; top: 42%; width: calc(100% - 48px); }
+  .space-welcome, .nav-visible .space-welcome { top: 90px; left: 24px; transform: none; width: calc(100% - 48px); }
+  .controls, .nav-visible .controls { left: 50%; max-width: calc(100% - 24px); bottom: max(12px, env(safe-area-inset-bottom)); padding: 7px; border-radius: 15px; }
+  .controls button { padding: 10px 12px; font-size: 11px; min-height: 38px; }
+  .controls .primary-control { flex: 1; }
+  .wordcard, .study-view .wordcard, .study-view.nav-visible .wordcard {
+    left: 16px; right: 16px; top: 82px; transform: none; width: auto; padding: 23px;
+    max-height: calc(100dvh - 220px); animation: study-pop .18s ease;
+  }
+  .study-view .wordcard h2 { font-size: 30px; }
+  .wordcard h2 { font-size: 27px; }
+  .wordcard .actions button { min-height: 42px; }
+  .progress-transfer-panel { position: fixed; bottom: calc(100% + 10px); right: 0; width: min(340px, calc(100vw - 28px)); max-height: calc(100dvh - 210px); }
+  .scene-loading { left: 24px; top: 92px; right: 24px; }
+}
+@media (max-height: 570px) {
+  .wordcard, .study-view .wordcard { top: 58px; transform: none; max-height: calc(100dvh - 156px); }
+  .study-view .wordcard { transform: translateX(-50%); }
+  .controls { bottom: 10px; }
+  .welcome { top: 38%; }
+}
+@media (max-width: 700px) and (max-height: 570px) {
+  .wordcard, .study-view .wordcard, .study-view.nav-visible .wordcard {
+    top: 66px; transform: none; max-height: calc(100dvh - 200px); padding: 18px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+.study-card-label { color: #8ca5ce; font-size: 11px; letter-spacing: 2px; margin-bottom: 15px; }
+.wordcard .show-answer { width: 100%; padding: 14px; border: 1px solid #adcbff; border-radius: 12px; background: #adcbff; color: #14223a; cursor: pointer; font-weight: 600; }
+.wordcard .wordcard-message { color: #b5d3c8; font-size: 12px; line-height: 1.7; }
+.wordcard .wordcard-error { color: #ffb2c0; background: rgba(247, 118, 142, .1); border-radius: 10px; padding: 10px 12px; font-size: 12px; line-height: 1.6; }
+.wordcard-footer { margin-top: 10px; }
+.wordcard-footer > span { display: block; margin-top: 9px; font-size: 10px; color: #8190ad; line-height: 1.65; }
+.search-clear { position: absolute; right: 6px; top: 5px; height: 27px; width: 27px; border: 0; border-radius: 7px; background: transparent; font-size: 20px; color: #8a8472; cursor: pointer; }
+.search-clear:hover { background: #f1ede2; }
+.search { padding-right: 34px; }
+.search-summary { margin: 0; font-size: 11px; color: #8a8472; }
+.search-empty { padding: 15px 12px; color: #847c6c; font-size: 13px; line-height: 1.8; text-align: center; }

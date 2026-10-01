@@ -1,49 +1,70 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import type { CSSProperties } from 'react'
 import type { Root, Word } from '../types'
 import { masteryOf, useStore } from '../store/useStore'
+import { chooseStudyWord } from '../lib/study'
 
 interface Props {
   roots: Root[]
   words: Word[]
   open: boolean
   onClose: () => void
+  studyMode?: boolean
 }
 
-export default function Sidebar({ roots, words, open, onClose }: Props) {
-  const query = useStore((s) => s.query)
-  const setQuery = useStore((s) => s.setQuery)
-  const selectWord = useStore((s) => s.selectWord)
-  const selectedWordId = useStore((s) => s.selectedWordId)
-  const progress = useStore((s) => s.progress)
-
-  const mastered = useMemo(
-    () => words.filter((w) => masteryOf(progress, w.id) === 'mastered').length,
-    [words, progress],
-  )
+export default function Sidebar({ roots, words, open, onClose, studyMode = false }: Props) {
+  const query = useStore((state) => state.query)
+  const setQuery = useStore((state) => state.setQuery)
+  const selectWord = useStore((state) => state.selectWord)
+  const focusRoot = useStore((state) => state.focusRoot)
+  const selectedWordId = useStore((state) => state.selectedWordId)
+  const progress = useStore((state) => state.progress)
+  const activeRow = useRef<HTMLButtonElement>(null)
+  const sidebar = useRef<HTMLElement>(null)
+  const rootById = useMemo(() => new Map(roots.map((root) => [root.id, root])), [roots])
+  const mastered = useMemo(() => words.filter((word) => masteryOf(progress, word.id) === 'mastered').length, [words, progress])
   const pct = words.length ? Math.round((mastered / words.length) * 100) : 0
-
   const [onlyTodo, setOnlyTodo] = useState(false)
 
   const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase()
-    return words.filter((w) => {
-      if (onlyTodo && masteryOf(progress, w.id) === 'mastered') return false
-      return !q || w.word.toLowerCase().includes(q) || w.def_zh.includes(q)
+    const search = query.trim().toLocaleLowerCase()
+    return words.filter((word) => {
+      if (onlyTodo && masteryOf(progress, word.id) === 'mastered') return false
+      if (!search) return true
+      const root = rootById.get(word.rootId)
+      return [word.word, word.def_zh, word.def_en, word.breakdown, root?.root, root?.meaning_zh, root?.meaning_en]
+        .some((field) => field?.toLocaleLowerCase().includes(search))
     })
-  }, [words, query, onlyTodo, progress])
+  }, [words, query, onlyTodo, progress, rootById])
 
   const byRoot = useMemo(() => {
     const map = new Map<string, Word[]>()
-    for (const w of filtered) {
-      if (!map.has(w.rootId)) map.set(w.rootId, [])
-      map.get(w.rootId)!.push(w)
+    for (const word of filtered) {
+      const group = map.get(word.rootId) ?? []
+      group.push(word)
+      map.set(word.rootId, group)
     }
     return map
   }, [filtered])
 
+  useEffect(() => {
+    if (open) sidebar.current?.removeAttribute('inert')
+    else sidebar.current?.setAttribute('inert', '')
+    if (open) activeRow.current?.scrollIntoView({ block: 'nearest' })
+  }, [selectedWordId, open])
+
+  function closeOnSmallScreen() {
+    if (window.matchMedia('(max-width: 700px)').matches) onClose()
+  }
+
+  function openWord(id: string) {
+    selectWord(id)
+    closeOnSmallScreen()
+  }
+
   return (
-    <aside className={`sidebar${open ? '' : ' collapsed'}`}>
-      <button className="nav-collapse" onClick={onClose} title="收起侧栏" aria-label="收起侧栏">
+    <aside ref={sidebar} className={`sidebar${open ? '' : ' collapsed'}`} aria-label="单词目录" aria-hidden={!open}>
+      <button type="button" className="nav-collapse" onClick={onClose} title="收起侧栏" aria-label="收起侧栏">
         <svg viewBox="0 0 24 24" aria-hidden><polyline points="15 6 9 12 15 18" /></svg>
       </button>
       <header className="side-head">
@@ -58,51 +79,70 @@ export default function Sidebar({ roots, words, open, onClose }: Props) {
             <span className="prog-label">掌握</span>
             <span className="prog-pct">{pct}%</span>
           </div>
-          <div className="prog-bar"><span style={{ width: `${pct}%` }} /></div>
+          <div className="prog-bar" role="progressbar" aria-label="已掌握单词" aria-valuemin={0} aria-valuemax={words.length} aria-valuenow={mastered}>
+            <span style={{ width: `${pct}%` }} />
+          </div>
         </div>
       </header>
 
       <div className="side-tools">
         <div className="search-wrap">
-          <svg viewBox="0 0 24 24" className="search-ic" aria-hidden>
-            <circle cx="11" cy="11" r="7" /><line x1="16.5" y1="16.5" x2="21" y2="21" />
-          </svg>
+          <svg viewBox="0 0 24 24" className="search-ic" aria-hidden><circle cx="11" cy="11" r="7" /><line x1="16.5" y1="16.5" x2="21" y2="21" /></svg>
           <input
             className="search"
-            placeholder="搜索单词或释义"
+            aria-label="搜索单词、释义或词根"
+            placeholder="搜索单词、释义或词根"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(event) => setQuery(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === 'Escape') setQuery('')
+              if (event.key === 'Enter' && filtered[0]) openWord(filtered[0].id)
+            }}
           />
+          {query && <button type="button" className="search-clear" aria-label="清空搜索" onClick={() => setQuery('')}>×</button>}
         </div>
-        <button className={`todo-toggle${onlyTodo ? ' on' : ''}`} onClick={() => setOnlyTodo((v) => !v)}>
-          只看没背
+        <button type="button" className={`todo-toggle${onlyTodo ? ' on' : ''}`} aria-pressed={onlyTodo} onClick={() => setOnlyTodo((value) => !value)}>
+          只看未掌握
         </button>
+        {(query.trim() || onlyTodo) && <p className="search-summary" role="status">找到 {filtered.length} 个单词</p>}
       </div>
 
       <div className="list">
-        {roots.map((r) => {
-          const ws = byRoot.get(r.id)
-          if (!ws || ws.length === 0) return null
+        {filtered.length === 0 && <p className="search-empty">{onlyTodo && !query.trim() ? '这些词都掌握了，关闭筛选可以再复习。' : '没有找到，试试英文单词、中文释义或词根。'}</p>}
+        {roots.map((root) => {
+          const group = byRoot.get(root.id)
+          if (!group?.length) return null
           return (
-            <section key={r.id} className="root-group">
-              <div className="root-head">
-                <span className="root-dot" style={{ background: r.color }} />
-                <span className="root-name">{r.root}</span>
-                <span className="root-mean">{r.meaning_zh}</span>
-              </div>
-              {ws.map((w) => {
-                const m = masteryOf(progress, w.id)
-                const active = w.id === selectedWordId
+            <section key={root.id} className="root-group">
+              <button type="button" className="root-head" onClick={() => {
+                if (studyMode) {
+                  const rootWords = words.filter((word) => word.rootId === root.id)
+                  const next = chooseStudyWord(rootWords, useStore.getState().progress, { random: () => 0 }) ?? rootWords[0]
+                  if (next) selectWord(next.id)
+                } else focusRoot(root.id)
+                closeOnSmallScreen()
+              }} title={studyMode ? `学习词根 ${root.root} 的单词` : `查看词根 ${root.root} 的星系`}>
+                <span className="root-dot" style={{ background: root.color }} />
+                <span className="root-name">{root.root}</span>
+                <span className="root-mean">{root.meaning_zh}</span>
+              </button>
+              {group.map((word) => {
+                const mastery = masteryOf(progress, word.id)
+                const active = word.id === selectedWordId
                 return (
-                  <div
-                    key={w.id}
+                  <button
+                    type="button"
+                    key={word.id}
+                    ref={active ? activeRow : undefined}
                     className={`word-row${active ? ' active' : ''}`}
-                    onClick={() => selectWord(w.id)}
+                    aria-current={active ? 'true' : undefined}
+                    title={`${word.word} · ${word.def_zh}`}
+                    onClick={() => openWord(word.id)}
                   >
-                    <span className={`mk mk-${m}`} style={{ '--c': r.color } as any} />
-                    <span className="w">{w.word}</span>
-                    <span className="zh">{w.def_zh}</span>
-                  </div>
+                    <span className={`mk mk-${mastery}`} style={{ '--c': root.color } as CSSProperties} />
+                    <span className="w">{word.word}</span>
+                    <span className="zh">{word.def_zh}</span>
+                  </button>
                 )
               })}
             </section>

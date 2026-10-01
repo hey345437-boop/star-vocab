@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import SpriteText from 'three-spritetext'
-import type { GraphNode } from '../types'
+import type { GraphNode, Mastery } from '../types'
 import { hexA } from './render'
 
 // 锁定（未掌握 + 聚焦态）时星星褪成的灰
@@ -91,6 +91,8 @@ function seed(id: string): number {
 function sprite(tex: THREE.Texture, size: number, opacity: number): THREE.Sprite {
   const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, blending: THREE.AdditiveBlending, depthWrite: false, transparent: true, opacity }))
   s.scale.set(size, size, 1)
+  // Transparent glow rectangles must never steal clicks from nearby stars.
+  s.raycast = () => {}
   return s
 }
 
@@ -122,6 +124,18 @@ export function makeNodeObject(node: GraphNode): THREE.Object3D {
   const coreR = isRoot ? 2.6 : 0.9 + boost * 0.11
   const haloIn = isRoot ? 22 : 6 + boost * 0.8
   const haloOut = isRoot ? 52 : 14 + boost * 1.4
+  const hitSphere = new THREE.Sphere()
+  const hitPoint = new THREE.Vector3()
+  const hitRadius = isRoot ? coreR * 3.2 : coreR + 1.5
+  group.raycast = (raycaster, intersections) => {
+    group.getWorldPosition(hitSphere.center)
+    hitSphere.radius = hitRadius * group.matrixWorld.getMaxScaleOnAxis()
+    if (!raycaster.ray.intersectSphere(hitSphere, hitPoint)) return
+    const distance = raycaster.ray.origin.distanceTo(hitPoint)
+    if (distance >= raycaster.near && distance <= raycaster.far) {
+      intersections.push({ distance, point: hitPoint.clone(), object: group })
+    }
+  }
 
   // 外层弥散光晕 + 内层柔光（带呼吸脉动）
   const addHalo = (size: number, base: number, amp: number) => {
@@ -159,19 +173,21 @@ export function makeNodeObject(node: GraphNode): THREE.Object3D {
   // 标签（词根常显；单词默认隐藏，悬停/选中才显 → 画面更简洁）
   const label = new SpriteText(node.label)
   label.color = isRoot ? `#${onColor.getHexString()}` : hexA('#e8ecff', 0.9)
-  label.textHeight = isRoot ? 3.6 : 2.4
+  label.textHeight = isRoot ? 7.2 : 4.2
   label.fontWeight = isRoot ? '700' : '500'
-  label.position.set(0, -(coreR + (isRoot ? 4 : 2.6)), 0)
+  label.position.set(0, -(isRoot ? coreR * 3.2 + 8 : coreR + 4), 0)
   label.material.depthWrite = false
+  label.raycast = () => {}
   group.add(label)
 
   let subMat: THREE.SpriteMaterial | undefined
   if (isRoot && node.sub) {
     const sub = new SpriteText(node.sub)
     sub.color = '#8b93c2'
-    sub.textHeight = 2.2
-    sub.position.set(0, -(coreR + 4 + 3.6), 0)
+    sub.textHeight = 3.6
+    sub.position.set(0, -(coreR * 3.2 + 8 + 7.2), 0)
     sub.material.depthWrite = false
+    sub.raycast = () => {}
     subMat = sub.material as THREE.SpriteMaterial
     group.add(sub)
   }
@@ -182,15 +198,16 @@ export function makeNodeObject(node: GraphNode): THREE.Object3D {
   return group
 }
 
-interface State { explore: boolean; mastered: boolean; selected: boolean; neighbor?: boolean }
+interface State { explore: boolean; mastered: boolean; selected: boolean; neighbor?: boolean; hovered?: boolean; mastery?: Mastery }
 
 // 动态设置颜色 / 亮度（探险点亮机制；neighbor = 选中词的关系链邻居，跟着点亮不锁灰）
 export function setNodeState(group: THREE.Object3D, st: State) {
   const ud = group.userData.node as NodeUserData | undefined
   if (!ud) return
   const locked = st.explore && !st.mastered && !st.selected && !st.neighbor
-  const lit = st.selected ? 1 : st.neighbor ? 0.9 : st.mastered ? 1 : st.explore ? 0.26 : 0.82
+  const lit = st.selected ? 1 : st.neighbor ? 0.9 : st.mastered || ud.isRoot ? 1 : st.explore ? 0.26 : st.mastery === 'fuzzy' ? 0.72 : 0.48
   const col = locked ? GREY : ud.onColor
+  ud.labelSprite.visible = ud.isRoot || !!st.hovered || st.selected || !!st.neighbor
 
   for (const p of ud.parts) {
     if (p.white) p.mat.color.copy(locked ? GREY : WHITE)
