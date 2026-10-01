@@ -42,6 +42,14 @@ export function randomFor(id: string) {
   return (hashId(id) % 10000) / 10000
 }
 
+// Use the original force layout's deterministic 3D seed rather than a new spherical shell.
+function initialPosition(index: number) {
+  const radius = 10 * Math.cbrt(0.5 + index)
+  const roll = index * Math.PI * (3 - Math.sqrt(5))
+  const yaw = index * Math.PI * 20 / (9 + Math.sqrt(221))
+  return { x: radius * Math.sin(roll) * Math.cos(yaw), y: radius * Math.cos(roll), z: radius * Math.sin(roll) * Math.sin(yaw) }
+}
+
 // The graph owns mutable force-graph records; catalog objects remain untouched.
 // Typed keys are separate from raw word IDs used by saved learning progress.
 export function buildSceneGraph(roots: Root[], words: Word[], wordLinks: WordLink[]) {
@@ -52,21 +60,12 @@ export function buildSceneGraph(roots: Root[], words: Word[], wordLinks: WordLin
   const wordNodesByRoot = new Map<string, SceneNode[]>()
   const incidentRelations = new Map<string, SceneLink[]>()
   const orbitEdgesByRoot = new Map<string, SceneLink[]>()
-  const sortedRoots = [...roots].sort((a, b) => a.id.localeCompare(b.id))
-
-  for (const [index, root] of sortedRoots.entries()) {
-    // Deterministic starting positions prevent a crowded, moving first screen.
-    const y = 1 - (2 * (index + 0.5)) / sortedRoots.length
-    const angle = index * Math.PI * (3 - Math.sqrt(5))
-    const radius = 280 + randomFor(root.id) * 70
-    const side = Math.sqrt(1 - y * y)
+  for (const root of roots) {
     const node: SceneNode = {
       id: nodeKey('root', root.id), rawId: root.id, kind: 'root',
       label: root.root, sub: root.meaning_zh, color: root.color,
       rootId: root.id, val: 8, deg: 0,
-      x: Math.cos(angle) * side * radius,
-      y: y * radius,
-      z: Math.sin(angle) * side * radius,
+      ...initialPosition(nodes.length),
     }
     nodes.push(node)
     nodeByKey.set(node.id, node)
@@ -74,21 +73,15 @@ export function buildSceneGraph(roots: Root[], words: Word[], wordLinks: WordLin
     orbitEdgesByRoot.set(root.id, [])
   }
 
-  for (const word of [...words].sort((a, b) => a.id.localeCompare(b.id))) {
+  for (const word of words) {
     const root = nodeByKey.get(nodeKey('root', word.rootId))
     if (!root) throw new Error(`单词 ${word.id} 的词根不存在`)
-    const slot = wordNodesByRoot.get(word.rootId)!.length
-    const angle = slot * Math.PI * (3 - Math.sqrt(5)) + randomFor(word.rootId) * Math.PI * 2
-    const tilt = randomFor(`${word.id}:tilt`) * Math.PI * 2
-    const radius = 22 + randomFor(`${word.id}:radius`) * 18
     const color = rootById.get(word.rootId)!.color
     const node: SceneNode = {
       id: nodeKey('word', word.id), rawId: word.id, kind: 'word',
       label: word.word, sub: word.phonetic, color, rootId: word.rootId,
       val: 2, deg: 0,
-      x: root.x + Math.cos(angle) * radius,
-      y: root.y + Math.sin(angle) * Math.cos(tilt) * radius,
-      z: root.z + Math.sin(angle) * Math.sin(tilt) * radius,
+      ...initialPosition(nodes.length),
     }
     if (nodeByKey.has(node.id)) throw new Error(`单词 ${word.id} 重复`)
     nodes.push(node)

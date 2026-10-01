@@ -111,11 +111,13 @@ interface NodeUserData {
 export function makeNodeObject(node: GraphNode): THREE.Object3D {
   const isRoot = node.kind === 'root'
   const deg: number = (node as any).deg ?? 0
-  const sd = seed(node.id)
+  // Scene keys distinguish roots from words; keep the original word's appearance.
+  const visualId = (node as GraphNode & { rawId?: string }).rawId ?? node.id
+  const sd = seed(visualId)
 
   // 同簇内色调深浅 + 轻微色相偏移
   const onColor = new THREE.Color(node.color)
-  onColor.offsetHSL((sd - 0.5) * 0.04, (seed(node.id + 'x') - 0.5) * 0.12, (sd - 0.5) * 0.18)
+  onColor.offsetHSL((sd - 0.5) * 0.04, (seed(visualId + 'x') - 0.5) * 0.12, (sd - 0.5) * 0.18)
 
   const group = new THREE.Group()
   const parts: NodeUserData['parts'] = []
@@ -170,12 +172,12 @@ export function makeNodeObject(node: GraphNode): THREE.Object3D {
   parts.push({ mat: spk.material as THREE.SpriteMaterial, base: isRoot ? 0.95 : 0.85, white: !isRoot })
   group.add(spk)
 
-  // 标签（词根常显；单词默认隐藏，悬停/选中才显 → 画面更简洁）
+  // Keep the original overview: roots and words are labeled without needing a hover.
   const label = new SpriteText(node.label)
   label.color = isRoot ? `#${onColor.getHexString()}` : hexA('#e8ecff', 0.9)
-  label.textHeight = isRoot ? 7.2 : 4.2
+  label.textHeight = isRoot ? 3.6 : 2.4
   label.fontWeight = isRoot ? '700' : '500'
-  label.position.set(0, -(isRoot ? coreR * 3.2 + 8 : coreR + 4), 0)
+  label.position.set(0, -(coreR + (isRoot ? 4 : 2.6)), 0)
   label.material.depthWrite = false
   label.raycast = () => {}
   group.add(label)
@@ -184,8 +186,8 @@ export function makeNodeObject(node: GraphNode): THREE.Object3D {
   if (isRoot && node.sub) {
     const sub = new SpriteText(node.sub)
     sub.color = '#8b93c2'
-    sub.textHeight = 3.6
-    sub.position.set(0, -(coreR * 3.2 + 8 + 7.2), 0)
+    sub.textHeight = 2.2
+    sub.position.set(0, -(coreR + 4 + 3.6), 0)
     sub.material.depthWrite = false
     sub.raycast = () => {}
     subMat = sub.material as THREE.SpriteMaterial
@@ -205,9 +207,9 @@ export function setNodeState(group: THREE.Object3D, st: State) {
   const ud = group.userData.node as NodeUserData | undefined
   if (!ud) return
   const locked = st.explore && !st.mastered && !st.selected && !st.neighbor
-  const lit = st.selected ? 1 : st.neighbor ? 0.9 : st.mastered || ud.isRoot ? 1 : st.explore ? 0.26 : st.mastery === 'fuzzy' ? 0.72 : 0.48
+  const lit = st.selected ? 1 : st.neighbor ? 0.9 : st.mastered ? 1 : st.explore ? 0.26 : st.mastery === 'fuzzy' ? 0.9 : 0.82
   const col = locked ? GREY : ud.onColor
-  ud.labelSprite.visible = ud.isRoot || !!st.hovered || st.selected || !!st.neighbor
+  ud.labelSprite.visible = true
 
   for (const p of ud.parts) {
     if (p.white) p.mat.color.copy(locked ? GREY : WHITE)

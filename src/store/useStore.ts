@@ -66,7 +66,7 @@ export const useStore = create<State>((set, get) => ({
   focusRootId: null,
   navigationNonce: 0,
   query: '',
-  bloom: false,
+  bloom: true,
 
   setMastery: (wordId, status) => {
     try {
